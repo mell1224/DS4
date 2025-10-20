@@ -34,9 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(747, 450);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Registro de Carga";
             this.ResumeLayout(false);
 
         }

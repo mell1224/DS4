@@ -16,6 +16,9 @@ namespace T02_05A_BernalA_GonzalezM
         int cargaActual = 0;
         int capacidad = 0;
         int sacos = 0;
+        int camionActual = 1;
+        int totalCamiones = 0;
+
         public SistemaDeCarga()
         {
             InitializeComponent();
@@ -85,6 +88,8 @@ namespace T02_05A_BernalA_GonzalezM
         private void btnReg_Click(object sender, EventArgs e)
         {
             gbDatosCamion.Visible = true;
+            lstRegistro.Items.Add($"[{DateTime.Now:t}] 🚀 Jornada iniciada con {totalCamiones} camiones disponibles");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -103,6 +108,11 @@ namespace T02_05A_BernalA_GonzalezM
         }
 
         private void txtTransportista_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstRegistro_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

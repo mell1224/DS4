@@ -49,9 +49,12 @@
             this.lblDCA = new System.Windows.Forms.Label();
             this.txtTransportista = new System.Windows.Forms.TextBox();
             this.lblTransportista = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lstRegistro = new System.Windows.Forms.ListBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.gbDatosCamion.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -290,6 +293,26 @@
             this.lblTransportista.TabIndex = 0;
             this.lblTransportista.Text = "Transportista";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lstRegistro);
+            this.groupBox1.Location = new System.Drawing.Point(12, 428);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(678, 164);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // lstRegistro
+            // 
+            this.lstRegistro.FormattingEnabled = true;
+            this.lstRegistro.ItemHeight = 17;
+            this.lstRegistro.Location = new System.Drawing.Point(44, 52);
+            this.lstRegistro.Name = "lstRegistro";
+            this.lstRegistro.Size = new System.Drawing.Size(577, 106);
+            this.lstRegistro.TabIndex = 0;
+            this.lstRegistro.SelectedIndexChanged += new System.EventHandler(this.lstRegistro_SelectedIndexChanged);
+            // 
             // SistemaDeCarga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -298,7 +321,8 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(704, 413);
+            this.ClientSize = new System.Drawing.Size(704, 604);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDatosCamion);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -313,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.gbDatosCamion.ResumeLayout(false);
             this.gbDatosCamion.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -339,6 +364,8 @@
         private System.Windows.Forms.Label lblDCA;
         private System.Windows.Forms.TextBox txtTransportista;
         private System.Windows.Forms.Label lblTransportista;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox lstRegistro;
     }
 }
 
