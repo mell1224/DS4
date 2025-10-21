@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDespacho = new System.Windows.Forms.Button();
             this.btnCarsaco = new System.Windows.Forms.Button();
             this.btnReg = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnJor = new System.Windows.Forms.Button();
             this.lblEActual = new System.Windows.Forms.Label();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblEst = new System.Windows.Forms.Label();
@@ -60,11 +61,13 @@
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnDespacho);
             this.panel2.Controls.Add(this.btnCarsaco);
             this.panel2.Controls.Add(this.btnReg);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnJor);
             this.panel2.Controls.Add(this.lblEActual);
             this.panel2.Controls.Add(this.nudCantidad);
             this.panel2.Controls.Add(this.lblEst);
@@ -75,6 +78,17 @@
             this.panel2.Size = new System.Drawing.Size(678, 157);
             this.panel2.TabIndex = 9;
             // 
+            // btnDespacho
+            // 
+            this.btnDespacho.ForeColor = System.Drawing.Color.Black;
+            this.btnDespacho.Location = new System.Drawing.Point(200, 107);
+            this.btnDespacho.Name = "btnDespacho";
+            this.btnDespacho.Size = new System.Drawing.Size(162, 38);
+            this.btnDespacho.TabIndex = 10;
+            this.btnDespacho.Text = "🚚Despachar Camión.";
+            this.btnDespacho.UseVisualStyleBackColor = true;
+            this.btnDespacho.Click += new System.EventHandler(this.btnDespacho_Click_1);
+            // 
             // btnCarsaco
             // 
             this.btnCarsaco.ForeColor = System.Drawing.Color.Black;
@@ -84,6 +98,7 @@
             this.btnCarsaco.TabIndex = 9;
             this.btnCarsaco.Text = "💰Cargar sacos.";
             this.btnCarsaco.UseVisualStyleBackColor = true;
+            this.btnCarsaco.Click += new System.EventHandler(this.btnCarsaco_Click);
             // 
             // btnReg
             // 
@@ -96,18 +111,18 @@
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
-            // button1
+            // btnJor
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkGreen;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(21, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 38);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "🚀 Iniciar Jornada";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnJor.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnJor.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJor.ForeColor = System.Drawing.Color.White;
+            this.btnJor.Location = new System.Drawing.Point(21, 107);
+            this.btnJor.Name = "btnJor";
+            this.btnJor.Size = new System.Drawing.Size(155, 38);
+            this.btnJor.TabIndex = 7;
+            this.btnJor.Text = "🚀 Iniciar Jornada";
+            this.btnJor.UseVisualStyleBackColor = false;
+            this.btnJor.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblEActual
             // 
@@ -167,6 +182,7 @@
             // gbDatosCamion
             // 
             this.gbDatosCamion.AutoScroll = true;
+            this.gbDatosCamion.AutoSize = true;
             this.gbDatosCamion.BackColor = System.Drawing.Color.White;
             this.gbDatosCamion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gbDatosCamion.Controls.Add(this.lblSacos);
@@ -208,7 +224,7 @@
             // 
             this.lblCargaInfo.AutoSize = true;
             this.lblCargaInfo.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lblCargaInfo.Location = new System.Drawing.Point(547, 116);
+            this.lblCargaInfo.Location = new System.Drawing.Point(527, 116);
             this.lblCargaInfo.Name = "lblCargaInfo";
             this.lblCargaInfo.Size = new System.Drawing.Size(109, 17);
             this.lblCargaInfo.TabIndex = 9;
@@ -307,13 +323,14 @@
             // 
             // gbInf
             // 
+            this.gbInf.AutoSize = true;
             this.gbInf.Controls.Add(this.lstRegistro);
             this.gbInf.Location = new System.Drawing.Point(12, 428);
             this.gbInf.Name = "gbInf";
             this.gbInf.Size = new System.Drawing.Size(678, 164);
             this.gbInf.TabIndex = 11;
             this.gbInf.TabStop = false;
-            this.gbInf.Text = "groupBox1";
+            this.gbInf.Text = "Registro de Jornada";
             // 
             // lstRegistro
             // 
@@ -333,7 +350,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(704, 604);
+            this.ClientSize = new System.Drawing.Size(750, 604);
             this.Controls.Add(this.gbInf);
             this.Controls.Add(this.gbDatosCamion);
             this.Controls.Add(this.panel2);
@@ -351,6 +368,7 @@
             this.gbDatosCamion.PerformLayout();
             this.gbInf.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -361,7 +379,7 @@
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Label lblEActual;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnJor;
         private System.Windows.Forms.Button btnReg;
         private System.Windows.Forms.Panel gbDatosCamion;
         private System.Windows.Forms.Label lblSacos;
@@ -379,6 +397,7 @@
         private System.Windows.Forms.GroupBox gbInf;
         private System.Windows.Forms.ListBox lstRegistro;
         private System.Windows.Forms.Button btnCarsaco;
+        private System.Windows.Forms.Button btnDespacho;
     }
 }
 
