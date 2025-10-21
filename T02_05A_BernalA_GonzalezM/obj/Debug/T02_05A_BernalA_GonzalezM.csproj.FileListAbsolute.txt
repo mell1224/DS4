@@ -10,3 +10,14 @@ C:\Users\melan\OneDrive - Universidad Tecnológica de Panamá\2025\II-SEMESTRE-2
 C:\Users\melan\OneDrive - Universidad Tecnológica de Panamá\2025\II-SEMESTRE-2025\T02_05A_BernalA_GonzalezM\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.exe
 C:\Users\melan\OneDrive - Universidad Tecnológica de Panamá\2025\II-SEMESTRE-2025\T02_05A_BernalA_GonzalezM\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.pdb
 C:\Users\melan\OneDrive - Universidad Tecnológica de Panamá\2025\II-SEMESTRE-2025\T02_05A_BernalA_GonzalezM\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.exe.config
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\bin\Debug\T02_05A_BernalA_GonzalezM.exe.config
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\bin\Debug\T02_05A_BernalA_GonzalezM.exe
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\bin\Debug\T02_05A_BernalA_GonzalezM.pdb
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.csproj.AssemblyReference.cache
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.SistemaDeCarga.resources
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\Camiones.Form2.resources
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.Properties.Resources.resources
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.csproj.GenerateResource.cache
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.exe
+C:\Users\Administrador\Documents\GitHub\DS4\T02_05A_BernalA_GonzalezM\obj\Debug\T02_05A_BernalA_GonzalezM.pdb

@@ -49,18 +49,20 @@
             this.lblDCA = new System.Windows.Forms.Label();
             this.txtTransportista = new System.Windows.Forms.TextBox();
             this.lblTransportista = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbInf = new System.Windows.Forms.GroupBox();
             this.lstRegistro = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.gbDatosCamion.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbInf.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnReg);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.lblEActual);
@@ -293,15 +295,15 @@
             this.lblTransportista.TabIndex = 0;
             this.lblTransportista.Text = "Transportista";
             // 
-            // groupBox1
+            // gbInf
             // 
-            this.groupBox1.Controls.Add(this.lstRegistro);
-            this.groupBox1.Location = new System.Drawing.Point(12, 428);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(678, 164);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.gbInf.Controls.Add(this.lstRegistro);
+            this.gbInf.Location = new System.Drawing.Point(12, 428);
+            this.gbInf.Name = "gbInf";
+            this.gbInf.Size = new System.Drawing.Size(678, 164);
+            this.gbInf.TabIndex = 11;
+            this.gbInf.TabStop = false;
+            this.gbInf.Text = "groupBox1";
             // 
             // lstRegistro
             // 
@@ -313,6 +315,16 @@
             this.lstRegistro.TabIndex = 0;
             this.lstRegistro.SelectedIndexChanged += new System.EventHandler(this.lstRegistro_SelectedIndexChanged);
             // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(394, 107);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(162, 38);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "💰Cargar sacos.";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // SistemaDeCarga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -322,7 +334,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(704, 604);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbInf);
             this.Controls.Add(this.gbDatosCamion);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -337,7 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.gbDatosCamion.ResumeLayout(false);
             this.gbDatosCamion.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.gbInf.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -364,8 +376,9 @@
         private System.Windows.Forms.Label lblDCA;
         private System.Windows.Forms.TextBox txtTransportista;
         private System.Windows.Forms.Label lblTransportista;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbInf;
         private System.Windows.Forms.ListBox lstRegistro;
+        private System.Windows.Forms.Button button2;
     }
 }
 

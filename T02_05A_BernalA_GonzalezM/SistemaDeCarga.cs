@@ -26,6 +26,7 @@ namespace T02_05A_BernalA_GonzalezM
             btnReg.Visible = false;
             button1.Visible = false; // Oculta el botón al iniciar
             gbDatosCamion.Visible = false; // Oculta el GroupBox al iniciar
+            gbInf.Visible = false;
 
         }
         private void ActualizarCarga()
@@ -88,6 +89,7 @@ namespace T02_05A_BernalA_GonzalezM
         private void btnReg_Click(object sender, EventArgs e)
         {
             gbDatosCamion.Visible = true;
+            gbInf.Visible = true;
             lstRegistro.Items.Add($"[{DateTime.Now:t}] 🚀 Jornada iniciada con {totalCamiones} camiones disponibles");
 
         }
