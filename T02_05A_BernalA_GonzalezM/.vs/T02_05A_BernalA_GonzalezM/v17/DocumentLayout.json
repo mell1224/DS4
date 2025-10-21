@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|solutionrelative:sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|solutionrelative:sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|c:\\users\\administrador\\documents\\github\\ds4\\t02_05a_bernala_gonzalezm\\sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|solutionrelative:sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|c:\\users\\administrador\\documents\\github\\ds4\\t02_05a_bernala_gonzalezm\\sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|solutionrelative:sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -30,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SistemaDeCarga.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
@@ -47,13 +47,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SistemaDeCarga.cs",
               "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
               "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeToolTip": "SistemaDeCarga.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAgwFsAAAAhAAAA",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAgwF4AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:09:15.092Z",
               "IsPinned": true,

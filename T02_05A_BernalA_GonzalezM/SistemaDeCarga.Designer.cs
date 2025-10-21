@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCarsaco = new System.Windows.Forms.Button();
             this.btnReg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblEActual = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.lblTransportista = new System.Windows.Forms.Label();
             this.gbInf = new System.Windows.Forms.GroupBox();
             this.lstRegistro = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.gbDatosCamion.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnCarsaco);
             this.panel2.Controls.Add(this.btnReg);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.lblEActual);
@@ -74,6 +74,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(678, 157);
             this.panel2.TabIndex = 9;
+            // 
+            // btnCarsaco
+            // 
+            this.btnCarsaco.ForeColor = System.Drawing.Color.Black;
+            this.btnCarsaco.Location = new System.Drawing.Point(200, 107);
+            this.btnCarsaco.Name = "btnCarsaco";
+            this.btnCarsaco.Size = new System.Drawing.Size(162, 38);
+            this.btnCarsaco.TabIndex = 9;
+            this.btnCarsaco.Text = "💰Cargar sacos.";
+            this.btnCarsaco.UseVisualStyleBackColor = true;
             // 
             // btnReg
             // 
@@ -315,16 +325,6 @@
             this.lstRegistro.TabIndex = 0;
             this.lstRegistro.SelectedIndexChanged += new System.EventHandler(this.lstRegistro_SelectedIndexChanged);
             // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(394, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 38);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "💰Cargar sacos.";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // SistemaDeCarga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -378,7 +378,7 @@
         private System.Windows.Forms.Label lblTransportista;
         private System.Windows.Forms.GroupBox gbInf;
         private System.Windows.Forms.ListBox lstRegistro;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCarsaco;
     }
 }
 
