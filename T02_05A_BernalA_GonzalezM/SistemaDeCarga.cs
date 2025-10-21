@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Camiones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,7 @@ namespace T02_05A_BernalA_GonzalezM
             gbInf.Visible = false;
             btnCarsaco.Visible = false;
             btnDespacho.Visible = false;
+            btnResu.Visible = false;
         }
 
         private void ActualizarCarga()
@@ -43,7 +45,8 @@ namespace T02_05A_BernalA_GonzalezM
         private void lblEActual_Click(object sender, EventArgs e) { }
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
-            if (nudCantidad.Value < 10)
+            // CAMBIO AQUÍ: Mínimo 2 para iniciar la jornada de prueba
+            if (nudCantidad.Value < 2)
             {
                 lblEActual.Text = "El sistema no está listo.";
                 lblEActual.ForeColor = Color.White;
@@ -61,7 +64,8 @@ namespace T02_05A_BernalA_GonzalezM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nudCantidad.Value < 10)
+            // CAMBIO AQUÍ: Mínimo 2 para iniciar la jornada de prueba
+            if (nudCantidad.Value < 2)
             {
                 MessageBox.Show("El sistema no se puede iniciar.", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -161,17 +165,43 @@ namespace T02_05A_BernalA_GonzalezM
             lblCargaInfo.Text = $"{cAcum:N0} / {capacidadMaxima:N0} kg ({sacos} sacos)";
         }
 
+        private void btnResu_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            int contadorCamion = 1; // Contador para saber el número de camión despachado
+
+            foreach (string item in lstRegistro.Items)
+            {
+                if (item.Contains("🚚 Camión despachado"))
+                {
+                    int startIndex = item.IndexOf("Carga final:") + "Carga final:".Length;
+                    int endIndex = item.IndexOf(". Transportista:");
+
+                    if (startIndex > -1 && endIndex > -1)
+                    {
+                        string cargaFinal = item.Substring(startIndex, endIndex - startIndex).Trim();
+
+                        // CAMBIO AQUÍ: Agrega el número de camión al item del resumen
+                        f2.lstResu.Items.Add($"Camión {contadorCamion}: Carga final: {cargaFinal}");
+                        contadorCamion++;
+                    }
+                }
+            }
+
+            f2.Show();
+        }
+
         private void btnDespacho_Click_1(object sender, EventArgs e)
         {
-            string hora = DateTime.Now.ToString("t");
-            string transportista = txtTransportista.Text;
-            string placa = txtPlaca.Text;
-
             if (string.IsNullOrWhiteSpace(txtTransportista.Text) || string.IsNullOrWhiteSpace(txtPlaca.Text))
             {
                 MessageBox.Show("Debe ingresar el nombre del Transportista y el número de Placa antes de despachar el camión.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            string hora = DateTime.Now.ToString("t");
+            string transportista = txtTransportista.Text;
+            string placa = txtPlaca.Text;
 
             lstRegistro.Items.Add($"[{hora}] 🚚 Camión despachado. Carga final: {cAcum:N0} kg. Transportista: {transportista}. Placa: {placa}.");
 
@@ -203,12 +233,15 @@ namespace T02_05A_BernalA_GonzalezM
                 MessageBox.Show("Se ha alcanzado el límite de camiones para esta jornada.", "Jornada Finalizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnReg.Visible = false;
                 gbInf.Visible = false;
+
+                btnResu.Visible = true;
             }
             else
             {
                 btnReg.Text = $"✅Registrar camión {camionActual}";
                 btnReg.Visible = true;
                 gbInf.Visible = true;
+                btnResu.Visible = false;
             }
 
             pbCarga.Value = cAcum;

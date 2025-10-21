@@ -53,6 +53,7 @@
             this.lblTransportista = new System.Windows.Forms.Label();
             this.gbInf = new System.Windows.Forms.GroupBox();
             this.lstRegistro = new System.Windows.Forms.ListBox();
+            this.btnResu = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.gbDatosCamion.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnResu);
             this.panel2.Controls.Add(this.btnDespacho);
             this.panel2.Controls.Add(this.btnCarsaco);
             this.panel2.Controls.Add(this.btnReg);
@@ -327,7 +329,7 @@
             this.gbInf.Controls.Add(this.lstRegistro);
             this.gbInf.Location = new System.Drawing.Point(12, 428);
             this.gbInf.Name = "gbInf";
-            this.gbInf.Size = new System.Drawing.Size(678, 164);
+            this.gbInf.Size = new System.Drawing.Size(678, 182);
             this.gbInf.TabIndex = 11;
             this.gbInf.TabStop = false;
             this.gbInf.Text = "Registro de Jornada";
@@ -341,6 +343,18 @@
             this.lstRegistro.Size = new System.Drawing.Size(577, 106);
             this.lstRegistro.TabIndex = 0;
             this.lstRegistro.SelectedIndexChanged += new System.EventHandler(this.lstRegistro_SelectedIndexChanged);
+            // 
+            // btnResu
+            // 
+            this.btnResu.BackColor = System.Drawing.Color.DarkGray;
+            this.btnResu.ForeColor = System.Drawing.Color.Black;
+            this.btnResu.Location = new System.Drawing.Point(494, 107);
+            this.btnResu.Name = "btnResu";
+            this.btnResu.Size = new System.Drawing.Size(162, 38);
+            this.btnResu.TabIndex = 11;
+            this.btnResu.Text = "Ver resumen de jornada";
+            this.btnResu.UseVisualStyleBackColor = false;
+            this.btnResu.Click += new System.EventHandler(this.btnResu_Click);
             // 
             // SistemaDeCarga
             // 
@@ -398,6 +412,7 @@
         private System.Windows.Forms.ListBox lstRegistro;
         private System.Windows.Forms.Button btnCarsaco;
         private System.Windows.Forms.Button btnDespacho;
+        private System.Windows.Forms.Button btnResu;
     }
 }
 
