@@ -45,7 +45,7 @@ namespace T02_05A_BernalA_GonzalezM
         private void lblEActual_Click(object sender, EventArgs e) { }
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
-            if (nudCantidad.Value < 2)
+            if (nudCantidad.Value < 10)
             {
                 lblEActual.Text = "El sistema no está listo.";
                 lblEActual.ForeColor = Color.White;
@@ -63,7 +63,7 @@ namespace T02_05A_BernalA_GonzalezM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nudCantidad.Value < 2)
+            if (nudCantidad.Value < 10)
             {
                 MessageBox.Show("El sistema no se puede iniciar.", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -172,6 +172,12 @@ namespace T02_05A_BernalA_GonzalezM
             }
 
             f2.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Saliendo del programa.", "Saliendo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
         }
 
         private void btnDespacho_Click_1(object sender, EventArgs e)

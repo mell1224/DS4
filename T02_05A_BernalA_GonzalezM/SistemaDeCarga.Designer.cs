@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnResu = new System.Windows.Forms.Button();
             this.btnDespacho = new System.Windows.Forms.Button();
             this.btnCarsaco = new System.Windows.Forms.Button();
             this.btnReg = new System.Windows.Forms.Button();
@@ -53,7 +54,7 @@
             this.lblTransportista = new System.Windows.Forms.Label();
             this.gbInf = new System.Windows.Forms.GroupBox();
             this.lstRegistro = new System.Windows.Forms.ListBox();
-            this.btnResu = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.gbDatosCamion.SuspendLayout();
@@ -65,6 +66,7 @@
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Controls.Add(this.btnResu);
             this.panel2.Controls.Add(this.btnDespacho);
             this.panel2.Controls.Add(this.btnCarsaco);
@@ -79,6 +81,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(678, 157);
             this.panel2.TabIndex = 9;
+            // 
+            // btnResu
+            // 
+            this.btnResu.BackColor = System.Drawing.Color.DarkGray;
+            this.btnResu.ForeColor = System.Drawing.Color.Black;
+            this.btnResu.Location = new System.Drawing.Point(494, 107);
+            this.btnResu.Name = "btnResu";
+            this.btnResu.Size = new System.Drawing.Size(162, 38);
+            this.btnResu.TabIndex = 11;
+            this.btnResu.Text = "Ver resumen de jornada";
+            this.btnResu.UseVisualStyleBackColor = false;
+            this.btnResu.Click += new System.EventHandler(this.btnResu_Click);
             // 
             // btnDespacho
             // 
@@ -344,17 +358,16 @@
             this.lstRegistro.TabIndex = 0;
             this.lstRegistro.SelectedIndexChanged += new System.EventHandler(this.lstRegistro_SelectedIndexChanged);
             // 
-            // btnResu
+            // btnSalir
             // 
-            this.btnResu.BackColor = System.Drawing.Color.DarkGray;
-            this.btnResu.ForeColor = System.Drawing.Color.Black;
-            this.btnResu.Location = new System.Drawing.Point(494, 107);
-            this.btnResu.Name = "btnResu";
-            this.btnResu.Size = new System.Drawing.Size(162, 38);
-            this.btnResu.TabIndex = 11;
-            this.btnResu.Text = "Ver resumen de jornada";
-            this.btnResu.UseVisualStyleBackColor = false;
-            this.btnResu.Click += new System.EventHandler(this.btnResu_Click);
+            this.btnSalir.ForeColor = System.Drawing.Color.Red;
+            this.btnSalir.Location = new System.Drawing.Point(639, 3);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(34, 34);
+            this.btnSalir.TabIndex = 12;
+            this.btnSalir.Text = "❌";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // SistemaDeCarga
             // 
@@ -364,7 +377,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(216)))));
-            this.ClientSize = new System.Drawing.Size(750, 604);
+            this.ClientSize = new System.Drawing.Size(767, 604);
             this.Controls.Add(this.gbInf);
             this.Controls.Add(this.gbDatosCamion);
             this.Controls.Add(this.panel2);
@@ -413,6 +426,7 @@
         private System.Windows.Forms.Button btnCarsaco;
         private System.Windows.Forms.Button btnDespacho;
         private System.Windows.Forms.Button btnResu;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
