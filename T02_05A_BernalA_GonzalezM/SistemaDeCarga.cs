@@ -166,28 +166,9 @@ namespace T02_05A_BernalA_GonzalezM
         private void btnResu_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-            int contadorCamion = 1;
-
             foreach (string item in lstRegistro.Items)
             {
-                if (item.Contains("🚚 Camión despachado"))
-                {
-                    // Buscar la carga
-                    int startIndex = item.IndexOf("Carga final:") + "Carga final:".Length;
-                    int endIndex = item.IndexOf(" kg. Sacos:");
-                    string cargaFinal = (startIndex > -1 && endIndex > -1) ? item.Substring(startIndex, endIndex - startIndex).Trim() : "N/D";
-
-                    // Buscar el número de sacos
-                    int sacosStartIndex = item.IndexOf("Sacos:") + "Sacos:".Length;
-                    int sacosEndIndex = item.IndexOf(". Transportista:");
-                    string sacosFinal = (sacosStartIndex > -1 && sacosEndIndex > -1) ? item.Substring(sacosStartIndex, sacosEndIndex - sacosStartIndex).Trim() : "N/D";
-
-                    if (cargaFinal != "N/D" && sacosFinal != "N/D")
-                    {
-                        f2.lstResu.Items.Add($"Camión {contadorCamion}: Carga final: {cargaFinal} kg ({sacosFinal} sacos)");
-                        contadorCamion++;
-                    }
-                }
+                f2.lstResu.Items.Add(item);
             }
 
             f2.Show();

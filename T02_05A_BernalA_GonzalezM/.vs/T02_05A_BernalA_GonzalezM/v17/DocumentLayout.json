@@ -39,15 +39,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SistemaDeCarga.cs [Design]",
+              "Title": "SistemaDeCarga.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
-              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs [Design]",
-              "RelativeToolTip": "SistemaDeCarga.cs [Design]",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs [Dise\u00F1o]",
+              "RelativeToolTip": "SistemaDeCarga.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:09:23.527Z",
               "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
@@ -57,7 +57,7 @@
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
               "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeToolTip": "SistemaDeCarga.cs",
-              "ViewState": "AQIAAKUAAAAAAAAAAAAAAL8AAAAAAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAA9wC8AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:09:15.092Z",
               "IsPinned": true,
