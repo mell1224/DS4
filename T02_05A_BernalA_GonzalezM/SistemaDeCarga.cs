@@ -45,7 +45,6 @@ namespace T02_05A_BernalA_GonzalezM
         private void lblEActual_Click(object sender, EventArgs e) { }
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
-            // CAMBIO AQUÍ: Mínimo 2 para iniciar la jornada de prueba
             if (nudCantidad.Value < 2)
             {
                 lblEActual.Text = "El sistema no está listo.";
@@ -64,7 +63,6 @@ namespace T02_05A_BernalA_GonzalezM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // CAMBIO AQUÍ: Mínimo 2 para iniciar la jornada de prueba
             if (nudCantidad.Value < 2)
             {
                 MessageBox.Show("El sistema no se puede iniciar.", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -168,21 +166,25 @@ namespace T02_05A_BernalA_GonzalezM
         private void btnResu_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-            int contadorCamion = 1; // Contador para saber el número de camión despachado
+            int contadorCamion = 1;
 
             foreach (string item in lstRegistro.Items)
             {
                 if (item.Contains("🚚 Camión despachado"))
                 {
+                    // Buscar la carga
                     int startIndex = item.IndexOf("Carga final:") + "Carga final:".Length;
-                    int endIndex = item.IndexOf(". Transportista:");
+                    int endIndex = item.IndexOf(" kg. Sacos:");
+                    string cargaFinal = (startIndex > -1 && endIndex > -1) ? item.Substring(startIndex, endIndex - startIndex).Trim() : "N/D";
 
-                    if (startIndex > -1 && endIndex > -1)
+                    // Buscar el número de sacos
+                    int sacosStartIndex = item.IndexOf("Sacos:") + "Sacos:".Length;
+                    int sacosEndIndex = item.IndexOf(". Transportista:");
+                    string sacosFinal = (sacosStartIndex > -1 && sacosEndIndex > -1) ? item.Substring(sacosStartIndex, sacosEndIndex - sacosStartIndex).Trim() : "N/D";
+
+                    if (cargaFinal != "N/D" && sacosFinal != "N/D")
                     {
-                        string cargaFinal = item.Substring(startIndex, endIndex - startIndex).Trim();
-
-                        // CAMBIO AQUÍ: Agrega el número de camión al item del resumen
-                        f2.lstResu.Items.Add($"Camión {contadorCamion}: Carga final: {cargaFinal}");
+                        f2.lstResu.Items.Add($"Camión {contadorCamion}: Carga final: {cargaFinal} kg ({sacosFinal} sacos)");
                         contadorCamion++;
                     }
                 }
@@ -203,10 +205,11 @@ namespace T02_05A_BernalA_GonzalezM
             string transportista = txtTransportista.Text;
             string placa = txtPlaca.Text;
 
-            lstRegistro.Items.Add($"[{hora}] 🚚 Camión despachado. Carga final: {cAcum:N0} kg. Transportista: {transportista}. Placa: {placa}.");
+            // MODIFICACIÓN: Se agrega el número de sacos al registro.
+            lstRegistro.Items.Add($"[{hora}] 🚚 Camión despachado. Carga final: {cAcum:N0} kg. Sacos: {sacos}. Transportista: {transportista}. Placa: {placa}.");
 
             string mensajeDespacho = $"Camión despachado.\n" +
-                                     $"Carga final: {cAcum:N0} kg.\n" +
+                                     $"Carga final: {cAcum:N0} kg ({sacos} sacos).\n" +
                                      $"Transportista: {transportista}\n" +
                                      $"Placa: {placa}";
 

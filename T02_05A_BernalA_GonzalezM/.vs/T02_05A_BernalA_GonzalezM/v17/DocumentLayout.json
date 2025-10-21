@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|solutionrelative:sistemadecarga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|c:\\users\\administrador\\documents\\github\\ds4\\t02_05a_bernala_gonzalezm\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E1F7CD2-F0C8-4273-8B28-1C1DF9C3F4E1}|T02_05A_BernalA_GonzalezM.csproj|solutionrelative:form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,15 +39,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SistemaDeCarga.cs [Dise\u00F1o]",
+              "Title": "SistemaDeCarga.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
-              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs [Dise\u00F1o]",
-              "RelativeToolTip": "SistemaDeCarga.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs [Design]",
+              "RelativeToolTip": "SistemaDeCarga.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:09:23.527Z",
               "IsPinned": true,
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -57,7 +57,7 @@
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
               "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeToolTip": "SistemaDeCarga.cs",
-              "ViewState": "AQIAAKYAAAAAAAAAAAAUwAEBAAABAAAA",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAAAL8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:09:15.092Z",
               "IsPinned": true,
@@ -73,8 +73,7 @@
               "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:10:08.884Z",
-              "IsPinned": true,
-              "EditorCaption": " [Dise\u00F1o]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -86,8 +85,7 @@
               "RelativeToolTip": "Form2.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T02:59:40.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T02:59:40.918Z"
             },
             {
               "$type": "Document",
@@ -99,8 +97,7 @@
               "RelativeToolTip": "SistemaDeCarga.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T01:41:16.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T01:41:16.994Z"
             },
             {
               "$type": "Document",
@@ -112,8 +109,7 @@
               "RelativeToolTip": "Form2.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T00:22:10.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T00:22:10.896Z"
             }
           ]
         }
