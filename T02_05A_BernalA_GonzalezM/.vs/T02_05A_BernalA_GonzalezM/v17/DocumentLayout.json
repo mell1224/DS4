@@ -57,7 +57,7 @@
               "RelativeDocumentMoniker": "SistemaDeCarga.cs",
               "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\T02_05A_BernalA_GonzalezM\\SistemaDeCarga.cs",
               "RelativeToolTip": "SistemaDeCarga.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAAAcwLIAAAA/AAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAA3wEIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:09:15.092Z",
               "IsPinned": true,
@@ -73,8 +73,7 @@
               "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T00:10:08.884Z",
-              "IsPinned": true,
-              "EditorCaption": " [Dise\u00F1o]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -86,8 +85,7 @@
               "RelativeToolTip": "Form2.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T02:59:40.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T02:59:40.918Z"
             },
             {
               "$type": "Document",
@@ -111,8 +109,7 @@
               "RelativeToolTip": "Form2.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T00:22:10.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-20T00:22:10.896Z"
             }
           ]
         }

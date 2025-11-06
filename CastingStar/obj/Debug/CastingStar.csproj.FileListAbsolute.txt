@@ -1,0 +1,11 @@
+C:\Users\Administrador\source\repos\CastingStar\bin\Debug\CastingStar.exe.config
+C:\Users\Administrador\source\repos\CastingStar\bin\Debug\CastingStar.exe
+C:\Users\Administrador\source\repos\CastingStar\bin\Debug\CastingStar.pdb
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.csproj.AssemblyReference.cache
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.Form1.resources
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.Properties.Resources.resources
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.csproj.GenerateResource.cache
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.exe
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.pdb
+C:\Users\Administrador\source\repos\CastingStar\obj\Debug\CastingStar.Form2.resources
