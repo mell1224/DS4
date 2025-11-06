@@ -26,5 +26,10 @@ namespace CastingStar
             dtgRegistrados.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9, System.Drawing.FontStyle.Bold);
             dtgRegistrados.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

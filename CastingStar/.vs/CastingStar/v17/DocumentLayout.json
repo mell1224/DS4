@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|c:\\users\\administrador\\source\\repos\\castingstar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\source\\repos\\CastingStar\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|c:\\users\\administrador\\documents\\github\\ds4\\castingstar\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\source\\repos\\CastingStar\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:Form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\source\\repos\\CastingStar\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:Form2.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\source\\repos\\CastingStar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9107C43F-AD4B-4287-AD5D-DEDC37F687DE}|CastingStar.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -30,63 +30,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Form2.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form2.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.Designer.cs",
               "RelativeDocumentMoniker": "Form2.Designer.cs",
-              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form2.Designer.cs",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.Designer.cs",
               "RelativeToolTip": "Form2.Designer.cs",
               "ViewState": "AQIAAGIAAAAAAAAAAAAuwG0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:41:11.041Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form2.cs",
-              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form2.cs",
-              "RelativeToolTip": "Form2.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:40:53.419Z"
+              "WhenOpened": "2025-11-06T02:41:11.041Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form2.cs",
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form2.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.cs",
+              "RelativeToolTip": "Form2.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAmwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T02:18:22.273Z"
+              "WhenOpened": "2025-11-06T02:40:53.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Form2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T02:18:22.273Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form1.cs",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T02:26:10.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T02:26:10.621Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\CastingStar\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\CastingStar\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T02:25:30.485Z"

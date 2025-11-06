@@ -50,10 +50,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitgb = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbTabla = new System.Windows.Forms.GroupBox();
             this.dtgRegistrados = new System.Windows.Forms.DataGridView();
             this.IdActor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -293,45 +293,46 @@
             this.btnNuevo.Text = "📤 Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(189, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 34);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "💾 Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardar.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(189, 80);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(139, 34);
+            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.Text = "💾 Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(368, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 34);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "✏️ Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModificar.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(368, 80);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(139, 34);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "✏️ Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEliminar
             // 
-            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(549, 80);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 34);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "🗑️ Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEliminar.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(549, 80);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(139, 34);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "🗑️ Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnBuscar
             // 
-            this.button4.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(729, 80);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(139, 34);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "🔍 Buscar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBuscar.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(729, 80);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(139, 34);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "🔍 Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // gbTabla
             // 
@@ -396,10 +397,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 696);
             this.Controls.Add(this.gbTabla);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gbDatosActor);
             this.Controls.Add(this.pictureBox2);
@@ -443,10 +444,10 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.ComboBox cmbGenero;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox gbTabla;
         private System.Windows.Forms.DataGridView dtgRegistrados;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdActor;
