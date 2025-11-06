@@ -153,7 +153,7 @@
             // 
             // cmbGenero
             // 
-            this.cmbGenero.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.cmbGenero.ForeColor = System.Drawing.SystemColors.MenuText;
             this.cmbGenero.FormattingEnabled = true;
             this.cmbGenero.Items.AddRange(new object[] {
             "Masculino",
@@ -166,39 +166,35 @@
             // 
             // txtExperiencia
             // 
-            this.txtExperiencia.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtExperiencia.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtExperiencia.Location = new System.Drawing.Point(166, 310);
             this.txtExperiencia.Name = "txtExperiencia";
             this.txtExperiencia.Size = new System.Drawing.Size(379, 26);
             this.txtExperiencia.TabIndex = 14;
-            this.txtExperiencia.Text = "Describa la experiencia del actor";
             // 
             // txtCiudad
             // 
-            this.txtCiudad.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCiudad.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtCiudad.Location = new System.Drawing.Point(166, 269);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(379, 26);
             this.txtCiudad.TabIndex = 13;
-            this.txtCiudad.Text = "Ingrese ciudad";
             // 
             // txtEdad
             // 
-            this.txtEdad.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtEdad.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtEdad.Location = new System.Drawing.Point(166, 182);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(379, 26);
             this.txtEdad.TabIndex = 11;
-            this.txtEdad.Text = "Ingrese edad";
             // 
             // txtNombre
             // 
-            this.txtNombre.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtNombre.ForeColor = System.Drawing.SystemColors.InfoText;
             this.txtNombre.Location = new System.Drawing.Point(166, 139);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(379, 26);
             this.txtNombre.TabIndex = 10;
-            this.txtNombre.Text = "Ingrese nombre completo";
             // 
             // txtId
             // 
@@ -292,6 +288,7 @@
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "📤 Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -313,6 +310,7 @@
             this.btnModificar.TabIndex = 5;
             this.btnModificar.Text = "✏️ Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -323,6 +321,7 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "🗑️ Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -348,6 +347,8 @@
             // 
             // dtgRegistrados
             // 
+            this.dtgRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgRegistrados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dtgRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgRegistrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdActor,
@@ -358,6 +359,7 @@
             this.Experiencia});
             this.dtgRegistrados.Location = new System.Drawing.Point(0, 26);
             this.dtgRegistrados.Name = "dtgRegistrados";
+            this.dtgRegistrados.ReadOnly = true;
             this.dtgRegistrados.Size = new System.Drawing.Size(1115, 152);
             this.dtgRegistrados.TabIndex = 0;
             // 
@@ -407,7 +409,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
