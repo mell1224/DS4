@@ -62,6 +62,7 @@
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Experiencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConexion = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -299,7 +300,7 @@
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "💾 Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnModificar
             // 
@@ -367,37 +368,54 @@
             // 
             this.IdActor.HeaderText = "IdActor";
             this.IdActor.Name = "IdActor";
+            this.IdActor.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Edad
             // 
             this.Edad.HeaderText = "Edad";
             this.Edad.Name = "Edad";
+            this.Edad.ReadOnly = true;
             // 
             // Genero
             // 
             this.Genero.HeaderText = "Género";
             this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
             // 
             // Ciudad
             // 
             this.Ciudad.HeaderText = "Ciudad";
             this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
             // 
             // Experiencia
             // 
             this.Experiencia.HeaderText = "Experiencia";
             this.Experiencia.Name = "Experiencia";
+            this.Experiencia.ReadOnly = true;
+            // 
+            // btnConexion
+            // 
+            this.btnConexion.Location = new System.Drawing.Point(1121, 84);
+            this.btnConexion.Name = "btnConexion";
+            this.btnConexion.Size = new System.Drawing.Size(37, 25);
+            this.btnConexion.TabIndex = 9;
+            this.btnConexion.Text = "✅";
+            this.btnConexion.UseVisualStyleBackColor = true;
+            this.btnConexion.Click += new System.EventHandler(this.btnConexion_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 696);
+            this.Controls.Add(this.btnConexion);
             this.Controls.Add(this.gbTabla);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
@@ -457,5 +475,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Experiencia;
+        private System.Windows.Forms.Button btnConexion;
     }
 }
