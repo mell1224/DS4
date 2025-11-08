@@ -7,7 +7,7 @@ namespace CastingStar
 {
     public partial class Form2 : Form
     {
-        string connectionString = "Server=ADMN-PC\\SQLEXPRESS;Database=CastingStarDB;User Id=castingstar;Password=skizpkzi;";
+        string connectionString = "Server= 192.168.1.107,1433;Database=CastingStarDB;User Id=castingstar;Password=skizpkzi";
 
 
         public Form2()
