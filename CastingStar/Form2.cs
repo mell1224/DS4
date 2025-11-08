@@ -7,7 +7,8 @@ namespace CastingStar
 {
     public partial class Form2 : Form
     {
-        string connectionString = "Server=ADMN-PC\\SQLEXPRESS;Database=CastingStarDB;Trusted_Connection=True;";
+        string connectionString = "Server=ADMN-PC\\SQLEXPRESS;Database=CastingStarDB;User Id=castingstar;Password=skizpkzi;";
+
 
         public Form2()
         {
