@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PF_Eq05_SIGIPAN", "PF_Eq05_SIGIPAN.csproj", "{EFCED0AC-9075-48BF-BB42-C2C094B1344D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFCED0AC-9075-48BF-BB42-C2C094B1344D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCED0AC-9075-48BF-BB42-C2C094B1344D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCED0AC-9075-48BF-BB42-C2C094B1344D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCED0AC-9075-48BF-BB42-C2C094B1344D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D200563-8552-4D2D-A371-9F78C134C33C}
+	EndGlobalSection
+EndGlobal
