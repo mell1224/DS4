@@ -20,3 +20,15 @@ C:\Users\Administrador\Documents\GitHub\DS4\CastingStar\obj\Debug\CastingStar.pd
 C:\Users\Administrador\Documents\GitHub\DS4\CastingStar\bin\Debug\CastingStar.exe.config
 C:\Users\Administrador\Documents\GitHub\DS4\CastingStar\bin\Debug\CastingStar.exe
 C:\Users\Administrador\Documents\GitHub\DS4\CastingStar\bin\Debug\CastingStar.pdb
+C:\Users\melan\DS4\CastingStar\bin\Debug\CastingStar.exe.config
+C:\Users\melan\DS4\CastingStar\bin\Debug\CastingStar.exe
+C:\Users\melan\DS4\CastingStar\bin\Debug\CastingStar.pdb
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.csproj.AssemblyReference.cache
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.exe.config
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.Form1.resources
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.Form2.resources
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.Properties.Resources.resources
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.csproj.GenerateResource.cache
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.csproj.CoreCompileInputs.cache
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.exe
+C:\Users\melan\DS4\CastingStar\obj\Debug\CastingStar.pdb

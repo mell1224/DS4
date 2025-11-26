@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTitulito = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitF2 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Experiencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConexion = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panelTitulito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbDatosActor.SuspendLayout();
@@ -71,17 +71,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgRegistrados)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelTitulito
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lblTitF2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-4, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1176, 79);
-            this.panel1.TabIndex = 0;
+            this.panelTitulito.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panelTitulito.Controls.Add(this.panel3);
+            this.panelTitulito.Controls.Add(this.panel2);
+            this.panelTitulito.Controls.Add(this.lblTitF2);
+            this.panelTitulito.Controls.Add(this.pictureBox1);
+            this.panelTitulito.Location = new System.Drawing.Point(-4, -1);
+            this.panelTitulito.Name = "panelTitulito";
+            this.panelTitulito.Size = new System.Drawing.Size(1179, 75);
+            this.panelTitulito.TabIndex = 0;
             // 
             // panel3
             // 
@@ -202,6 +202,7 @@
             this.txtId.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtId.Location = new System.Drawing.Point(166, 96);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(379, 26);
             this.txtId.TabIndex = 9;
             this.txtId.Text = "Auto";
@@ -333,6 +334,7 @@
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.Text = "🔍 Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // gbTabla
             // 
@@ -348,6 +350,7 @@
             // 
             // dtgRegistrados
             // 
+            this.dtgRegistrados.AllowUserToAddRows = false;
             this.dtgRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgRegistrados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dtgRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -360,45 +363,39 @@
             this.Experiencia});
             this.dtgRegistrados.Location = new System.Drawing.Point(0, 26);
             this.dtgRegistrados.Name = "dtgRegistrados";
-            this.dtgRegistrados.ReadOnly = true;
             this.dtgRegistrados.Size = new System.Drawing.Size(1115, 152);
             this.dtgRegistrados.TabIndex = 0;
+            this.dtgRegistrados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgRegistrados_CellContentClick);
             // 
             // IdActor
             // 
             this.IdActor.HeaderText = "IdActor";
             this.IdActor.Name = "IdActor";
-            this.IdActor.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
             // 
             // Edad
             // 
             this.Edad.HeaderText = "Edad";
             this.Edad.Name = "Edad";
-            this.Edad.ReadOnly = true;
             // 
             // Genero
             // 
             this.Genero.HeaderText = "Género";
             this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
             // 
             // Ciudad
             // 
             this.Ciudad.HeaderText = "Ciudad";
             this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
             // 
             // Experiencia
             // 
             this.Experiencia.HeaderText = "Experiencia";
             this.Experiencia.Name = "Experiencia";
-            this.Experiencia.ReadOnly = true;
             // 
             // btnConexion
             // 
@@ -424,11 +421,12 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gbDatosActor);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelTitulito);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            this.panelTitulito.ResumeLayout(false);
+            this.panelTitulito.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gbDatosActor.ResumeLayout(false);
@@ -441,7 +439,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelTitulito;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTitF2;
         private System.Windows.Forms.Panel panel3;

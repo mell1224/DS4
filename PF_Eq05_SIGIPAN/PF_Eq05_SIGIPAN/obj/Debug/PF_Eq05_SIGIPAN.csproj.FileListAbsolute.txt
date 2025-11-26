@@ -1,0 +1,10 @@
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\bin\Debug\PF_Eq05_SIGIPAN.exe.config
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\bin\Debug\PF_Eq05_SIGIPAN.exe
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\bin\Debug\PF_Eq05_SIGIPAN.pdb
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.csproj.AssemblyReference.cache
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.Form1.resources
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.Properties.Resources.resources
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.csproj.GenerateResource.cache
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.csproj.CoreCompileInputs.cache
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.exe
+C:\Users\melan\DS4\PF_Eq05_SIGIPAN\PF_Eq05_SIGIPAN\obj\Debug\PF_Eq05_SIGIPAN.pdb

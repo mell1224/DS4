@@ -7,13 +7,16 @@ namespace CastingStar
 {
     public partial class Form2 : Form
     {
-        string connectionString = "Server= 192.168.1.107,1433;Database=CastingStarDB;User Id=castingstar;Password=skizpkzi;TrustServerCertificate=True;";
+        string connectionString = "Server=MELANY;Database=CastingStarDB;Integrated Security=True;";
+
+
 
 
         public Form2()
         {
             InitializeComponent();
             CargarActores();
+            this.Opacity = 0;
         }
 
         private void CargarActores()
@@ -36,7 +39,7 @@ namespace CastingStar
                         reader["IdActor"],
                         reader["Nombre"],
                         reader["Edad"],
-                        reader["Género"],
+                        reader["Genero"],
                         reader["Ciudad"],
                         reader["Experiencia"]
                     );
@@ -120,6 +123,7 @@ namespace CastingStar
             dtgRegistrados.ReadOnly = false;
             dtgRegistrados.AllowUserToAddRows = false;
 
+
             MessageBox.Show("Puede editar directamente los datos en la tabla.\nHaga clic en 'Guardar' cuando termine.",
                 "Modo edición", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -176,6 +180,105 @@ namespace CastingStar
             catch (Exception ex)
             {
                 MessageBox.Show($"❌ Error al conectar con la base de datos: \n{ex.Message}", "Estado de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Función escencial para buscar actores por nombre
+
+        private void BuscarActores(string nombre, string edadTexto, string ciudad)
+        {
+            dtgRegistrados.Rows.Clear();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("BuscarActor", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (string.IsNullOrWhiteSpace(nombre))
+                    cmd.Parameters.AddWithValue("@Nombre", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+
+                if (string.IsNullOrWhiteSpace(ciudad))
+                    cmd.Parameters.AddWithValue("@Ciudad", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@Ciudad", ciudad);
+
+                if (int.TryParse(edadTexto, out int edad))
+                    cmd.Parameters.AddWithValue("@Edad", edad);
+                else
+                    cmd.Parameters.AddWithValue("@Edad", DBNull.Value);
+
+                cmd.Parameters.AddWithValue("@IdActor", DBNull.Value);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        dtgRegistrados.Rows.Add(
+                            reader["IdActor"],
+                            reader["Nombre"],
+                            reader["Edad"],
+                            reader["Genero"],
+                            reader["Ciudad"],
+                            reader["Experiencia"]
+                        );
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al buscar actores: {ex.Message}", "Error de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string nombre = txtNombre.Text.Trim();
+            string edad = txtEdad.Text.Trim();
+            string ciudad = txtCiudad.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(edad) && string.IsNullOrWhiteSpace(ciudad))
+            {
+                CargarActores(); // Sin filtros
+            }
+            else
+            {
+                BuscarActores(nombre, edad, ciudad);
+            }
+        }
+
+        private void dtgRegistrados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Deseas cerrar la aplicación?", "Confirmar salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+        "¿Estás seguro de que deseas cerrar la aplicación?",
+        "Confirmar salida",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    );
+
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre
             }
         }
     }
