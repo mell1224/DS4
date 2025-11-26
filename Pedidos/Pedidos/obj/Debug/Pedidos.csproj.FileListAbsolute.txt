@@ -10,6 +10,7 @@ C:\Users\DELL\Documents\GitHub\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.exe
 C:\Users\DELL\Documents\GitHub\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.pdb
 C:\Users\DELL\Documents\GitHub\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.exe.config
 C:\Users\DELL\Documents\GitHub\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.Form2.resources
+<<<<<<< HEAD
 C:\Users\melan\DS4\Pedidos\Pedidos\bin\Debug\Pedidos.exe.config
 C:\Users\melan\DS4\Pedidos\Pedidos\bin\Debug\Pedidos.exe
 C:\Users\melan\DS4\Pedidos\Pedidos\bin\Debug\Pedidos.pdb
@@ -22,3 +23,5 @@ C:\Users\melan\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.csproj.GenerateResource.cac
 C:\Users\melan\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.csproj.CoreCompileInputs.cache
 C:\Users\melan\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.exe
 C:\Users\melan\DS4\Pedidos\Pedidos\obj\Debug\Pedidos.pdb
+=======
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d

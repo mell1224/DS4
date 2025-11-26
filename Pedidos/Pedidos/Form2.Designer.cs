@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.gbLogin = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.txtPassReg = new System.Windows.Forms.TextBox();
             this.lblPassReg = new System.Windows.Forms.Label();
+=======
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.lblReg = new System.Windows.Forms.Label();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.txtCorreoReg = new System.Windows.Forms.TextBox();
@@ -39,6 +42,11 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+<<<<<<< HEAD
+=======
+            this.txtPassReg = new System.Windows.Forms.TextBox();
+            this.lblPassReg = new System.Windows.Forms.Label();
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.lblDummy = new System.Windows.Forms.Label();
             this.gbLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,7 +54,11 @@
             // 
             // gbLogin
             // 
+<<<<<<< HEAD
             this.gbLogin.BackColor = System.Drawing.Color.White;
+=======
+            this.gbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(247)))), ((int)(((byte)(249)))));
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.gbLogin.Controls.Add(this.txtPassReg);
             this.gbLogin.Controls.Add(this.lblPassReg);
             this.gbLogin.Controls.Add(this.lblReg);
@@ -63,6 +75,7 @@
             this.gbLogin.TabIndex = 1;
             this.gbLogin.TabStop = false;
             // 
+<<<<<<< HEAD
             // txtPassReg
             // 
             this.txtPassReg.Location = new System.Drawing.Point(28, 359);
@@ -81,6 +94,8 @@
             this.lblPassReg.TabIndex = 8;
             this.lblPassReg.Text = "Contraseña";
             // 
+=======
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             // lblReg
             // 
             this.lblReg.AutoSize = true;
@@ -94,7 +109,11 @@
             // 
             // btnRegistro
             // 
+<<<<<<< HEAD
             this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(95)))));
+=======
+            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistro.ForeColor = System.Drawing.Color.White;
             this.btnRegistro.Location = new System.Drawing.Point(28, 402);
@@ -161,6 +180,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+<<<<<<< HEAD
+=======
+            // txtPassReg
+            // 
+            this.txtPassReg.Location = new System.Drawing.Point(28, 359);
+            this.txtPassReg.Name = "txtPassReg";
+            this.txtPassReg.Size = new System.Drawing.Size(371, 20);
+            this.txtPassReg.TabIndex = 9;
+            // 
+            // lblPassReg
+            // 
+            this.lblPassReg.AutoSize = true;
+            this.lblPassReg.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblPassReg.Location = new System.Drawing.Point(24, 335);
+            this.lblPassReg.Name = "lblPassReg";
+            this.lblPassReg.Size = new System.Drawing.Size(92, 21);
+            this.lblPassReg.TabIndex = 8;
+            this.lblPassReg.Text = "Contraseña";
+            // 
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             // lblDummy
             // 
             this.lblDummy.AutoSize = true;
@@ -173,7 +213,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
+=======
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(254)))), ((int)(((byte)(244)))));
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);

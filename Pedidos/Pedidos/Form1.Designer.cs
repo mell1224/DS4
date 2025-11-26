@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbLogin = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.lblLog = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -36,6 +37,15 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
+=======
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblCorreo = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.lblPass = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.lblLog = new System.Windows.Forms.Label();
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblDummy = new System.Windows.Forms.Label();
             this.gbLogin.SuspendLayout();
@@ -44,7 +54,11 @@
             // 
             // gbLogin
             // 
+<<<<<<< HEAD
             this.gbLogin.BackColor = System.Drawing.Color.White;
+=======
+            this.gbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(247)))), ((int)(((byte)(249)))));
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.gbLogin.Controls.Add(this.lblLog);
             this.gbLogin.Controls.Add(this.btnLogin);
             this.gbLogin.Controls.Add(this.txtPass);
@@ -59,6 +73,7 @@
             this.gbLogin.TabIndex = 0;
             this.gbLogin.TabStop = false;
             // 
+<<<<<<< HEAD
             // lblLog
             // 
             this.lblLog.AutoSize = true;
@@ -81,6 +96,36 @@
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = false;
+=======
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblLogin.Location = new System.Drawing.Point(132, 161);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(160, 21);
+            this.lblLogin.TabIndex = 1;
+            this.lblLogin.Text = "Ingresa a tu cuenta";
+            // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblCorreo.Location = new System.Drawing.Point(24, 228);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(146, 21);
+            this.lblCorreo.TabIndex = 2;
+            this.lblCorreo.Text = "Correo Electrónico";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(28, 252);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(371, 20);
+            this.txtCorreo.TabIndex = 3;
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             // 
             // txtPass
             // 
@@ -100,6 +145,7 @@
             this.lblPass.TabIndex = 4;
             this.lblPass.Text = "Contraseña";
             // 
+<<<<<<< HEAD
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(28, 252);
@@ -128,6 +174,30 @@
             this.lblLogin.Size = new System.Drawing.Size(160, 21);
             this.lblLogin.TabIndex = 1;
             this.lblLogin.Text = "Ingresa a tu cuenta";
+=======
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(28, 402);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(371, 36);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.Text = "Ingresar";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            // 
+            // lblLog
+            // 
+            this.lblLog.AutoSize = true;
+            this.lblLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblLog.Location = new System.Drawing.Point(136, 455);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(153, 13);
+            this.lblLog.TabIndex = 7;
+            this.lblLog.Text = "¿No tienes cuenta? Regístrate";
+            this.lblLog.Click += new System.EventHandler(this.lblLog_Click);
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             // 
             // pictureBox1
             // 
@@ -152,7 +222,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
+=======
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(253)))), ((int)(((byte)(244)))));
+>>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);
