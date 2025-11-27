@@ -2,15 +2,8 @@
 {
     partial class Form2
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,18 +15,11 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.gbLogin = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
             this.txtPassReg = new System.Windows.Forms.TextBox();
             this.lblPassReg = new System.Windows.Forms.Label();
-=======
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.lblReg = new System.Windows.Forms.Label();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.txtCorreoReg = new System.Windows.Forms.TextBox();
@@ -42,11 +28,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblRegistro = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-<<<<<<< HEAD
-=======
-            this.txtPassReg = new System.Windows.Forms.TextBox();
-            this.lblPassReg = new System.Windows.Forms.Label();
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.lblDummy = new System.Windows.Forms.Label();
             this.gbLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,11 +35,7 @@
             // 
             // gbLogin
             // 
-<<<<<<< HEAD
             this.gbLogin.BackColor = System.Drawing.Color.White;
-=======
-            this.gbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(247)))), ((int)(((byte)(249)))));
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             this.gbLogin.Controls.Add(this.txtPassReg);
             this.gbLogin.Controls.Add(this.lblPassReg);
             this.gbLogin.Controls.Add(this.lblReg);
@@ -75,7 +52,6 @@
             this.gbLogin.TabIndex = 1;
             this.gbLogin.TabStop = false;
             // 
-<<<<<<< HEAD
             // txtPassReg
             // 
             this.txtPassReg.Location = new System.Drawing.Point(28, 359);
@@ -86,20 +62,18 @@
             // lblPassReg
             // 
             this.lblPassReg.AutoSize = true;
-            this.lblPassReg.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblPassReg.Font = new System.Drawing.Font("MV Boli", 12F);
+            this.lblPassReg.ForeColor = System.Drawing.Color.FromArgb(166, 95, 0);
             this.lblPassReg.Location = new System.Drawing.Point(24, 335);
             this.lblPassReg.Name = "lblPassReg";
             this.lblPassReg.Size = new System.Drawing.Size(92, 21);
             this.lblPassReg.TabIndex = 8;
             this.lblPassReg.Text = "Contraseña";
             // 
-=======
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             // lblReg
             // 
             this.lblReg.AutoSize = true;
-            this.lblReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblReg.ForeColor = System.Drawing.Color.FromArgb(166, 95, 0);
             this.lblReg.Location = new System.Drawing.Point(136, 455);
             this.lblReg.Name = "lblReg";
             this.lblReg.Size = new System.Drawing.Size(160, 13);
@@ -109,11 +83,7 @@
             // 
             // btnRegistro
             // 
-<<<<<<< HEAD
-            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(95)))));
-=======
-            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
+            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(252, 168, 95);
             this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistro.ForeColor = System.Drawing.Color.White;
             this.btnRegistro.Location = new System.Drawing.Point(28, 402);
@@ -133,8 +103,8 @@
             // lblCorreoReg
             // 
             this.lblCorreoReg.AutoSize = true;
-            this.lblCorreoReg.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreoReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblCorreoReg.Font = new System.Drawing.Font("MV Boli", 12F);
+            this.lblCorreoReg.ForeColor = System.Drawing.Color.FromArgb(166, 95, 0);
             this.lblCorreoReg.Location = new System.Drawing.Point(24, 265);
             this.lblCorreoReg.Name = "lblCorreoReg";
             this.lblCorreoReg.Size = new System.Drawing.Size(146, 21);
@@ -151,8 +121,8 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblNombre.Font = new System.Drawing.Font("MV Boli", 12F);
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(166, 95, 0);
             this.lblNombre.Location = new System.Drawing.Point(24, 199);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(143, 21);
@@ -162,8 +132,8 @@
             // lblRegistro
             // 
             this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
+            this.lblRegistro.Font = new System.Drawing.Font("MV Boli", 12F);
+            this.lblRegistro.ForeColor = System.Drawing.Color.FromArgb(166, 95, 0);
             this.lblRegistro.Location = new System.Drawing.Point(129, 150);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(157, 21);
@@ -180,27 +150,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-<<<<<<< HEAD
-=======
-            // txtPassReg
-            // 
-            this.txtPassReg.Location = new System.Drawing.Point(28, 359);
-            this.txtPassReg.Name = "txtPassReg";
-            this.txtPassReg.Size = new System.Drawing.Size(371, 20);
-            this.txtPassReg.TabIndex = 9;
-            // 
-            // lblPassReg
-            // 
-            this.lblPassReg.AutoSize = true;
-            this.lblPassReg.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblPassReg.Location = new System.Drawing.Point(24, 335);
-            this.lblPassReg.Name = "lblPassReg";
-            this.lblPassReg.Size = new System.Drawing.Size(92, 21);
-            this.lblPassReg.TabIndex = 8;
-            this.lblPassReg.Text = "Contraseña";
-            // 
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
             // lblDummy
             // 
             this.lblDummy.AutoSize = true;
@@ -213,11 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
-=======
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(254)))), ((int)(((byte)(244)))));
->>>>>>> 289919407065c8b747bfd81c9679a0145f75634d
+            this.BackColor = System.Drawing.Color.FromArgb(247, 247, 234);
             this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);
@@ -229,7 +174,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
