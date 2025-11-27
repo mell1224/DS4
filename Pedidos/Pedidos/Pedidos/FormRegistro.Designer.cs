@@ -1,6 +1,6 @@
 ﻿namespace Pedidos
 {
-    partial class Form2
+    partial class FormRegistro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro));
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.txtPassReg = new System.Windows.Forms.TextBox();
             this.lblPassReg = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             // 
             // gbLogin
             // 
-            this.gbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(247)))), ((int)(((byte)(249)))));
+            this.gbLogin.BackColor = System.Drawing.Color.White;
             this.gbLogin.Controls.Add(this.txtPassReg);
             this.gbLogin.Controls.Add(this.lblPassReg);
             this.gbLogin.Controls.Add(this.lblReg);
@@ -58,7 +58,7 @@
             this.gbLogin.Controls.Add(this.lblNombre);
             this.gbLogin.Controls.Add(this.lblRegistro);
             this.gbLogin.Controls.Add(this.pictureBox1);
-            this.gbLogin.Location = new System.Drawing.Point(367, 82);
+            this.gbLogin.Location = new System.Drawing.Point(375, 102);
             this.gbLogin.Name = "gbLogin";
             this.gbLogin.Size = new System.Drawing.Size(420, 520);
             this.gbLogin.TabIndex = 1;
@@ -95,8 +95,9 @@
             // 
             // btnRegistro
             // 
-            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(103)))), ((int)(((byte)(4)))));
             this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistro.ForeColor = System.Drawing.Color.White;
             this.btnRegistro.Location = new System.Drawing.Point(28, 402);
             this.btnRegistro.Name = "btnRegistro";
@@ -170,16 +171,16 @@
             this.lblDummy.Size = new System.Drawing.Size(0, 13);
             this.lblDummy.TabIndex = 0;
             // 
-            // Form2
+            // FormRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(254)))), ((int)(((byte)(244)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
             this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "FormRegistro";
+            this.Text = "Family Bakery";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();

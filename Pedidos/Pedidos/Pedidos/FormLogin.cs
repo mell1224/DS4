@@ -10,21 +10,25 @@ using System.Windows.Forms;
 
 namespace Pedidos
 {
-    public partial class Form2 : Form
+    public partial class FormLogin : Form
     {
-        public Form2()
+        public FormLogin()
         {
             InitializeComponent();
         }
 
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ConfigurarPlaceholder(txtCorreo, "Ingresa tu correo", false);
+            ConfigurarPlaceholder(txtPass, "Ingresa tu contraseña", true);
+        }
 
         private void ConfigurarPlaceholder(TextBox txt, string placeholder, bool esPassword)
         {
             txt.Text = placeholder;
             txt.ForeColor = Color.Gray;
-            txt.UseSystemPasswordChar = false; 
+            txt.UseSystemPasswordChar = false; // Mostrar texto normal al inicio
 
             txt.Enter += (s, ev) =>
             {
@@ -32,7 +36,7 @@ namespace Pedidos
                 {
                     txt.Text = "";
                     txt.ForeColor = Color.Black;
-                    if (esPassword) txt.UseSystemPasswordChar = true; 
+                    if (esPassword) txt.UseSystemPasswordChar = true; // Activar puntitos
                 }
             };
 
@@ -42,26 +46,16 @@ namespace Pedidos
                 {
                     txt.Text = placeholder;
                     txt.ForeColor = Color.Gray;
-                    if (esPassword) txt.UseSystemPasswordChar = false; 
+                    if (esPassword) txt.UseSystemPasswordChar = false; // Desactivar puntitos
                 }
             };
         }
 
-        private void lblReg_Click(object sender, EventArgs e)
+        private void lblLog_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
+            FormRegistro f2 = new FormRegistro();
+            f2.Show();
             this.Hide();
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-            ConfigurarPlaceholder(txtNombre, "Ingresa tu nombre completo", false);
-            ConfigurarPlaceholder(txtCorreoReg, "Ingresa tu correo", false);
-            ConfigurarPlaceholder(txtPassReg, "Ingresa tu contraseña", true);
-
-            lblDummy.Focus();
         }
     }
 }

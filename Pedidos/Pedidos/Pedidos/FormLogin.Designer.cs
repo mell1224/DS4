@@ -1,6 +1,6 @@
 ﻿namespace Pedidos
 {
-    partial class Form1
+    partial class FormLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.lblLog = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             // 
             // gbLogin
             // 
-            this.gbLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(247)))), ((int)(((byte)(249)))));
+            this.gbLogin.BackColor = System.Drawing.Color.White;
             this.gbLogin.Controls.Add(this.lblLog);
             this.gbLogin.Controls.Add(this.btnLogin);
             this.gbLogin.Controls.Add(this.txtPass);
@@ -54,7 +54,7 @@
             this.gbLogin.Controls.Add(this.lblCorreo);
             this.gbLogin.Controls.Add(this.lblLogin);
             this.gbLogin.Controls.Add(this.pictureBox1);
-            this.gbLogin.Location = new System.Drawing.Point(375, 84);
+            this.gbLogin.Location = new System.Drawing.Point(375, 102);
             this.gbLogin.Name = "gbLogin";
             this.gbLogin.Size = new System.Drawing.Size(420, 520);
             this.gbLogin.TabIndex = 0;
@@ -73,8 +73,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(103)))), ((int)(((byte)(4)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(28, 402);
             this.btnLogin.Name = "btnLogin";
@@ -149,16 +150,16 @@
             this.lblDummy.TabIndex = 1;
             this.lblDummy.Visible = false;
             // 
-            // Form1
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(253)))), ((int)(((byte)(244)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
             this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormLogin";
+            this.Text = "Family Bakery";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
