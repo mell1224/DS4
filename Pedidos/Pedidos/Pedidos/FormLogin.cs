@@ -24,6 +24,8 @@ namespace Pedidos
             ConfigurarPlaceholder(txtPass, "Ingresa tu contraseña", true);
             FormCliente f3 = new FormCliente();
             f3.Show();
+            FormPedido f4 = new FormPedido();
+            f4.Show();
         }
 
         private void ConfigurarPlaceholder(TextBox txt, string placeholder, bool esPassword)
