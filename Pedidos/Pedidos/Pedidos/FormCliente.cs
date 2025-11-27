@@ -16,5 +16,10 @@ namespace Pedidos
         {
             InitializeComponent();
         }
+
+        private void FormCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
