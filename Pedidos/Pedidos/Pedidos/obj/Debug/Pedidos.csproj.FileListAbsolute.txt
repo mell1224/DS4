@@ -22,3 +22,5 @@ C:\Users\Administrador\Documents\GitHub\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pe
 C:\Users\Administrador\Documents\GitHub\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormRegistro.resources
 C:\Users\Administrador\Documents\GitHub\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormLogin.resources
 C:\Users\Administrador\Documents\GitHub\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormCliente.resources
+C:\Users\Administrador\Documents\GitHub\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormCliHistorial.resources
+C:\Users\Administrador\Documents\GitHub\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormAdmin.resources

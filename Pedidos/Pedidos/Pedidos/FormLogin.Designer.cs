@@ -158,6 +158,7 @@
             this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.Text = "Family Bakery";
             this.Load += new System.EventHandler(this.Form1_Load);

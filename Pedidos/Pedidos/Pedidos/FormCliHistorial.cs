@@ -17,5 +17,11 @@ namespace Pedidos
             InitializeComponent();
         }
 
+        private void btnAtrasH_Click(object sender, EventArgs e)
+        {
+            FormCliente formCliente = new FormCliente();
+            formCliente.Show();
+            this.Hide();
+        }
     }
 }

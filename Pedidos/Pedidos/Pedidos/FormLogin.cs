@@ -22,13 +22,15 @@ namespace Pedidos
         {
             ConfigurarPlaceholder(txtCorreo, "Ingresa tu correo", false);
             ConfigurarPlaceholder(txtPass, "Ingresa tu contraseña", true);
+            FormCliente f3 = new FormCliente();
+            f3.Show();
         }
 
         private void ConfigurarPlaceholder(TextBox txt, string placeholder, bool esPassword)
         {
             txt.Text = placeholder;
             txt.ForeColor = Color.Gray;
-            txt.UseSystemPasswordChar = false; // Mostrar texto normal al inicio
+            txt.UseSystemPasswordChar = false; 
 
             txt.Enter += (s, ev) =>
             {
@@ -36,7 +38,7 @@ namespace Pedidos
                 {
                     txt.Text = "";
                     txt.ForeColor = Color.Black;
-                    if (esPassword) txt.UseSystemPasswordChar = true; // Activar puntitos
+                    if (esPassword) txt.UseSystemPasswordChar = true; 
                 }
             };
 
@@ -46,7 +48,7 @@ namespace Pedidos
                 {
                     txt.Text = placeholder;
                     txt.ForeColor = Color.Gray;
-                    if (esPassword) txt.UseSystemPasswordChar = false; // Desactivar puntitos
+                    if (esPassword) txt.UseSystemPasswordChar = false; 
                 }
             };
         }

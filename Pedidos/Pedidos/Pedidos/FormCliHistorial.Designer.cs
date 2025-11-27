@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliHistorial));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAtrasH = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -64,6 +65,7 @@
             this.btnAtrasH.TabIndex = 3;
             this.btnAtrasH.Text = "⬅️";
             this.btnAtrasH.UseVisualStyleBackColor = false;
+            this.btnAtrasH.Click += new System.EventHandler(this.btnAtrasH_Click);
             // 
             // lblCliente
             // 
@@ -128,6 +130,7 @@
             this.ClientSize = new System.Drawing.Size(1197, 692);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCliHistorial";
             this.Text = "FormCliHistorial";
             this.panel1.ResumeLayout(false);
