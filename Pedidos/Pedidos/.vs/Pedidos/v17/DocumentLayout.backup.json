@@ -3,48 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formreceta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formreceta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\forminventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\forminventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formclihistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formclihistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\pedidos\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\pedidos\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\pedidos\\formclihistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formclihistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\pedidos\\formcliente.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formcliente.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,142 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormProducto.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormProducto.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormProducto.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormProducto.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormProducto.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T20:13:43.393Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormProduccion.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormProduccion.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormProduccion.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormProduccion.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormProduccion.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T20:13:30.354Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormReceta.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormReceta.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormReceta.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormReceta.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormReceta.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T20:13:03.995Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormInventario.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormInventario.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormInventario.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormInventario.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormInventario.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T20:12:48.332Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FormPedido.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormPedido.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormPedido.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormPedido.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormPedido.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T20:12:31.589Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{ca8cc5c7-0231-406a-95cd-aa5ed6ac0190}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormCliHistorial.cs",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliHistorial.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormCliHistorial.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliHistorial.cs",
-              "RelativeToolTip": "Pedidos\\FormCliHistorial.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T19:51:13.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormCliHistorial.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliHistorial.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormCliHistorial.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliHistorial.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormCliHistorial.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T19:51:04.827Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormLogin.cs",
+              "Title": "FormLogin.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs",
               "RelativeDocumentMoniker": "Pedidos\\FormLogin.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs",
-              "RelativeToolTip": "Pedidos\\FormLogin.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAwwDIAAABHAAAA",
+              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Pedidos\\FormLogin.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T19:22:24.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FormCliente.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.Designer.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormCliente.Designer.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.Designer.cs",
-              "RelativeToolTip": "Pedidos\\FormCliente.Designer.cs",
-              "ViewState": "AQIAAKEDAAAAAAAAAAAswMsDAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T18:49:55.825Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormCliente.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormCliente.cs",
-              "ToolTip": "C:\\Users\\Administrador\\Documents\\GitHub\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\Administrador\\Documents\\GitHub\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T18:47:55.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FormCliente.cs",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormCliente.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs",
-              "RelativeToolTip": "Pedidos\\FormCliente.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAA4wLwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T18:47:51.828Z"
+              "WhenOpened": "2025-11-28T21:30:28.706Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

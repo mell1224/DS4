@@ -16,5 +16,15 @@ namespace Pedidos
         {
             InitializeComponent();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormProduccion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

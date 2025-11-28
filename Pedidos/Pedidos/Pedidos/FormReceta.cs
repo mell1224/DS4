@@ -16,5 +16,15 @@ namespace Pedidos
         {
             InitializeComponent();
         }
+
+        private void FormReceta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIntroRec_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

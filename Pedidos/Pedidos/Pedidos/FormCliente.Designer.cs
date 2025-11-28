@@ -38,6 +38,10 @@
             this.lblTituloPanel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.plTotal = new System.Windows.Forms.Panel();
+            this.plPConfir = new System.Windows.Forms.Panel();
+            this.lblInfoConfir = new System.Windows.Forms.Label();
+            this.lblPedidoConf = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.plPedidoTotal = new System.Windows.Forms.Panel();
             this.lblVTotal = new System.Windows.Forms.Label();
             this.lblVItbms = new System.Windows.Forms.Label();
@@ -71,7 +75,7 @@
             this.btnSalirCarrito = new System.Windows.Forms.Button();
             this.lblCarrito = new System.Windows.Forms.Label();
             this.pbCarrito = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.plCategoria = new System.Windows.Forms.Panel();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.btnBebidas = new System.Windows.Forms.Button();
             this.btnSalados = new System.Windows.Forms.Button();
@@ -102,13 +106,11 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lblPB = new System.Windows.Forms.Label();
             this.lblBaguette = new System.Windows.Forms.Label();
-            this.plPConfir = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.lblPedidoConf = new System.Windows.Forms.Label();
-            this.lblInfoConfir = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.plTotal.SuspendLayout();
+            this.plPConfir.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.plPedidoTotal.SuspendLayout();
             this.plMetodo.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -117,7 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCantProd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProducto1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarrito)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.plCategoria.SuspendLayout();
             this.plPF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.plCroiss.SuspendLayout();
@@ -126,8 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.plB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.plPConfir.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -239,8 +239,50 @@
             this.plTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.plTotal.Location = new System.Drawing.Point(1203, 0);
             this.plTotal.Name = "plTotal";
-            this.plTotal.Size = new System.Drawing.Size(368, 774);
+            this.plTotal.Size = new System.Drawing.Size(368, 732);
             this.plTotal.TabIndex = 6;
+            // 
+            // plPConfir
+            // 
+            this.plPConfir.BackColor = System.Drawing.Color.Transparent;
+            this.plPConfir.Controls.Add(this.lblInfoConfir);
+            this.plPConfir.Controls.Add(this.lblPedidoConf);
+            this.plPConfir.Controls.Add(this.pictureBox7);
+            this.plPConfir.Location = new System.Drawing.Point(73, 234);
+            this.plPConfir.Name = "plPConfir";
+            this.plPConfir.Size = new System.Drawing.Size(233, 251);
+            this.plPConfir.TabIndex = 9;
+            // 
+            // lblInfoConfir
+            // 
+            this.lblInfoConfir.AutoSize = true;
+            this.lblInfoConfir.Location = new System.Drawing.Point(38, 181);
+            this.lblInfoConfir.Name = "lblInfoConfir";
+            this.lblInfoConfir.Size = new System.Drawing.Size(158, 13);
+            this.lblInfoConfir.TabIndex = 2;
+            this.lblInfoConfir.Text = "Tu pedido está siendo procesado";
+            // 
+            // lblPedidoConf
+            // 
+            this.lblPedidoConf.AutoSize = true;
+            this.lblPedidoConf.BackColor = System.Drawing.Color.Transparent;
+            this.lblPedidoConf.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPedidoConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(169)))), ((int)(((byte)(148)))));
+            this.lblPedidoConf.Location = new System.Drawing.Point(49, 154);
+            this.lblPedidoConf.Name = "lblPedidoConf";
+            this.lblPedidoConf.Size = new System.Drawing.Size(136, 15);
+            this.lblPedidoConf.TabIndex = 1;
+            this.lblPedidoConf.Text = "¡Pedido Confirmado!";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(50, 35);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(130, 121);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
             // 
             // plPedidoTotal
             // 
@@ -585,19 +627,19 @@
             this.pbCarrito.Visible = false;
             this.pbCarrito.Click += new System.EventHandler(this.pbCarrito_Click);
             // 
-            // panel2
+            // plCategoria
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.lblCategoria);
-            this.panel2.Controls.Add(this.btnBebidas);
-            this.panel2.Controls.Add(this.btnSalados);
-            this.panel2.Controls.Add(this.btnPostres);
-            this.panel2.Controls.Add(this.btnPanes);
-            this.panel2.Controls.Add(this.btnTodos);
-            this.panel2.Location = new System.Drawing.Point(61, 165);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 330);
-            this.panel2.TabIndex = 1;
+            this.plCategoria.BackColor = System.Drawing.Color.White;
+            this.plCategoria.Controls.Add(this.lblCategoria);
+            this.plCategoria.Controls.Add(this.btnBebidas);
+            this.plCategoria.Controls.Add(this.btnSalados);
+            this.plCategoria.Controls.Add(this.btnPostres);
+            this.plCategoria.Controls.Add(this.btnPanes);
+            this.plCategoria.Controls.Add(this.btnTodos);
+            this.plCategoria.Location = new System.Drawing.Point(61, 165);
+            this.plCategoria.Name = "plCategoria";
+            this.plCategoria.Size = new System.Drawing.Size(186, 330);
+            this.plCategoria.TabIndex = 1;
             // 
             // lblCategoria
             // 
@@ -927,61 +969,19 @@
             this.lblBaguette.TabIndex = 13;
             this.lblBaguette.Text = "Baguette";
             // 
-            // plPConfir
-            // 
-            this.plPConfir.BackColor = System.Drawing.Color.Transparent;
-            this.plPConfir.Controls.Add(this.lblInfoConfir);
-            this.plPConfir.Controls.Add(this.lblPedidoConf);
-            this.plPConfir.Controls.Add(this.pictureBox7);
-            this.plPConfir.Location = new System.Drawing.Point(73, 234);
-            this.plPConfir.Name = "plPConfir";
-            this.plPConfir.Size = new System.Drawing.Size(233, 251);
-            this.plPConfir.TabIndex = 9;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(50, 35);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(130, 121);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // lblPedidoConf
-            // 
-            this.lblPedidoConf.AutoSize = true;
-            this.lblPedidoConf.BackColor = System.Drawing.Color.Transparent;
-            this.lblPedidoConf.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidoConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(169)))), ((int)(((byte)(148)))));
-            this.lblPedidoConf.Location = new System.Drawing.Point(49, 154);
-            this.lblPedidoConf.Name = "lblPedidoConf";
-            this.lblPedidoConf.Size = new System.Drawing.Size(136, 15);
-            this.lblPedidoConf.TabIndex = 1;
-            this.lblPedidoConf.Text = "¡Pedido Confirmado!";
-            // 
-            // lblInfoConfir
-            // 
-            this.lblInfoConfir.AutoSize = true;
-            this.lblInfoConfir.Location = new System.Drawing.Point(38, 181);
-            this.lblInfoConfir.Name = "lblInfoConfir";
-            this.lblInfoConfir.Size = new System.Drawing.Size(158, 13);
-            this.lblInfoConfir.TabIndex = 2;
-            this.lblInfoConfir.Text = "Tu pedido está siendo procesado";
-            // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1200, 791);
+            this.ClientSize = new System.Drawing.Size(1200, 749);
             this.Controls.Add(this.plTotal);
             this.Controls.Add(this.plB);
             this.Controls.Add(this.plPI);
             this.Controls.Add(this.plCroiss);
             this.Controls.Add(this.plPF);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.plCategoria);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pbCarrito);
             this.Font = new System.Drawing.Font("Constantia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -994,6 +994,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.plTotal.ResumeLayout(false);
             this.plTotal.PerformLayout();
+            this.plPConfir.ResumeLayout(false);
+            this.plPConfir.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.plPedidoTotal.ResumeLayout(false);
             this.plPedidoTotal.PerformLayout();
             this.plMetodo.ResumeLayout(false);
@@ -1007,8 +1010,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCantProd1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProducto1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCarrito)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.plCategoria.ResumeLayout(false);
+            this.plCategoria.PerformLayout();
             this.plPF.ResumeLayout(false);
             this.plPF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1021,9 +1024,6 @@
             this.plB.ResumeLayout(false);
             this.plB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.plPConfir.ResumeLayout(false);
-            this.plPConfir.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1037,7 +1037,7 @@
         private System.Windows.Forms.Button btnHistorial;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel plCategoria;
         private System.Windows.Forms.Panel plPF;
         private System.Windows.Forms.Panel plCroiss;
         private System.Windows.Forms.Panel plPI;
