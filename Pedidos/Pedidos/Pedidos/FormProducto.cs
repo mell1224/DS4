@@ -160,7 +160,7 @@ namespace Pedidos
             txtDescrEdit.Text = ""; // Asigna la descripción si está disponible
             nudPrecEdit.Value = fila.Cells["Column4"].Value != null ? Convert.ToDecimal(fila.Cells["Column4"].Value) : 0;
             nudIniEdit.Value = fila.Cells["Column5"].Value != null ? Convert.ToDecimal(fila.Cells["Column5"].Value) : 0;
-            cmbCategEdit.SelectedIndex = cmbCategEdit.FindStringExact(fila.Cells["Column3"].Value?.ToString() ?? "");
+            cmbCategEdit.SelectedIndex = cmbCategEdit.FindStringExact(fila.Cells["Categoria"].Value?.ToString() ?? "");
 
             plEditProd.Visible = true;
             plNuevoProd.Visible = false;
@@ -319,7 +319,7 @@ namespace Pedidos
 
                 gr.Cells["IdProducto"].Value = row["IdProducto"];
                 gr.Cells["Column2"].Value = row["Nombre"];
-                gr.Cells["Column3"].Value = row["Categoria"];
+                gr.Cells["Categoria"].Value = row["Categoria"];
                 gr.Cells["Column4"].Value = row["PrecioVenta"];
                 gr.Cells["Column5"].Value = row["Stock"];
 
@@ -382,6 +382,7 @@ namespace Pedidos
         }
 
         // ✅ EDITAR PRODUCTO CON SP
+
         private void btnGuardCamb_Click(object sender, EventArgs e)
         {
             if (!ValidarProductoEdicion()) return;
@@ -400,21 +401,21 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ActualizarProducto", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@IdProducto", idProducto);
                     cmd.Parameters.AddWithValue("@Nombre", nombre);
                     cmd.Parameters.AddWithValue("@Descripcion", descripcion);
                     cmd.Parameters.AddWithValue("@IdCategoria", idCategoria);
                     cmd.Parameters.AddWithValue("@PrecioVenta", precio);
-                    cmd.Parameters.AddWithValue("@Stock", stock);
-                    cmd.Parameters.AddWithValue("@ImagenURL",
-                        string.IsNullOrEmpty(imagenUrl) ? (object)DBNull.Value : imagenUrl);
+                    cmd.Parameters.AddWithValue("@ImagenURL", string.IsNullOrEmpty(imagenUrl) ? (object)DBNull.Value : imagenUrl);
+                    cmd.Parameters.AddWithValue("@Activo", 1); // ✅ Se agregó este parámetro
 
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
 
                 MessageBox.Show("Producto actualizado correctamente.",
-                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 plEditProd.Visible = false;
                 CargarProductos();
@@ -422,9 +423,10 @@ namespace Pedidos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar el producto: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         // ✅ ELIMINAR PRODUCTO CON SP
         private void EliminarProducto(int rowIndex)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -53,7 +54,6 @@ namespace Pedidos
             ConfigurarPlaceholder(txtCorreoReg, "Ingresa tu correo", false);
             ConfigurarPlaceholder(txtPassReg, "Ingresa tu contraseña", true);
 
-
             lblDummy.Focus();
         }
 
@@ -62,7 +62,6 @@ namespace Pedidos
             string nombre = txtNombre.Text.Trim();
             string correo = txtCorreoReg.Text.Trim();
             string pass = txtPassReg.Text.Trim();
-            
 
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombre) || nombre == "Ingresa tu nombre completo" ||
@@ -97,7 +96,8 @@ namespace Pedidos
 
                     cmd.Parameters.AddWithValue("@NombreCompleto", nombre);
                     cmd.Parameters.AddWithValue("@Correo", correo);
-                    cmd.Parameters.AddWithValue("@Contrasena", pass);
+                    // ✅ Aplicamos el mismo hash que en el login
+                    cmd.Parameters.AddWithValue("@Contrasena", PasswordHelper.HashPassword(pass));
                     cmd.Parameters.AddWithValue("@Rol", "Cliente"); // Valor por defecto
 
                     cn.Open();
