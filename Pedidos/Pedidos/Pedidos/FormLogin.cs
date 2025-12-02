@@ -1,65 +1,151 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿
+using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pedidos
 {
     public partial class FormLogin : Form
     {
-        public FormLogin()
-        {
-            InitializeComponent();
-        }
-
+        public FormLogin() { InitializeComponent(); }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ConfigurarPlaceholder(txtCorreo, "Ingresa tu correo", false);
             ConfigurarPlaceholder(txtPass, "Ingresa tu contraseña", true);
-            FormCliente f3 = new FormCliente();
-            f3.Show();
-            FormPedido f4 = new FormPedido();
-            f4.Show();
         }
 
         private void ConfigurarPlaceholder(TextBox txt, string placeholder, bool esPassword)
         {
             txt.Text = placeholder;
             txt.ForeColor = Color.Gray;
-            txt.UseSystemPasswordChar = false; 
-
+            txt.UseSystemPasswordChar = false;
             txt.Enter += (s, ev) =>
             {
                 if (txt.Text == placeholder)
                 {
                     txt.Text = "";
                     txt.ForeColor = Color.Black;
-                    if (esPassword) txt.UseSystemPasswordChar = true; 
+                    if (esPassword) txt.UseSystemPasswordChar = true;
                 }
             };
-
             txt.Leave += (s, ev) =>
             {
                 if (string.IsNullOrWhiteSpace(txt.Text))
                 {
                     txt.Text = placeholder;
                     txt.ForeColor = Color.Gray;
-                    if (esPassword) txt.UseSystemPasswordChar = false; 
+                    if (esPassword) txt.UseSystemPasswordChar = false;
                 }
             };
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string correo = txtCorreo.Text.Trim();
+            string pass = txtPass.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(correo) || correo == "Ingresa tu correo" ||
+                string.IsNullOrWhiteSpace(pass) || pass == "Ingresa tu contraseña")
+            {
+                MessageBox.Show("Por favor ingresa tu correo y contraseña.", "Login",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string rol = GestorDeUsuarios.IniciarSesion(correo, pass);
+                if (rol == "ERROR")
+                {
+                    MessageBox.Show("Correo o contraseña incorrectos.", "Login",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"Bienvenido {correo}", "Login",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (rol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
+                        new FormPedido().Show();
+                    else
+                        new FormCliente().Show();
+
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Login",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ✅ Método para abrir el formulario de registro
         private void lblLog_Click(object sender, EventArgs e)
         {
             FormRegistro f2 = new FormRegistro();
             f2.Show();
             this.Hide();
+        }
+
+        private void lblLog_Click_1(object sender, EventArgs e)
+        {
+            FormRegistro f2 = new FormRegistro();
+            f2.Show();
+            this.Hide();
+        }
+    }
+
+    public static class GestorDeUsuarios
+    {
+        public static string IniciarSesion(string email, string password)
+        {
+            using (SqlConnection cn = Conexion.ObtenerConexion())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("SP_ValidarLogin", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Correo", email);
+                    cmd.Parameters.AddWithValue("@Contrasena", PasswordHelper.HashPassword(password));
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                            return dr["Rol"].ToString();
+                        else
+                            return "ERROR";
+                    }
+                }
+            }
+        }
+
+        public static bool RegistrarNuevoUsuario(string email, string password)
+        {
+            using (SqlConnection cn = Conexion.ObtenerConexion())
+            {
+                cn.Open();
+                using (SqlCommand cmd = new SqlCommand("SP_RegistrarUsuario", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Correo", email);
+                    cmd.Parameters.AddWithValue("@Contrasena", PasswordHelper.HashPassword(password));
+                    cmd.Parameters.AddWithValue("@Rol", "Cliente");
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+    }
+
+    public static class PasswordHelper
+    {
+        public static string HashPassword(string password)
+        {
+            // ✅ Simulación simple para proyecto universitario
+            return $"hashed_{password}";
         }
     }
 }

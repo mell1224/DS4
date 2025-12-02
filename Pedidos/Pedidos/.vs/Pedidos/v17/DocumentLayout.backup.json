@@ -1,10 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\",
+  "WorkspaceRootPath": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\melan\\ds4\\pedidos\\pedidos\\pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|c:\\users\\andre\\source\\repos\\mell1224\\app-ds4\\pedidos\\pedidos\\pedidos\\forminventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\forminventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\forminventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\forminventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\pedidos\\formcliente.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{0EB90BCA-B413-4784-AF9B-D99E76547286}|Pedidos\\Pedidos.csproj|solutionrelative:pedidos\\formcliente.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +46,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormLogin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormLogin.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Pedidos\\FormLogin.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T08:37:12.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormPedido.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormPedido.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormPedido.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormPedido.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Pedidos\\FormPedido.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T08:37:00.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormInventario.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormInventario.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormInventario.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormInventario.cs",
+              "RelativeToolTip": "Pedidos\\FormInventario.cs",
+              "ViewState": "AgIAADsBAAAAAAAAAAD4v0QBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T08:18:45.242Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormLogin.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs",
-              "RelativeDocumentMoniker": "Pedidos\\FormLogin.cs",
-              "ToolTip": "C:\\Users\\melan\\DS4\\Pedidos\\Pedidos\\Pedidos\\FormLogin.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Pedidos\\FormLogin.cs [Dise\u00F1o]",
+              "Title": "FormInventario.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormInventario.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormInventario.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormInventario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Pedidos\\FormInventario.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T21:30:28.706Z",
+              "WhenOpened": "2025-12-02T08:17:20.446Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormCliente.resx",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.resx",
+              "RelativeDocumentMoniker": "Pedidos\\FormCliente.resx",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.resx",
+              "RelativeToolTip": "Pedidos\\FormCliente.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-12-02T05:46:22.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormCliente.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormCliente.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormCliente.cs",
+              "RelativeToolTip": "Pedidos\\FormCliente.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAtwJkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T17:19:09.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormProducto.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormProducto.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormProducto.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormProducto.cs",
+              "RelativeToolTip": "Pedidos\\FormProducto.cs",
+              "ViewState": "AgIAAJICAAAAAAAAAADwvzYCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T20:18:44.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormRegistro.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormRegistro.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormRegistro.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormRegistro.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Pedidos\\FormRegistro.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T17:13:19.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormProducto.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormProducto.cs",
+              "RelativeDocumentMoniker": "Pedidos\\FormProducto.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\mell1224\\APP-DS4\\Pedidos\\Pedidos\\Pedidos\\FormProducto.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Pedidos\\FormProducto.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T00:05:28.241Z"
             }
           ]
         }

@@ -35,10 +35,6 @@
             this.lblPLAdmin = new System.Windows.Forms.Label();
             this.plGesInventario = new System.Windows.Forms.Panel();
             this.btnNuevoIng = new System.Windows.Forms.Button();
-            this.plProximoV = new System.Windows.Forms.Panel();
-            this.pb2Warning = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblProxiV = new System.Windows.Forms.Label();
             this.plStockB = new System.Windows.Forms.Panel();
             this.pbWarning1 = new System.Windows.Forms.PictureBox();
             this.lblIngrediente = new System.Windows.Forms.Label();
@@ -80,10 +76,12 @@
             this.txtEditNomI = new System.Windows.Forms.TextBox();
             this.lblEditNomI = new System.Windows.Forms.Label();
             this.lblEditarIngre = new System.Windows.Forms.Label();
+            this.plProximoV = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.plGesInventario.SuspendLayout();
-            this.plProximoV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2Warning)).BeginInit();
             this.plStockB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbWarning1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInventario)).BeginInit();
@@ -93,6 +91,8 @@
             this.plEditarIngrediente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditStockI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditCantI)).BeginInit();
+            this.plProximoV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,6 +120,7 @@
             // 
             this.tsP.Dock = System.Windows.Forms.DockStyle.None;
             this.tsP.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsP.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsP.Location = new System.Drawing.Point(90, 54);
             this.tsP.Name = "tsP";
             this.tsP.Size = new System.Drawing.Size(111, 25);
@@ -139,8 +140,8 @@
             // 
             // plGesInventario
             // 
-            this.plGesInventario.Controls.Add(this.btnNuevoIng);
             this.plGesInventario.Controls.Add(this.plProximoV);
+            this.plGesInventario.Controls.Add(this.btnNuevoIng);
             this.plGesInventario.Controls.Add(this.plStockB);
             this.plGesInventario.Controls.Add(this.lblGestion);
             this.plGesInventario.Location = new System.Drawing.Point(2, 112);
@@ -159,47 +160,7 @@
             this.btnNuevoIng.TabIndex = 3;
             this.btnNuevoIng.Text = "+   Nuevo Ingrediente";
             this.btnNuevoIng.UseVisualStyleBackColor = false;
-            // 
-            // plProximoV
-            // 
-            this.plProximoV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(252)))), ((int)(((byte)(232)))));
-            this.plProximoV.Controls.Add(this.pb2Warning);
-            this.plProximoV.Controls.Add(this.label4);
-            this.plProximoV.Controls.Add(this.lblProxiV);
-            this.plProximoV.Location = new System.Drawing.Point(630, 61);
-            this.plProximoV.Name = "plProximoV";
-            this.plProximoV.Size = new System.Drawing.Size(556, 83);
-            this.plProximoV.TabIndex = 2;
-            // 
-            // pb2Warning
-            // 
-            this.pb2Warning.Image = ((System.Drawing.Image)(resources.GetObject("pb2Warning.Image")));
-            this.pb2Warning.Location = new System.Drawing.Point(15, 20);
-            this.pb2Warning.Name = "pb2Warning";
-            this.pb2Warning.Size = new System.Drawing.Size(43, 43);
-            this.pb2Warning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb2Warning.TabIndex = 3;
-            this.pb2Warning.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(75, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "0 Ingredientes";
-            // 
-            // lblProxiV
-            // 
-            this.lblProxiV.AutoSize = true;
-            this.lblProxiV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(62)))), ((int)(((byte)(10)))));
-            this.lblProxiV.Location = new System.Drawing.Point(75, 14);
-            this.lblProxiV.Name = "lblProxiV";
-            this.lblProxiV.Size = new System.Drawing.Size(90, 13);
-            this.lblProxiV.TabIndex = 0;
-            this.lblProxiV.Text = "Próximo a Vencer";
+            this.btnNuevoIng.Click += new System.EventHandler(this.btnNuevoIng_Click);
             // 
             // plStockB
             // 
@@ -266,49 +227,58 @@
             this.Column5});
             this.dtgInventario.Location = new System.Drawing.Point(2, 277);
             this.dtgInventario.Name = "dtgInventario";
-            this.dtgInventario.Size = new System.Drawing.Size(1186, 150);
+            this.dtgInventario.RowHeadersWidth = 51;
+            this.dtgInventario.Size = new System.Drawing.Size(1186, 543);
             this.dtgInventario.TabIndex = 10;
+            this.dtgInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgInventario_CellContentClick);
             // 
             // Nombre
             // 
             this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
             // 
             // Cantidad
             // 
             this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.HeaderText = "Unidad";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "Stock Mínimo";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "Fecha de Vencimiento";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "";
+            this.Column4.HeaderText = "Editar";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.HeaderText = "";
+            this.Column5.HeaderText = "Eliminar";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
             // plNuevoIngre
@@ -327,7 +297,7 @@
             this.plNuevoIngre.Controls.Add(this.txtNombreIngre);
             this.plNuevoIngre.Controls.Add(this.lblNomIngre);
             this.plNuevoIngre.Controls.Add(this.lblNuevoI);
-            this.plNuevoIngre.Location = new System.Drawing.Point(346, 112);
+            this.plNuevoIngre.Location = new System.Drawing.Point(3, 3);
             this.plNuevoIngre.Name = "plNuevoIngre";
             this.plNuevoIngre.Size = new System.Drawing.Size(425, 526);
             this.plNuevoIngre.TabIndex = 4;
@@ -343,6 +313,7 @@
             this.btnGuardarIngre.TabIndex = 12;
             this.btnGuardarIngre.Text = "Guardar";
             this.btnGuardarIngre.UseVisualStyleBackColor = false;
+            this.btnGuardarIngre.Click += new System.EventHandler(this.btnGuardarIngre_Click);
             // 
             // btnCancelarIngre
             // 
@@ -455,6 +426,7 @@
             // 
             this.plEditarIngrediente.BackColor = System.Drawing.Color.White;
             this.plEditarIngrediente.Controls.Add(this.btnEditGuarI);
+            this.plEditarIngrediente.Controls.Add(this.plNuevoIngre);
             this.plEditarIngrediente.Controls.Add(this.btnEditCancI);
             this.plEditarIngrediente.Controls.Add(this.mcalEditI);
             this.plEditarIngrediente.Controls.Add(this.lblEditFechaI);
@@ -467,9 +439,9 @@
             this.plEditarIngrediente.Controls.Add(this.txtEditNomI);
             this.plEditarIngrediente.Controls.Add(this.lblEditNomI);
             this.plEditarIngrediente.Controls.Add(this.lblEditarIngre);
-            this.plEditarIngrediente.Location = new System.Drawing.Point(777, 212);
+            this.plEditarIngrediente.Location = new System.Drawing.Point(239, 277);
             this.plEditarIngrediente.Name = "plEditarIngrediente";
-            this.plEditarIngrediente.Size = new System.Drawing.Size(425, 526);
+            this.plEditarIngrediente.Size = new System.Drawing.Size(460, 526);
             this.plEditarIngrediente.TabIndex = 13;
             // 
             // btnEditGuarI
@@ -483,6 +455,7 @@
             this.btnEditGuarI.TabIndex = 12;
             this.btnEditGuarI.Text = "Guardar";
             this.btnEditGuarI.UseVisualStyleBackColor = false;
+            this.btnEditGuarI.Click += new System.EventHandler(this.btnEditGuarI_Click);
             // 
             // btnEditCancI
             // 
@@ -591,13 +564,55 @@
             this.lblEditarIngre.TabIndex = 0;
             this.lblEditarIngre.Text = "Editar Ingrediente";
             // 
+            // plProximoV
+            // 
+            this.plProximoV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.plProximoV.Controls.Add(this.pictureBox1);
+            this.plProximoV.Controls.Add(this.label4);
+            this.plProximoV.Controls.Add(this.label2);
+            this.plProximoV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(24)))), ((int)(((byte)(61)))));
+            this.plProximoV.Location = new System.Drawing.Point(604, 61);
+            this.plProximoV.Name = "plProximoV";
+            this.plProximoV.Size = new System.Drawing.Size(556, 83);
+            this.plProximoV.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(18, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(0)))), ((int)(((byte)(7)))));
+            this.label4.Location = new System.Drawing.Point(67, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 15);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "0 Ingredientes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(67, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Stock Bajo";
+            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 749);
             this.Controls.Add(this.plEditarIngrediente);
-            this.Controls.Add(this.plNuevoIngre);
             this.Controls.Add(this.dtgInventario);
             this.Controls.Add(this.plGesInventario);
             this.Controls.Add(this.panel1);
@@ -607,9 +622,6 @@
             this.panel1.PerformLayout();
             this.plGesInventario.ResumeLayout(false);
             this.plGesInventario.PerformLayout();
-            this.plProximoV.ResumeLayout(false);
-            this.plProximoV.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb2Warning)).EndInit();
             this.plStockB.ResumeLayout(false);
             this.plStockB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbWarning1)).EndInit();
@@ -622,6 +634,9 @@
             this.plEditarIngrediente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditStockI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditCantI)).EndInit();
+            this.plProximoV.ResumeLayout(false);
+            this.plProximoV.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -635,20 +650,9 @@
         private System.Windows.Forms.Panel plGesInventario;
         private System.Windows.Forms.Label lblGestion;
         private System.Windows.Forms.Panel plStockB;
-        private System.Windows.Forms.Panel plProximoV;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblProxiV;
         private System.Windows.Forms.Label lblIngrediente;
         private System.Windows.Forms.Label lblStockb;
-        private System.Windows.Forms.PictureBox pb2Warning;
         private System.Windows.Forms.DataGridView dtgInventario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.PictureBox pbWarning1;
         private System.Windows.Forms.Panel plNuevoIngre;
         private System.Windows.Forms.Button btnNuevoIng;
@@ -679,5 +683,16 @@
         private System.Windows.Forms.TextBox txtEditNomI;
         private System.Windows.Forms.Label lblEditNomI;
         private System.Windows.Forms.Label lblEditarIngre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn Column4;
+        private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private System.Windows.Forms.Panel plProximoV;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
     }
 }

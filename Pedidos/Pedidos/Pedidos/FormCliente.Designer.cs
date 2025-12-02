@@ -152,7 +152,7 @@
             this.lblBuscar.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscar.Location = new System.Drawing.Point(68, 82);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(38, 26);
+            this.lblBuscar.Size = new System.Drawing.Size(47, 33);
             this.lblBuscar.TabIndex = 6;
             this.lblBuscar.Text = "🔍";
             // 
@@ -162,7 +162,7 @@
             this.lblCliente.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCliente.Location = new System.Drawing.Point(896, 33);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(117, 23);
+            this.lblCliente.Size = new System.Drawing.Size(151, 29);
             this.lblCliente.TabIndex = 4;
             this.lblCliente.Text = "Hola, Cliente";
             // 
@@ -198,7 +198,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(110, 76);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(1018, 38);
+            this.txtBuscar.Size = new System.Drawing.Size(1018, 46);
             this.txtBuscar.TabIndex = 2;
             // 
             // lblTituloPanel
@@ -208,7 +208,7 @@
             this.lblTituloPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(92)))), ((int)(((byte)(0)))));
             this.lblTituloPanel.Location = new System.Drawing.Point(141, 26);
             this.lblTituloPanel.Name = "lblTituloPanel";
-            this.lblTituloPanel.Size = new System.Drawing.Size(140, 24);
+            this.lblTituloPanel.Size = new System.Drawing.Size(177, 29);
             this.lblTituloPanel.TabIndex = 1;
             this.lblTituloPanel.Text = "Family Bakery";
             // 
@@ -239,7 +239,7 @@
             this.plTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.plTotal.Location = new System.Drawing.Point(1203, 0);
             this.plTotal.Name = "plTotal";
-            this.plTotal.Size = new System.Drawing.Size(368, 732);
+            this.plTotal.Size = new System.Drawing.Size(368, 728);
             this.plTotal.TabIndex = 6;
             // 
             // plPConfir
@@ -258,7 +258,7 @@
             this.lblInfoConfir.AutoSize = true;
             this.lblInfoConfir.Location = new System.Drawing.Point(38, 181);
             this.lblInfoConfir.Name = "lblInfoConfir";
-            this.lblInfoConfir.Size = new System.Drawing.Size(158, 13);
+            this.lblInfoConfir.Size = new System.Drawing.Size(212, 17);
             this.lblInfoConfir.TabIndex = 2;
             this.lblInfoConfir.Text = "Tu pedido está siendo procesado";
             // 
@@ -270,7 +270,7 @@
             this.lblPedidoConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(169)))), ((int)(((byte)(148)))));
             this.lblPedidoConf.Location = new System.Drawing.Point(49, 154);
             this.lblPedidoConf.Name = "lblPedidoConf";
-            this.lblPedidoConf.Size = new System.Drawing.Size(136, 15);
+            this.lblPedidoConf.Size = new System.Drawing.Size(178, 21);
             this.lblPedidoConf.TabIndex = 1;
             this.lblPedidoConf.Text = "¡Pedido Confirmado!";
             // 
@@ -305,7 +305,7 @@
             this.lblVTotal.AutoSize = true;
             this.lblVTotal.Location = new System.Drawing.Point(302, 69);
             this.lblVTotal.Name = "lblVTotal";
-            this.lblVTotal.Size = new System.Drawing.Size(33, 13);
+            this.lblVTotal.Size = new System.Drawing.Size(42, 17);
             this.lblVTotal.TabIndex = 7;
             this.lblVTotal.Text = "$0.00";
             // 
@@ -314,7 +314,7 @@
             this.lblVItbms.AutoSize = true;
             this.lblVItbms.Location = new System.Drawing.Point(302, 42);
             this.lblVItbms.Name = "lblVItbms";
-            this.lblVItbms.Size = new System.Drawing.Size(33, 13);
+            this.lblVItbms.Size = new System.Drawing.Size(42, 17);
             this.lblVItbms.TabIndex = 6;
             this.lblVItbms.Text = "$0.00";
             // 
@@ -323,7 +323,7 @@
             this.lblVSubtotal.AutoSize = true;
             this.lblVSubtotal.Location = new System.Drawing.Point(302, 20);
             this.lblVSubtotal.Name = "lblVSubtotal";
-            this.lblVSubtotal.Size = new System.Drawing.Size(33, 13);
+            this.lblVSubtotal.Size = new System.Drawing.Size(42, 17);
             this.lblVSubtotal.TabIndex = 5;
             this.lblVSubtotal.Text = "$0.00";
             // 
@@ -332,7 +332,7 @@
             this.linea.AutoSize = true;
             this.linea.Location = new System.Drawing.Point(37, 56);
             this.linea.Name = "linea";
-            this.linea.Size = new System.Drawing.Size(303, 13);
+            this.linea.Size = new System.Drawing.Size(378, 17);
             this.linea.TabIndex = 4;
             this.linea.Text = "--------------------------------------------------------------------------";
             // 
@@ -341,7 +341,7 @@
             this.lblItmbs.AutoSize = true;
             this.lblItmbs.Location = new System.Drawing.Point(37, 42);
             this.lblItmbs.Name = "lblItmbs";
-            this.lblItmbs.Size = new System.Drawing.Size(72, 13);
+            this.lblItmbs.Size = new System.Drawing.Size(91, 17);
             this.lblItmbs.TabIndex = 3;
             this.lblItmbs.Text = "ITBMS (7%): ";
             // 
@@ -350,7 +350,7 @@
             this.lblSubtotal.AutoSize = true;
             this.lblSubtotal.Location = new System.Drawing.Point(37, 20);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(53, 13);
+            this.lblSubtotal.Size = new System.Drawing.Size(68, 17);
             this.lblSubtotal.TabIndex = 2;
             this.lblSubtotal.Text = "Subtotal: ";
             // 
@@ -359,7 +359,7 @@
             this.lblTotalPedido.AutoSize = true;
             this.lblTotalPedido.Location = new System.Drawing.Point(37, 70);
             this.lblTotalPedido.Name = "lblTotalPedido";
-            this.lblTotalPedido.Size = new System.Drawing.Size(37, 13);
+            this.lblTotalPedido.Size = new System.Drawing.Size(48, 17);
             this.lblTotalPedido.TabIndex = 1;
             this.lblTotalPedido.Text = "Total: ";
             // 
@@ -406,7 +406,7 @@
             this.lblInfoEfect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(180)))), ((int)(((byte)(189)))));
             this.lblInfoEfect.Location = new System.Drawing.Point(37, 28);
             this.lblInfoEfect.Name = "lblInfoEfect";
-            this.lblInfoEfect.Size = new System.Drawing.Size(202, 13);
+            this.lblInfoEfect.Size = new System.Drawing.Size(268, 17);
             this.lblInfoEfect.TabIndex = 4;
             this.lblInfoEfect.Text = "Paga en efectivo cuando recibas tu pedido";
             // 
@@ -415,7 +415,7 @@
             this.lblEfectivo.AutoSize = true;
             this.lblEfectivo.Location = new System.Drawing.Point(32, 7);
             this.lblEfectivo.Name = "lblEfectivo";
-            this.lblEfectivo.Size = new System.Drawing.Size(122, 13);
+            this.lblEfectivo.Size = new System.Drawing.Size(159, 17);
             this.lblEfectivo.TabIndex = 2;
             this.lblEfectivo.Text = "Efectivo (Pago al recibir)";
             // 
@@ -424,7 +424,7 @@
             this.rbEfectivo.AutoSize = true;
             this.rbEfectivo.Location = new System.Drawing.Point(8, 28);
             this.rbEfectivo.Name = "rbEfectivo";
-            this.rbEfectivo.Size = new System.Drawing.Size(14, 13);
+            this.rbEfectivo.Size = new System.Drawing.Size(17, 16);
             this.rbEfectivo.TabIndex = 1;
             this.rbEfectivo.TabStop = true;
             this.rbEfectivo.UseVisualStyleBackColor = true;
@@ -434,7 +434,7 @@
             this.rbTarjeta.AutoSize = true;
             this.rbTarjeta.Location = new System.Drawing.Point(29, 137);
             this.rbTarjeta.Name = "rbTarjeta";
-            this.rbTarjeta.Size = new System.Drawing.Size(14, 13);
+            this.rbTarjeta.Size = new System.Drawing.Size(17, 16);
             this.rbTarjeta.TabIndex = 2;
             this.rbTarjeta.TabStop = true;
             this.rbTarjeta.UseVisualStyleBackColor = true;
@@ -445,7 +445,7 @@
             this.lblMetodo.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetodo.Location = new System.Drawing.Point(12, 11);
             this.lblMetodo.Name = "lblMetodo";
-            this.lblMetodo.Size = new System.Drawing.Size(115, 18);
+            this.lblMetodo.Size = new System.Drawing.Size(144, 23);
             this.lblMetodo.TabIndex = 0;
             this.lblMetodo.Text = "Método de Pago";
             // 
@@ -464,7 +464,7 @@
             this.lblTarjeta.AutoSize = true;
             this.lblTarjeta.Location = new System.Drawing.Point(32, 10);
             this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.Size = new System.Drawing.Size(142, 13);
+            this.lblTarjeta.Size = new System.Drawing.Size(185, 17);
             this.lblTarjeta.TabIndex = 4;
             this.lblTarjeta.Text = "Tarjeta/POS (Pago al recibir)";
             // 
@@ -474,7 +474,7 @@
             this.lblInfoTarjeta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(180)))), ((int)(((byte)(189)))));
             this.lblInfoTarjeta.Location = new System.Drawing.Point(38, 32);
             this.lblInfoTarjeta.Name = "lblInfoTarjeta";
-            this.lblInfoTarjeta.Size = new System.Drawing.Size(202, 13);
+            this.lblInfoTarjeta.Size = new System.Drawing.Size(268, 17);
             this.lblInfoTarjeta.TabIndex = 3;
             this.lblInfoTarjeta.Text = "Paga en efectivo cuando recibas tu pedido";
             // 
@@ -493,7 +493,7 @@
             this.lblObser.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblObser.Location = new System.Drawing.Point(32, 312);
             this.lblObser.Name = "lblObser";
-            this.lblObser.Size = new System.Drawing.Size(111, 19);
+            this.lblObser.Size = new System.Drawing.Size(139, 24);
             this.lblObser.TabIndex = 5;
             this.lblObser.Text = "Observaciones";
             // 
@@ -512,7 +512,7 @@
             this.lblDir.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDir.Location = new System.Drawing.Point(29, 190);
             this.lblDir.Name = "lblDir";
-            this.lblDir.Size = new System.Drawing.Size(156, 19);
+            this.lblDir.Size = new System.Drawing.Size(196, 24);
             this.lblDir.TabIndex = 3;
             this.lblDir.Text = "Dirección de Entrega";
             // 
@@ -549,7 +549,7 @@
             this.nudCantProd1.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudCantProd1.Location = new System.Drawing.Point(119, 76);
             this.nudCantProd1.Name = "nudCantProd1";
-            this.nudCantProd1.Size = new System.Drawing.Size(54, 26);
+            this.nudCantProd1.Size = new System.Drawing.Size(54, 30);
             this.nudCantProd1.TabIndex = 4;
             // 
             // lblPrecioProdCarro1
@@ -560,7 +560,7 @@
             this.lblPrecioProdCarro1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(103)))), ((int)(((byte)(4)))));
             this.lblPrecioProdCarro1.Location = new System.Drawing.Point(116, 47);
             this.lblPrecioProdCarro1.Name = "lblPrecioProdCarro1";
-            this.lblPrecioProdCarro1.Size = new System.Drawing.Size(53, 23);
+            this.lblPrecioProdCarro1.Size = new System.Drawing.Size(69, 29);
             this.lblPrecioProdCarro1.TabIndex = 3;
             this.lblPrecioProdCarro1.Text = "$0.00";
             // 
@@ -570,7 +570,7 @@
             this.lblPrecioAcumCarr1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioAcumCarr1.Location = new System.Drawing.Point(262, 19);
             this.lblPrecioAcumCarr1.Name = "lblPrecioAcumCarr1";
-            this.lblPrecioAcumCarr1.Size = new System.Drawing.Size(53, 23);
+            this.lblPrecioAcumCarr1.Size = new System.Drawing.Size(69, 29);
             this.lblPrecioAcumCarr1.TabIndex = 2;
             this.lblPrecioAcumCarr1.Text = "$0.00";
             // 
@@ -580,7 +580,7 @@
             this.lblProdCarro1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProdCarro1.Location = new System.Drawing.Point(103, 20);
             this.lblProdCarro1.Name = "lblProdCarro1";
-            this.lblProdCarro1.Size = new System.Drawing.Size(86, 23);
+            this.lblProdCarro1.Size = new System.Drawing.Size(109, 29);
             this.lblProdCarro1.TabIndex = 1;
             this.lblProdCarro1.Text = "Producto";
             // 
@@ -611,7 +611,7 @@
             this.lblCarrito.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarrito.Location = new System.Drawing.Point(17, 26);
             this.lblCarrito.Name = "lblCarrito";
-            this.lblCarrito.Size = new System.Drawing.Size(81, 19);
+            this.lblCarrito.Size = new System.Drawing.Size(99, 24);
             this.lblCarrito.TabIndex = 0;
             this.lblCarrito.Text = "Tu Carrito";
             // 
@@ -647,7 +647,7 @@
             this.lblCategoria.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.Location = new System.Drawing.Point(9, 16);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(83, 19);
+            this.lblCategoria.Size = new System.Drawing.Size(103, 24);
             this.lblCategoria.TabIndex = 6;
             this.lblCategoria.Text = "Categorías";
             // 
@@ -743,7 +743,7 @@
             this.lblSPF.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSPF.Location = new System.Drawing.Point(181, 173);
             this.lblSPF.Name = "lblSPF";
-            this.lblSPF.Size = new System.Drawing.Size(47, 14);
+            this.lblSPF.Size = new System.Drawing.Size(60, 18);
             this.lblSPF.TabIndex = 3;
             this.lblSPF.Text = "Stock: 0";
             // 
@@ -753,7 +753,7 @@
             this.lblPPF.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPPF.Location = new System.Drawing.Point(15, 168);
             this.lblPPF.Name = "lblPPF";
-            this.lblPPF.Size = new System.Drawing.Size(33, 14);
+            this.lblPPF.Size = new System.Drawing.Size(41, 18);
             this.lblPPF.TabIndex = 2;
             this.lblPPF.Text = "$0.25";
             // 
@@ -763,7 +763,7 @@
             this.lblPF.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPF.Location = new System.Drawing.Point(14, 143);
             this.lblPF.Name = "lblPF";
-            this.lblPF.Size = new System.Drawing.Size(92, 19);
+            this.lblPF.Size = new System.Drawing.Size(117, 24);
             this.lblPF.TabIndex = 1;
             this.lblPF.Text = "Pan Francés";
             // 
@@ -809,7 +809,7 @@
             this.lblSCroiss.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSCroiss.Location = new System.Drawing.Point(180, 173);
             this.lblSCroiss.Name = "lblSCroiss";
-            this.lblSCroiss.Size = new System.Drawing.Size(47, 14);
+            this.lblSCroiss.Size = new System.Drawing.Size(60, 18);
             this.lblSCroiss.TabIndex = 7;
             this.lblSCroiss.Text = "Stock: 0";
             // 
@@ -827,7 +827,7 @@
             this.lblPCroiss.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPCroiss.Location = new System.Drawing.Point(14, 168);
             this.lblPCroiss.Name = "lblPCroiss";
-            this.lblPCroiss.Size = new System.Drawing.Size(31, 14);
+            this.lblPCroiss.Size = new System.Drawing.Size(39, 18);
             this.lblPCroiss.TabIndex = 6;
             this.lblPCroiss.Text = "$1.50";
             // 
@@ -837,7 +837,7 @@
             this.lblCroiss.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCroiss.Location = new System.Drawing.Point(13, 143);
             this.lblCroiss.Name = "lblCroiss";
-            this.lblCroiss.Size = new System.Drawing.Size(74, 19);
+            this.lblCroiss.Size = new System.Drawing.Size(93, 24);
             this.lblCroiss.TabIndex = 5;
             this.lblCroiss.Text = "Croissant";
             // 
@@ -873,7 +873,7 @@
             this.lblSPI.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSPI.Location = new System.Drawing.Point(182, 175);
             this.lblSPI.Name = "lblSPI";
-            this.lblSPI.Size = new System.Drawing.Size(47, 14);
+            this.lblSPI.Size = new System.Drawing.Size(60, 18);
             this.lblSPI.TabIndex = 11;
             this.lblSPI.Text = "Stock: 0";
             // 
@@ -891,7 +891,7 @@
             this.lblPPI.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPPI.Location = new System.Drawing.Point(16, 170);
             this.lblPPI.Name = "lblPPI";
-            this.lblPPI.Size = new System.Drawing.Size(31, 14);
+            this.lblPPI.Size = new System.Drawing.Size(38, 18);
             this.lblPPI.TabIndex = 10;
             this.lblPPI.Text = "$1.75";
             // 
@@ -901,7 +901,7 @@
             this.lblPanI.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPanI.Location = new System.Drawing.Point(15, 145);
             this.lblPanI.Name = "lblPanI";
-            this.lblPanI.Size = new System.Drawing.Size(94, 19);
+            this.lblPanI.Size = new System.Drawing.Size(119, 24);
             this.lblPanI.TabIndex = 9;
             this.lblPanI.Text = "Pan Integral";
             // 
@@ -937,7 +937,7 @@
             this.lblSB.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSB.Location = new System.Drawing.Point(181, 172);
             this.lblSB.Name = "lblSB";
-            this.lblSB.Size = new System.Drawing.Size(47, 14);
+            this.lblSB.Size = new System.Drawing.Size(60, 18);
             this.lblSB.TabIndex = 15;
             this.lblSB.Text = "Stock: 0";
             // 
@@ -955,7 +955,7 @@
             this.lblPB.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPB.Location = new System.Drawing.Point(15, 167);
             this.lblPB.Name = "lblPB";
-            this.lblPB.Size = new System.Drawing.Size(31, 14);
+            this.lblPB.Size = new System.Drawing.Size(38, 18);
             this.lblPB.TabIndex = 14;
             this.lblPB.Text = "$1.25";
             // 
@@ -965,13 +965,13 @@
             this.lblBaguette.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBaguette.Location = new System.Drawing.Point(14, 142);
             this.lblBaguette.Name = "lblBaguette";
-            this.lblBaguette.Size = new System.Drawing.Size(72, 19);
+            this.lblBaguette.Size = new System.Drawing.Size(87, 24);
             this.lblBaguette.TabIndex = 13;
             this.lblBaguette.Text = "Baguette";
             // 
             // FormCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

@@ -69,7 +69,7 @@
             this.lblLog.Size = new System.Drawing.Size(153, 13);
             this.lblLog.TabIndex = 7;
             this.lblLog.Text = "¿No tienes cuenta? Regístrate";
-            this.lblLog.Click += new System.EventHandler(this.lblLog_Click);
+            this.lblLog.Click += new System.EventHandler(this.lblLog_Click_1);
             // 
             // btnLogin
             // 
@@ -83,6 +83,7 @@
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPass
             // 

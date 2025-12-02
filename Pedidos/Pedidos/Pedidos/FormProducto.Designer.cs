@@ -76,6 +76,10 @@
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnNuevoProducto = new System.Windows.Forms.Button();
             this.plNuevoProd = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCanceProd = new System.Windows.Forms.Button();
             this.btnCrearProd = new System.Windows.Forms.Button();
             this.dtgImaNue = new System.Windows.Forms.DataGridView();
@@ -91,10 +95,6 @@
             this.txtNombProd = new System.Windows.Forms.TextBox();
             this.lblSubTitProdN = new System.Windows.Forms.Label();
             this.lblTitNuevoProd = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.plEditProd = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -166,6 +166,7 @@
             // 
             this.tsP.Dock = System.Windows.Forms.DockStyle.None;
             this.tsP.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsP.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsP.Location = new System.Drawing.Point(90, 54);
             this.tsP.Name = "tsP";
             this.tsP.Size = new System.Drawing.Size(111, 25);
@@ -538,6 +539,7 @@
             this.Column7});
             this.dtgProductos.Location = new System.Drawing.Point(91, 567);
             this.dtgProductos.Name = "dtgProductos";
+            this.dtgProductos.RowHeadersWidth = 51;
             this.dtgProductos.Size = new System.Drawing.Size(1023, 83);
             this.dtgProductos.TabIndex = 14;
             // 
@@ -545,42 +547,49 @@
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column1.HeaderText = "Imagen";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "Produto";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "Categoría";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column4.HeaderText = "Precio";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column5.HeaderText = "Stock";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column6.HeaderText = "Editar";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             // 
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column7.HeaderText = "Eliminar";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -618,10 +627,50 @@
             this.plNuevoProd.Controls.Add(this.txtNombProd);
             this.plNuevoProd.Controls.Add(this.lblSubTitProdN);
             this.plNuevoProd.Controls.Add(this.lblTitNuevoProd);
-            this.plNuevoProd.Location = new System.Drawing.Point(80, 31);
+            this.plNuevoProd.Location = new System.Drawing.Point(184, 101);
             this.plNuevoProd.Name = "plNuevoProd";
             this.plNuevoProd.Size = new System.Drawing.Size(422, 504);
             this.plNuevoProd.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(77, 253);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(11, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "*";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(94, 322);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(297, 252);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(11, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(133, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "*";
             // 
             // btnCanceProd
             // 
@@ -648,6 +697,7 @@
             this.dataGridViewImageColumn1});
             this.dtgImaNue.Location = new System.Drawing.Point(22, 379);
             this.dtgImaNue.Name = "dtgImaNue";
+            this.dtgImaNue.RowHeadersWidth = 51;
             this.dtgImaNue.Size = new System.Drawing.Size(377, 46);
             this.dtgImaNue.TabIndex = 12;
             // 
@@ -655,6 +705,7 @@
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewImageColumn1.HeaderText = "Imagen";
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -753,46 +804,6 @@
             this.lblTitNuevoProd.TabIndex = 0;
             this.lblTitNuevoProd.Text = "Nuevo Producto";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(133, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(11, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "*";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(297, 252);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(11, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(94, 322);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "*";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(77, 253);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(11, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "*";
-            // 
             // plEditProd
             // 
             this.plEditProd.BackColor = System.Drawing.Color.White;
@@ -814,7 +825,7 @@
             this.plEditProd.Controls.Add(this.txtEditProd);
             this.plEditProd.Controls.Add(this.lblSubTitProdEdit);
             this.plEditProd.Controls.Add(this.lblTitEditProd);
-            this.plEditProd.Location = new System.Drawing.Point(515, 32);
+            this.plEditProd.Location = new System.Drawing.Point(633, 101);
             this.plEditProd.Name = "plEditProd";
             this.plEditProd.Size = new System.Drawing.Size(422, 504);
             this.plEditProd.TabIndex = 18;
@@ -884,6 +895,7 @@
             this.dataGridViewImageColumn2});
             this.dtgImaEdit.Location = new System.Drawing.Point(22, 379);
             this.dtgImaEdit.Name = "dtgImaEdit";
+            this.dtgImaEdit.RowHeadersWidth = 51;
             this.dtgImaEdit.Size = new System.Drawing.Size(377, 46);
             this.dtgImaEdit.TabIndex = 12;
             // 
@@ -891,6 +903,7 @@
             // 
             this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewImageColumn2.HeaderText = "Imagen";
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -994,9 +1007,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 749);
-            this.Controls.Add(this.plEditProd);
             this.Controls.Add(this.plNuevoProd);
             this.Controls.Add(this.btnNuevoProducto);
+            this.Controls.Add(this.plEditProd);
             this.Controls.Add(this.dtgProductos);
             this.Controls.Add(this.plVistaInfoProd);
             this.Controls.Add(this.plStockProducto);
