@@ -59,6 +59,18 @@
     <Compile Include="FormCliHistorial.Designer.cs">
       <DependentUpon>FormCliHistorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInfoCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfoCurso.Designer.cs">
+      <DependentUpon>FormInfoCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfoProy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfoProy.Designer.cs">
+      <DependentUpon>FormInfoProy.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCliHistorial.resx">
       <DependentUpon>FormCliHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfoCurso.resx">
+      <DependentUpon>FormInfoCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfoProy.resx">
+      <DependentUpon>FormInfoProy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInventario.resx">
       <DependentUpon>FormInventario.cs</DependentUpon>

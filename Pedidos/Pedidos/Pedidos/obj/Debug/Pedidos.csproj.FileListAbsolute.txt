@@ -101,3 +101,5 @@ C:\Users\melan\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.csproj.GenerateReso
 C:\Users\melan\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.csproj.CoreCompileInputs.cache
 C:\Users\melan\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.exe
 C:\Users\melan\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.pdb
+C:\Users\melan\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormInfoCurso.resources
+C:\Users\melan\DS4\Pedidos\Pedidos\Pedidos\obj\Debug\Pedidos.FormInfoProy.resources
