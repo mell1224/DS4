@@ -55,11 +55,56 @@ namespace Pedidos
         }
 
         // 1. Método ConfigurarMenu
+
         private void ConfigurarMenu()
         {
-            // Implementación básica, puedes personalizar según tu menú
-            // Ejemplo: inicializar botones del menú si es necesario
+            // Crear botones
+            btnPedidos = new ToolStripButton("Pedidos");
+            btnInventario = new ToolStripButton("Inventario");
+            btnRecetas = new ToolStripButton("Recetas");
+            btnProduccion = new ToolStripButton("Producción");
+            btnProductos = new ToolStripButton("Productos");
+
+            // Asignar eventos para abrir formularios
+            btnPedidos.Click += (s, e) => AbrirFormulario(new FormPedido(), btnPedidos);
+            btnInventario.Click += (s, e) => AbrirFormulario(new FormInventario(), btnInventario);
+            btnRecetas.Click += (s, e) => AbrirFormulario(new FormReceta(), btnRecetas);
+            btnProduccion.Click += (s, e) => AbrirFormulario(new FormProduccion(), btnProduccion);
+            btnProductos.Click += (s, e) => AbrirFormulario(new FormProducto(), btnProductos);
+
+            // Agregar botones al ToolStrip
+            tsP.Items.AddRange(new ToolStripItem[]
+            {
+        btnPedidos, btnInventario, btnRecetas, btnProduccion, btnProductos
+            });
+
+            // Marcar el botón activo (Productos)
+            MarcarBotonActivo(btnProductos);
         }
+
+        // Método para abrir formularios y ocultar el actual
+        private void AbrirFormulario(Form destino, ToolStripButton botonActivo)
+        {
+            MarcarBotonActivo(botonActivo);
+            destino.Show();
+            this.Hide();
+        }
+
+        // Método para resaltar el botón activo
+        private void MarcarBotonActivo(ToolStripButton botonActivo)
+        {
+            foreach (ToolStripItem item in tsP.Items)
+            {
+                if (item is ToolStripButton btn)
+                {
+                    btn.BackColor = Color.White;
+                    btn.ForeColor = SystemColors.ControlText;
+                }
+            }
+            botonActivo.BackColor = ColorTranslator.FromHtml("#d96704");
+            botonActivo.ForeColor = Color.White;
+        }
+
 
         // 2. Evento dtgProductos_CellContentClick
         private void dtgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -468,6 +513,13 @@ namespace Pedidos
                 MessageBox.Show("No se pudo eliminar el producto. Verifique dependencias.\n\nDetalle: " + ex.Message,
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormLogin fl = new FormLogin();
+            fl.Show();
         }
     }
 }

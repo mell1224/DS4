@@ -32,14 +32,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAtrasH = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgHistorial = new System.Windows.Forms.DataGridView();
             this.idPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgHistorial)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,19 +77,20 @@
             this.lblCliente.TabIndex = 4;
             this.lblCliente.Text = "Mi Historial de Pedidos";
             // 
-            // dataGridView1
+            // dtgHistorial
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgHistorial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idPedido,
             this.fecha,
             this.total,
             this.estado,
             this.accion});
-            this.dataGridView1.Location = new System.Drawing.Point(125, 105);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(935, 106);
-            this.dataGridView1.TabIndex = 6;
+            this.dtgHistorial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgHistorial.Location = new System.Drawing.Point(0, 0);
+            this.dtgHistorial.Name = "dtgHistorial";
+            this.dtgHistorial.Size = new System.Drawing.Size(1197, 692);
+            this.dtgHistorial.TabIndex = 6;
             // 
             // idPedido
             // 
@@ -128,14 +129,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 692);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgHistorial);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCliHistorial";
             this.Text = "FormCliHistorial";
+            this.Load += new System.EventHandler(this.FormCliHistorial_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgHistorial)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -145,7 +147,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAtrasH;
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgHistorial;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;

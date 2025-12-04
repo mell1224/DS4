@@ -58,20 +58,17 @@
             this.gbLogin.Controls.Add(this.lblNombre);
             this.gbLogin.Controls.Add(this.lblRegistro);
             this.gbLogin.Controls.Add(this.pictureBox1);
-            this.gbLogin.Location = new System.Drawing.Point(500, 126);
-            this.gbLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbLogin.Location = new System.Drawing.Point(375, 102);
             this.gbLogin.Name = "gbLogin";
-            this.gbLogin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbLogin.Size = new System.Drawing.Size(560, 640);
+            this.gbLogin.Size = new System.Drawing.Size(420, 520);
             this.gbLogin.TabIndex = 1;
             this.gbLogin.TabStop = false;
             // 
             // txtPassReg
             // 
-            this.txtPassReg.Location = new System.Drawing.Point(37, 442);
-            this.txtPassReg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassReg.Location = new System.Drawing.Point(28, 359);
             this.txtPassReg.Name = "txtPassReg";
-            this.txtPassReg.Size = new System.Drawing.Size(493, 22);
+            this.txtPassReg.Size = new System.Drawing.Size(371, 20);
             this.txtPassReg.TabIndex = 9;
             // 
             // lblPassReg
@@ -79,10 +76,9 @@
             this.lblPassReg.AutoSize = true;
             this.lblPassReg.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblPassReg.Location = new System.Drawing.Point(32, 412);
-            this.lblPassReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassReg.Location = new System.Drawing.Point(24, 335);
             this.lblPassReg.Name = "lblPassReg";
-            this.lblPassReg.Size = new System.Drawing.Size(115, 26);
+            this.lblPassReg.Size = new System.Drawing.Size(92, 21);
             this.lblPassReg.TabIndex = 8;
             this.lblPassReg.Text = "Contraseña";
             // 
@@ -90,10 +86,9 @@
             // 
             this.lblReg.AutoSize = true;
             this.lblReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblReg.Location = new System.Drawing.Point(181, 560);
-            this.lblReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblReg.Location = new System.Drawing.Point(136, 455);
             this.lblReg.Name = "lblReg";
-            this.lblReg.Size = new System.Drawing.Size(197, 16);
+            this.lblReg.Size = new System.Drawing.Size(160, 13);
             this.lblReg.TabIndex = 7;
             this.lblReg.Text = "¿Ya tienes cuenta? Inicia sesión";
             this.lblReg.Click += new System.EventHandler(this.lblReg_Click);
@@ -104,10 +99,9 @@
             this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistro.ForeColor = System.Drawing.Color.White;
-            this.btnRegistro.Location = new System.Drawing.Point(37, 495);
-            this.btnRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistro.Location = new System.Drawing.Point(28, 402);
             this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(495, 44);
+            this.btnRegistro.Size = new System.Drawing.Size(371, 36);
             this.btnRegistro.TabIndex = 6;
             this.btnRegistro.Text = "Registrarse";
             this.btnRegistro.UseVisualStyleBackColor = false;
@@ -115,10 +109,9 @@
             // 
             // txtCorreoReg
             // 
-            this.txtCorreoReg.Location = new System.Drawing.Point(37, 356);
-            this.txtCorreoReg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreoReg.Location = new System.Drawing.Point(28, 289);
             this.txtCorreoReg.Name = "txtCorreoReg";
-            this.txtCorreoReg.Size = new System.Drawing.Size(493, 22);
+            this.txtCorreoReg.Size = new System.Drawing.Size(371, 20);
             this.txtCorreoReg.TabIndex = 5;
             // 
             // lblCorreoReg
@@ -126,19 +119,17 @@
             this.lblCorreoReg.AutoSize = true;
             this.lblCorreoReg.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorreoReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblCorreoReg.Location = new System.Drawing.Point(32, 326);
-            this.lblCorreoReg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorreoReg.Location = new System.Drawing.Point(24, 265);
             this.lblCorreoReg.Name = "lblCorreoReg";
-            this.lblCorreoReg.Size = new System.Drawing.Size(187, 26);
+            this.lblCorreoReg.Size = new System.Drawing.Size(146, 21);
             this.lblCorreoReg.TabIndex = 4;
             this.lblCorreoReg.Text = "Correo Electrónico";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(37, 274);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Location = new System.Drawing.Point(28, 223);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(493, 22);
+            this.txtNombre.Size = new System.Drawing.Size(371, 20);
             this.txtNombre.TabIndex = 3;
             // 
             // lblNombre
@@ -146,10 +137,9 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblNombre.Location = new System.Drawing.Point(32, 245);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(24, 199);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(181, 26);
+            this.lblNombre.Size = new System.Drawing.Size(143, 21);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre completo";
             // 
@@ -158,20 +148,18 @@
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.Font = new System.Drawing.Font("MV Boli", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblRegistro.Location = new System.Drawing.Point(172, 185);
-            this.lblRegistro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegistro.Location = new System.Drawing.Point(129, 150);
             this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(196, 26);
+            this.lblRegistro.Size = new System.Drawing.Size(157, 21);
             this.lblRegistro.TabIndex = 1;
             this.lblRegistro.Text = "Crear cuenta nueva";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(209, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(157, 19);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 134);
+            this.pictureBox1.Size = new System.Drawing.Size(108, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -179,22 +167,20 @@
             // lblDummy
             // 
             this.lblDummy.AutoSize = true;
-            this.lblDummy.Location = new System.Drawing.Point(43, 30);
-            this.lblDummy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDummy.Location = new System.Drawing.Point(32, 24);
             this.lblDummy.Name = "lblDummy";
-            this.lblDummy.Size = new System.Drawing.Size(0, 16);
+            this.lblDummy.Size = new System.Drawing.Size(0, 13);
             this.lblDummy.TabIndex = 0;
             // 
             // FormRegistro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(1539, 843);
+            this.ClientSize = new System.Drawing.Size(1154, 685);
             this.Controls.Add(this.lblDummy);
             this.Controls.Add(this.gbLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormRegistro";
             this.Text = "Family Bakery";
             this.Load += new System.EventHandler(this.Form2_Load);

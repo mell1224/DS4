@@ -57,24 +57,27 @@ namespace Pedidos
 
             try
             {
-                string rol = GestorDeUsuarios.IniciarSesion(correo, pass);
-                if (rol == "ERROR")
+                var usuario = GestorDeUsuarios.IniciarSesion(correo, pass);
+
+                if (usuario == null)
                 {
                     MessageBox.Show("Correo o contraseña incorrectos.", "Login",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    var (idUsuario, rol) = usuario.Value; // ✅ Desestructuramos el tuple
                     MessageBox.Show($"Bienvenido {correo}", "Login",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (rol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
                         new FormPedido().Show();
                     else
-                        new FormCliente().Show();
+                        new FormCliente(idUsuario).Show(); // ✅ Pasamos el ID del usuario
 
                     this.Hide();
                 }
+
             }
             catch (Exception ex)
             {
@@ -83,7 +86,6 @@ namespace Pedidos
             }
         }
 
-        // ✅ Método para abrir el formulario de registro
         private void lblLog_Click(object sender, EventArgs e)
         {
             FormRegistro f2 = new FormRegistro();
@@ -101,7 +103,7 @@ namespace Pedidos
 
     public static class GestorDeUsuarios
     {
-        public static string IniciarSesion(string email, string password)
+        public static (int IdUsuario, string Rol)? IniciarSesion(string email, string password)
         {
             using (SqlConnection cn = Conexion.ObtenerConexion())
             {
@@ -115,26 +117,12 @@ namespace Pedidos
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.Read())
-                            return dr["Rol"].ToString();
+                        {
+                            return (Convert.ToInt32(dr["IdUsuario"]), dr["Rol"].ToString());
+                        }
                         else
-                            return "ERROR";
+                            return null;
                     }
-                }
-            }
-        }
-
-        public static bool RegistrarNuevoUsuario(string email, string password)
-        {
-            using (SqlConnection cn = Conexion.ObtenerConexion())
-            {
-                cn.Open();
-                using (SqlCommand cmd = new SqlCommand("SP_RegistrarUsuario", cn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Correo", email);
-                    cmd.Parameters.AddWithValue("@Contrasena", PasswordHelper.HashPassword(password));
-                    cmd.Parameters.AddWithValue("@Rol", "Cliente");
-                    return cmd.ExecuteNonQuery() > 0;
                 }
             }
         }

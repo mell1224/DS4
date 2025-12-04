@@ -210,16 +210,17 @@ namespace Pedidos
         // ====================================================
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbSelecProd.SelectedIndex < 0 || cmbSelecProd.SelectedValue == null)
+
+
+
+            if (cmbSelecProd.SelectedIndex < 0 || cmbSelecProd.SelectedValue == null || cmbSelecProd.SelectedValue is DataRowView)
             {
                 idProductoSeleccionado = null;
                 stockActualProducto = 0;
                 precioVentaProducto = 0m;
-
                 lblUnidStock.Text = "0 unidades";
                 lblPrecUni.Text = "$0.00";
                 lblUniDProd.Text = "0 unidades";
-
                 plInfoLote.Visible = false;
                 plIngreStock.Visible = false;
                 dtgIngreNecDisp.Rows.Clear();
@@ -227,8 +228,17 @@ namespace Pedidos
                 return;
             }
 
-            int idProducto = Convert.ToInt32(cmbSelecProd.SelectedValue);
+            // ✅ Conversión segura con TryParse
+            int idProducto;
+            if (!int.TryParse(cmbSelecProd.SelectedValue.ToString(), out idProducto))
+            {
+                MessageBox.Show("Error: el valor seleccionado no es válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             idProductoSeleccionado = idProducto;
+
+
 
             try
             {
