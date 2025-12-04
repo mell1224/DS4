@@ -65,26 +65,11 @@ namespace Pedidos
 
         private void FormProduccion_Load(object sender, EventArgs e)
         {
-            plInfoLote.Visible = false;
-            plIngreStock.Visible = false;
-            dtgIngreNecDisp.Visible = false;
+           
 
             nudCantProd.Minimum = 0;
             nudCantProd.DecimalPlaces = 0;
 
-            if (!dtgIngreNecDisp.Columns.Contains("Column4"))
-            {
-                var colUnidad = new DataGridViewTextBoxColumn
-                {
-                    Name = "Column4",
-                    HeaderText = "Unidad",
-                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-                };
-                dtgIngreNecDisp.Columns.Add(colUnidad);
-            }
-
-            dtgIngreNecDisp.AllowUserToAddRows = false;
-            nudCantProd.ValueChanged += nudCantProd_ValueChanged;
 
             CargarProductos();
         }
@@ -162,40 +147,6 @@ namespace Pedidos
         // ====================================================
         private void nudCantProd_ValueChanged(object sender, EventArgs e)
         {
-            if (!idProductoSeleccionado.HasValue)
-            {
-                dtgIngreNecDisp.Rows.Clear();
-                plIngreStock.Visible = false;
-                dtgIngreNecDisp.Visible = false;
-                lblUniDProd.Text = $"{stockActualProducto} unidades";
-                return;
-            }
-
-            decimal cantidadProducir = nudCantProd.Value;
-            if (cantidadProducir <= 0)
-            {
-                dtgIngreNecDisp.Rows.Clear();
-                plIngreStock.Visible = false;
-                dtgIngreNecDisp.Visible = false;
-                lblUniDProd.Text = $"{stockActualProducto} unidades";
-                return;
-            }
-
-            plIngreStock.Visible = true;
-            dtgIngreNecDisp.Visible = true;
-            dtgIngreNecDisp.Rows.Clear();
-
-            foreach (var ing in ingredientesRecetaActual)
-            {
-                decimal necesario = ing.CantidadRequerida * cantidadProducir;
-                int fila = dtgIngreNecDisp.Rows.Add();
-                DataGridViewRow row = dtgIngreNecDisp.Rows[fila];
-                row.Cells["Column1"].Value = ing.NombreIngrediente;
-                row.Cells["Column2"].Value = necesario;
-                row.Cells["Column3"].Value = ing.CantidadActual;
-                row.Cells["Column4"].Value = ing.UnidadMedida;
-            }
-
             ActualizarStockDespuesProduccion();
         }
 
@@ -222,9 +173,6 @@ namespace Pedidos
                 lblPrecUni.Text = "$0.00";
                 lblUniDProd.Text = "0 unidades";
                 plInfoLote.Visible = false;
-                plIngreStock.Visible = false;
-                dtgIngreNecDisp.Rows.Clear();
-                dtgIngreNecDisp.Visible = false;
                 return;
             }
 
@@ -279,19 +227,17 @@ namespace Pedidos
         // ====================================================
         // Registrar producción (usa SP_RegistrarProduccion)
         // ====================================================
+
         private void btnRegProd_Click(object sender, EventArgs e)
         {
             if (!idProductoSeleccionado.HasValue)
             {
-                MessageBox.Show("Debe seleccionar un producto.", "Aviso",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar un producto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             if (nudCantProd.Value <= 0)
             {
-                MessageBox.Show("Debe indicar la cantidad a producir.", "Aviso",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe indicar la cantidad a producir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -307,28 +253,33 @@ namespace Pedidos
                         string.IsNullOrWhiteSpace(txtObserv.Text) ? (object)DBNull.Value : txtObserv.Text);
 
                     cn.Open();
-                    cmd.ExecuteNonQuery();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int resultado = Convert.ToInt32(reader["Resultado"]);
+                            string mensaje = reader["Mensaje"].ToString();
+
+                            MessageBox.Show(mensaje,
+                                resultado == 1 ? "Éxito" : "Error",
+                                MessageBoxButtons.OK,
+                                resultado == 1 ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                        }
+                    }
                 }
 
-                stockActualProducto += Convert.ToInt32(nudCantProd.Value);
-                lblUnidStock.Text = $"{stockActualProducto} unidades";
-                lblUniDProd.Text = $"{stockActualProducto} unidades";
-
-                MessageBox.Show("Producción registrada correctamente.", "Éxito",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                // ✅ Recargar datos del producto para mostrar stock actualizado
+                CargarProductos();
                 nudCantProd.Value = 0;
                 txtObserv.Clear();
-                dtgIngreNecDisp.Rows.Clear();
-                plIngreStock.Visible = false;
-                dtgIngreNecDisp.Visible = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al registrar la producción: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void AbrirFormulario(Form destino, ToolStripButton botonActivo)
         {

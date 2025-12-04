@@ -236,9 +236,6 @@ namespace Pedidos
             Column6.Text = "Editar";
             Column6.UseColumnTextForButtonValue = true;
 
-            Column7.Text = "Eliminar";
-            Column7.UseColumnTextForButtonValue = true;
-
             dtgProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgProductos.MultiSelect = false;
             dtgProductos.ReadOnly = true;
@@ -541,6 +538,7 @@ namespace Pedidos
 
 
         // ✅ ELIMINAR PRODUCTO CON SP
+
         private void EliminarProducto(int rowIndex)
         {
             if (rowIndex < 0 || rowIndex >= dtgProductos.Rows.Count) return;
@@ -567,20 +565,33 @@ namespace Pedidos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdProducto", idProducto);
                     cn.Open();
-                    cmd.ExecuteNonQuery();
+
+                    // ✅ Leer el resultado del SP
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int resultado = Convert.ToInt32(reader["Resultado"]);
+                            string mensaje = reader["Mensaje"].ToString();
+
+                            MessageBox.Show(mensaje,
+                                resultado == 1 ? "Información" : "Error",
+                                MessageBoxButtons.OK,
+                                resultado == 1 ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                        }
+                    }
                 }
 
-                MessageBox.Show("Producto eliminado correctamente.",
-                                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                // ✅ Recargar productos (asegúrate que SP_ListarProductos filtre Activo = 1)
                 CargarProductos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo eliminar el producto. Verifique dependencias.\n\nDetalle: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -588,5 +599,68 @@ namespace Pedidos
             FormLogin fl = new FormLogin();
             fl.Show();
         }
+
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dtgProductos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un producto para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow fila = dtgProductos.SelectedRows[0];
+            if (fila.Cells["IdProducto"].Value == null)
+            {
+                MessageBox.Show("No se encontró el ID del producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idProducto = Convert.ToInt32(fila.Cells["IdProducto"].Value);
+            string nombre = fila.Cells["Column2"].Value?.ToString() ?? "";
+
+            DialogResult dr = MessageBox.Show(
+                $"¿Seguro que deseas eliminar el producto \"{nombre}\"?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (dr != DialogResult.Yes) return;
+
+            try
+            {
+                using (SqlConnection cn = Conexion.ObtenerConexion())
+                using (SqlCommand cmd = new SqlCommand("SP_EliminarProducto", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cn.Open();
+
+                    // ✅ Leer el resultado del SP (opcional)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int resultado = Convert.ToInt32(reader["Resultado"]);
+                            string mensaje = reader["Mensaje"].ToString();
+
+                            MessageBox.Show(mensaje,
+                                resultado == 1 ? "Información" : "Error",
+                                MessageBoxButtons.OK,
+                                resultado == 1 ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                // ✅ Recargar productos
+                CargarProductos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el producto: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

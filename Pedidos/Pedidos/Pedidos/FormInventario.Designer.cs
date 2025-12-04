@@ -34,6 +34,7 @@
             this.tsP = new System.Windows.Forms.ToolStrip();
             this.lblPLAdmin = new System.Windows.Forms.Label();
             this.plGesInventario = new System.Windows.Forms.Panel();
+            this.btnEditarIng = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.plProximoV = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -52,8 +53,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.flpEditar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.plGesInventario.SuspendLayout();
             this.plProximoV.SuspendLayout();
@@ -108,6 +109,7 @@
             // 
             // plGesInventario
             // 
+            this.plGesInventario.Controls.Add(this.btnEditarIng);
             this.plGesInventario.Controls.Add(this.btnGuardar);
             this.plGesInventario.Controls.Add(this.plProximoV);
             this.plGesInventario.Controls.Add(this.btnNuevoIng);
@@ -118,12 +120,25 @@
             this.plGesInventario.Size = new System.Drawing.Size(1186, 159);
             this.plGesInventario.TabIndex = 9;
             // 
+            // btnEditarIng
+            // 
+            this.btnEditarIng.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(103)))), ((int)(((byte)(4)))));
+            this.btnEditarIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarIng.ForeColor = System.Drawing.Color.White;
+            this.btnEditarIng.Location = new System.Drawing.Point(1004, 16);
+            this.btnEditarIng.Name = "btnEditarIng";
+            this.btnEditarIng.Size = new System.Drawing.Size(169, 32);
+            this.btnEditarIng.TabIndex = 5;
+            this.btnEditarIng.Text = "✏️ Editar";
+            this.btnEditarIng.UseVisualStyleBackColor = false;
+            this.btnEditarIng.Click += new System.EventHandler(this.btnEditarIng_Click);
+            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(103)))), ((int)(((byte)(4)))));
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(992, 16);
+            this.btnGuardar.Location = new System.Drawing.Point(829, 16);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(169, 32);
             this.btnGuardar.TabIndex = 4;
@@ -179,7 +194,7 @@
             this.btnNuevoIng.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(103)))), ((int)(((byte)(4)))));
             this.btnNuevoIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoIng.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoIng.Location = new System.Drawing.Point(817, 16);
+            this.btnNuevoIng.Location = new System.Drawing.Point(654, 16);
             this.btnNuevoIng.Name = "btnNuevoIng";
             this.btnNuevoIng.Size = new System.Drawing.Size(169, 32);
             this.btnNuevoIng.TabIndex = 3;
@@ -249,7 +264,6 @@
             this.Column1,
             this.costU,
             this.Column3,
-            this.Column4,
             this.Column5});
             this.dtgInventario.Location = new System.Drawing.Point(2, 277);
             this.dtgInventario.Name = "dtgInventario";
@@ -297,13 +311,6 @@
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Editar";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -311,12 +318,21 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
+            // flpEditar
+            // 
+            this.flpEditar.Location = new System.Drawing.Point(167, 161);
+            this.flpEditar.Name = "flpEditar";
+            this.flpEditar.Size = new System.Drawing.Size(882, 465);
+            this.flpEditar.TabIndex = 3;
+            this.flpEditar.Visible = false;
+            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1200, 749);
+            this.Controls.Add(this.flpEditar);
             this.Controls.Add(this.dtgInventario);
             this.Controls.Add(this.plGesInventario);
             this.Controls.Add(this.panel1);
@@ -362,7 +378,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn costU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
+        private System.Windows.Forms.Button btnEditarIng;
+        private System.Windows.Forms.FlowLayoutPanel flpEditar;
     }
 }
