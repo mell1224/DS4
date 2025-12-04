@@ -784,4 +784,4 @@ AS
 BEGIN
     DELETE FROM DetalleRecetas WHERE IdDetalleReceta = @IdDetalleReceta;
 END;
-GO
+GOOO
