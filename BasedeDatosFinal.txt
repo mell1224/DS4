@@ -1,0 +1,1123 @@
+USE [master]
+GO
+/****** Object:  Database [PanaderiaDB]    Script Date: 12/04/2025 5:02:42 p. m. ******/
+CREATE DATABASE [PanaderiaDB]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'PanaderiaDB', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\PanaderiaDB.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'PanaderiaDB_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\PanaderiaDB_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [PanaderiaDB] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [PanaderiaDB].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [PanaderiaDB] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [PanaderiaDB] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [PanaderiaDB] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [PanaderiaDB] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [PanaderiaDB] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET RECOVERY FULL 
+GO
+ALTER DATABASE [PanaderiaDB] SET  MULTI_USER 
+GO
+ALTER DATABASE [PanaderiaDB] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [PanaderiaDB] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [PanaderiaDB] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [PanaderiaDB] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [PanaderiaDB] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [PanaderiaDB] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'PanaderiaDB', N'ON'
+GO
+ALTER DATABASE [PanaderiaDB] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [PanaderiaDB] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [PanaderiaDB]
+GO
+/****** Object:  Table [dbo].[Categorias]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categorias](
+	[IdCategoria] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](100) NULL,
+	[Activo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdCategoria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetallePedidos]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetallePedidos](
+	[IdDetalle] [int] IDENTITY(1,1) NOT NULL,
+	[IdPedido] [int] NOT NULL,
+	[IdProducto] [int] NOT NULL,
+	[Cantidad] [int] NOT NULL,
+	[PrecioUnitario] [decimal](10, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdDetalle] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_DetallePedidos] UNIQUE NONCLUSTERED 
+(
+	[IdPedido] ASC,
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetalleRecetas]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetalleRecetas](
+	[IdDetalleReceta] [int] IDENTITY(1,1) NOT NULL,
+	[IdReceta] [int] NOT NULL,
+	[IdIngrediente] [int] NOT NULL,
+	[CantidadRequerida] [decimal](10, 4) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdDetalleReceta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_DetalleRecetas] UNIQUE NONCLUSTERED 
+(
+	[IdReceta] ASC,
+	[IdIngrediente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ingredientes]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ingredientes](
+	[IdIngrediente] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Cantidad] [decimal](10, 2) NOT NULL,
+	[UnidadMedida] [nvarchar](20) NOT NULL,
+	[CostoUnitario] [decimal](10, 2) NULL,
+	[FechaVencimiento] [date] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdIngrediente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Pedidos]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Pedidos](
+	[IdPedido] [int] IDENTITY(1,1) NOT NULL,
+	[IdUsuario] [int] NOT NULL,
+	[FechaPedido] [datetime] NOT NULL,
+	[DireccionEntrega] [nvarchar](255) NULL,
+	[Observaciones] [nvarchar](500) NULL,
+	[MetodoPago] [nvarchar](50) NOT NULL,
+	[Total] [decimal](10, 2) NOT NULL,
+	[Estado] [nvarchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdPedido] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Productos]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Productos](
+	[IdProducto] [int] IDENTITY(1,1) NOT NULL,
+	[IdCategoria] [int] NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](200) NULL,
+	[PrecioVenta] [decimal](10, 2) NOT NULL,
+	[ImagenURL] [varchar](255) NULL,
+	[Stock] [int] NOT NULL,
+	[Activo] [bit] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Recetas]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Recetas](
+	[IdReceta] [int] IDENTITY(1,1) NOT NULL,
+	[IdProducto] [int] NOT NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdReceta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RegistroProduccion]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RegistroProduccion](
+	[IdRegistro] [int] IDENTITY(1,1) NOT NULL,
+	[IdProducto] [int] NOT NULL,
+	[CantidadProducida] [int] NOT NULL,
+	[FechaProduccion] [datetime] NOT NULL,
+	[Observaciones] [nvarchar](500) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdRegistro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuarios](
+	[IdUsuario] [int] IDENTITY(1,1) NOT NULL,
+	[NombreCompleto] [nvarchar](100) NOT NULL,
+	[Telefono] [nvarchar](20) NULL,
+	[Correo] [nvarchar](100) NOT NULL,
+	[Contrasena] [varchar](100) NOT NULL,
+	[Rol] [nvarchar](20) NOT NULL,
+	[Activo] [bit] NOT NULL,
+	[FechaRegistro] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Correo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Categorias] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Pedidos] ADD  DEFAULT (getdate()) FOR [FechaPedido]
+GO
+ALTER TABLE [dbo].[Pedidos] ADD  DEFAULT ('Pendiente') FOR [Estado]
+GO
+ALTER TABLE [dbo].[Productos] ADD  DEFAULT ((0)) FOR [Stock]
+GO
+ALTER TABLE [dbo].[Productos] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Recetas] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[RegistroProduccion] ADD  DEFAULT (getdate()) FOR [FechaProduccion]
+GO
+ALTER TABLE [dbo].[Usuarios] ADD  DEFAULT ('Cliente') FOR [Rol]
+GO
+ALTER TABLE [dbo].[Usuarios] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Usuarios] ADD  DEFAULT (getdate()) FOR [FechaRegistro]
+GO
+ALTER TABLE [dbo].[DetallePedidos]  WITH CHECK ADD  CONSTRAINT [FK_DetallePedidos_Pedidos] FOREIGN KEY([IdPedido])
+REFERENCES [dbo].[Pedidos] ([IdPedido])
+GO
+ALTER TABLE [dbo].[DetallePedidos] CHECK CONSTRAINT [FK_DetallePedidos_Pedidos]
+GO
+ALTER TABLE [dbo].[DetallePedidos]  WITH CHECK ADD  CONSTRAINT [FK_DetallePedidos_Productos] FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Productos] ([IdProducto])
+GO
+ALTER TABLE [dbo].[DetallePedidos] CHECK CONSTRAINT [FK_DetallePedidos_Productos]
+GO
+ALTER TABLE [dbo].[DetalleRecetas]  WITH CHECK ADD  CONSTRAINT [FK_DetalleRecetas_Ingredientes] FOREIGN KEY([IdIngrediente])
+REFERENCES [dbo].[Ingredientes] ([IdIngrediente])
+GO
+ALTER TABLE [dbo].[DetalleRecetas] CHECK CONSTRAINT [FK_DetalleRecetas_Ingredientes]
+GO
+ALTER TABLE [dbo].[DetalleRecetas]  WITH CHECK ADD  CONSTRAINT [FK_DetalleRecetas_Recetas] FOREIGN KEY([IdReceta])
+REFERENCES [dbo].[Recetas] ([IdReceta])
+GO
+ALTER TABLE [dbo].[DetalleRecetas] CHECK CONSTRAINT [FK_DetalleRecetas_Recetas]
+GO
+ALTER TABLE [dbo].[Pedidos]  WITH CHECK ADD  CONSTRAINT [FK_Pedidos_Usuarios] FOREIGN KEY([IdUsuario])
+REFERENCES [dbo].[Usuarios] ([IdUsuario])
+GO
+ALTER TABLE [dbo].[Pedidos] CHECK CONSTRAINT [FK_Pedidos_Usuarios]
+GO
+ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [FK_Productos_Categorias] FOREIGN KEY([IdCategoria])
+REFERENCES [dbo].[Categorias] ([IdCategoria])
+GO
+ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [FK_Productos_Categorias]
+GO
+ALTER TABLE [dbo].[Recetas]  WITH CHECK ADD  CONSTRAINT [FK_Recetas_Productos] FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Productos] ([IdProducto])
+GO
+ALTER TABLE [dbo].[Recetas] CHECK CONSTRAINT [FK_Recetas_Productos]
+GO
+ALTER TABLE [dbo].[RegistroProduccion]  WITH CHECK ADD  CONSTRAINT [FK_RegistroProduccion_Productos] FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Productos] ([IdProducto])
+GO
+ALTER TABLE [dbo].[RegistroProduccion] CHECK CONSTRAINT [FK_RegistroProduccion_Productos]
+GO
+ALTER TABLE [dbo].[DetallePedidos]  WITH CHECK ADD  CONSTRAINT [CK_DetallePedidos_Cantidad] CHECK  (([Cantidad]>(0)))
+GO
+ALTER TABLE [dbo].[DetallePedidos] CHECK CONSTRAINT [CK_DetallePedidos_Cantidad]
+GO
+ALTER TABLE [dbo].[DetallePedidos]  WITH CHECK ADD  CONSTRAINT [CK_DetallePedidos_Precio] CHECK  (([PrecioUnitario]>=(0)))
+GO
+ALTER TABLE [dbo].[DetallePedidos] CHECK CONSTRAINT [CK_DetallePedidos_Precio]
+GO
+ALTER TABLE [dbo].[DetalleRecetas]  WITH CHECK ADD  CONSTRAINT [CK_DetalleRecetas_Cantidad] CHECK  (([CantidadRequerida]>(0)))
+GO
+ALTER TABLE [dbo].[DetalleRecetas] CHECK CONSTRAINT [CK_DetalleRecetas_Cantidad]
+GO
+ALTER TABLE [dbo].[Ingredientes]  WITH CHECK ADD  CONSTRAINT [CK_Ingredientes_Cantidad] CHECK  (([Cantidad]>=(0)))
+GO
+ALTER TABLE [dbo].[Ingredientes] CHECK CONSTRAINT [CK_Ingredientes_Cantidad]
+GO
+ALTER TABLE [dbo].[Ingredientes]  WITH CHECK ADD  CONSTRAINT [CK_Ingredientes_CostoUnitario] CHECK  (([CostoUnitario] IS NULL OR [CostoUnitario]>=(0)))
+GO
+ALTER TABLE [dbo].[Ingredientes] CHECK CONSTRAINT [CK_Ingredientes_CostoUnitario]
+GO
+ALTER TABLE [dbo].[Pedidos]  WITH CHECK ADD  CONSTRAINT [CK_Pedidos_Estado] CHECK  (([Estado]='Cancelado' OR [Estado]='Completado' OR [Estado]='En Preparacion' OR [Estado]='Pendiente'))
+GO
+ALTER TABLE [dbo].[Pedidos] CHECK CONSTRAINT [CK_Pedidos_Estado]
+GO
+ALTER TABLE [dbo].[Pedidos]  WITH CHECK ADD  CONSTRAINT [CK_Pedidos_Total] CHECK  (([Total]>=(0)))
+GO
+ALTER TABLE [dbo].[Pedidos] CHECK CONSTRAINT [CK_Pedidos_Total]
+GO
+ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [CK_Productos_PrecioVenta] CHECK  (([PrecioVenta]>=(0)))
+GO
+ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [CK_Productos_PrecioVenta]
+GO
+ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [CK_Productos_Stock] CHECK  (([Stock]>=(0)))
+GO
+ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [CK_Productos_Stock]
+GO
+ALTER TABLE [dbo].[RegistroProduccion]  WITH CHECK ADD  CONSTRAINT [CK_RegistroProduccion_Cantidad] CHECK  (([CantidadProducida]>(0)))
+GO
+ALTER TABLE [dbo].[RegistroProduccion] CHECK CONSTRAINT [CK_RegistroProduccion_Cantidad]
+GO
+ALTER TABLE [dbo].[Usuarios]  WITH CHECK ADD  CONSTRAINT [CK_Usuarios_Rol] CHECK  (([Rol]='Cliente' OR [Rol]='Administrador'))
+GO
+ALTER TABLE [dbo].[Usuarios] CHECK CONSTRAINT [CK_Usuarios_Rol]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ActualizarEstadoPedido]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- 5.4. Actualizar Estado del Pedido (Botones "Preparando >", "Completado >")
+CREATE PROCEDURE [dbo].[SP_ActualizarEstadoPedido]
+    @IdPedido INT,
+    @NuevoEstado NVARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF @IdPedido IS NULL OR @IdPedido <= 0 RETURN;
+    IF @NuevoEstado NOT IN ('Pendiente','En Preparacion','Completado','Cancelado') RETURN;
+
+    BEGIN TRY
+        UPDATE Pedidos
+        SET Estado = @NuevoEstado
+        WHERE IdPedido = @IdPedido;
+
+        SELECT 1 AS Resultado, 'Estado del pedido actualizado a ' + @NuevoEstado + ' correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Fallo al actualizar el estado: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ActualizarImagenProducto]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE   PROCEDURE [dbo].[SP_ActualizarImagenProducto]
+    @IdProducto INT,
+    @ImagenURL VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF @IdProducto IS NULL OR @IdProducto <= 0 RETURN;
+
+    IF NOT EXISTS (SELECT 1 FROM dbo.Productos WHERE IdProducto = @IdProducto)
+        RETURN;
+
+    BEGIN TRY
+        UPDATE dbo.Productos
+        SET ImagenURL = @ImagenURL
+        WHERE IdProducto = @IdProducto;
+
+        SELECT 1 AS Resultado, 'Imagen actualizada correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Error al actualizar la imagen: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ActualizarIngrediente]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+-- 7.3. Actualizar ingrediente
+CREATE PROCEDURE [dbo].[SP_ActualizarIngrediente]
+    @IdIngrediente INT, @Nombre NVARCHAR(50), @Cantidad DECIMAL(10,2), @UnidadMedida NVARCHAR(20), @CostoUnitario DECIMAL(10,2), @FechaVencimiento DATE = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdIngrediente IS NULL OR @IdIngrediente <= 0 RETURN;
+    IF NOT EXISTS (SELECT 1 FROM Ingredientes WHERE IdIngrediente = @IdIngrediente) RETURN;
+    IF @Nombre IS NULL OR LTRIM(RTRIM(@Nombre)) = '' RETURN;
+    IF @Cantidad IS NULL OR @Cantidad < 0 RETURN;
+    IF @CostoUnitario IS NOT NULL AND @CostoUnitario < 0 RETURN;
+    BEGIN TRY
+        UPDATE Ingredientes
+        SET Nombre = @Nombre, Cantidad = @Cantidad, UnidadMedida = @UnidadMedida, CostoUnitario = @CostoUnitario, FechaVencimiento = @FechaVencimiento
+        WHERE IdIngrediente = @IdIngrediente;
+        SELECT 1 AS Resultado, 'Ingrediente actualizado correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Error al actualizar el ingrediente: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ActualizarProducto]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- 6.3. Actualizar Producto
+CREATE PROCEDURE [dbo].[SP_ActualizarProducto]
+    @IdProducto INT, @IdCategoria INT, @Nombre NVARCHAR(50), @Descripcion NVARCHAR(200) = NULL, @PrecioVenta DECIMAL(10,2), @ImagenURL VARCHAR(255) = NULL, @Activo BIT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdProducto IS NULL OR @IdProducto <= 0 OR NOT EXISTS (SELECT 1 FROM Productos WHERE IdProducto = @IdProducto) RETURN;
+    IF @IdCategoria IS NULL OR @IdCategoria <= 0 OR NOT EXISTS (SELECT 1 FROM Categorias WHERE IdCategoria = @IdCategoria) RETURN;
+    IF @Nombre IS NULL OR LTRIM(RTRIM(@Nombre)) = '' RETURN;
+    IF @PrecioVenta IS NULL OR @PrecioVenta < 0 RETURN;
+    BEGIN TRY
+        UPDATE Productos
+        SET IdCategoria = @IdCategoria, Nombre = @Nombre, Descripcion = @Descripcion, PrecioVenta = @PrecioVenta, ImagenURL = @ImagenURL, Activo = @Activo
+        WHERE IdProducto = @IdProducto;
+        SELECT 1 AS Resultado, 'Producto actualizado correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Fallo al actualizar el producto: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_CrearPedido]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- 5. SPs de Flujo de Pedidos (Venta)
+
+
+-- 5.1. Crear Pedido Completo (Acción del botón "Confirmar y Pagar Pedido")
+CREATE PROCEDURE [dbo].[SP_CrearPedido]
+    @IdUsuario INT,
+    @DireccionEntrega NVARCHAR(255),
+    @Observaciones NVARCHAR(500) = NULL,
+    @MetodoPago NVARCHAR(50),
+    @Total DECIMAL(10,2),
+    @DetalleProductosXML XML 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Validaciones básicas
+    IF @IdUsuario IS NULL OR @IdUsuario <= 0 OR NOT EXISTS (SELECT 1 FROM Usuarios WHERE IdUsuario = @IdUsuario AND Activo = 1) RETURN;
+    IF @Total IS NULL OR @Total <= 0 RETURN;
+    IF @DetalleProductosXML IS NULL OR @DetalleProductosXML.exist('/Productos/Producto') = 0 RETURN;
+    
+    CREATE TABLE #DetalleTemp (
+        IdProducto INT,
+        Cantidad INT,
+        PrecioUnitario DECIMAL(10,2)
+    );
+    
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        -- 1. Parsear XML e insertar en tabla temporal
+        INSERT INTO #DetalleTemp (IdProducto, Cantidad, PrecioUnitario)
+        SELECT
+            Tbl.Col.value('(IdProducto)[1]', 'INT'),
+            Tbl.Col.value('(Cantidad)[1]', 'INT'),
+            Tbl.Col.value('(PrecioUnitario)[1]', 'DECIMAL(10,2)')
+        FROM @DetalleProductosXML.nodes('/Productos/Producto') AS Tbl(Col);
+
+        -- 2. Validar que hay suficiente stock para todos los productos
+        IF EXISTS (
+            SELECT dt.IdProducto
+            FROM #DetalleTemp dt
+            JOIN Productos p ON dt.IdProducto = p.IdProducto
+            WHERE p.Stock < dt.Cantidad OR p.Activo = 0
+        )
+        BEGIN
+            RAISERROR('Stock insuficiente para uno o más productos o producto inactivo.', 16, 1);
+            IF OBJECT_ID('tempdb..#DetalleTemp') IS NOT NULL DROP TABLE #DetalleTemp;
+            RETURN;
+        END;
+
+        -- 3. Insertar la cabecera del pedido (tabla Pedidos)
+        INSERT INTO Pedidos (IdUsuario, DireccionEntrega, Observaciones, MetodoPago, Total, Estado)
+        VALUES (@IdUsuario, @DireccionEntrega, @Observaciones, @MetodoPago, @Total, 'Pendiente');
+
+        DECLARE @NuevoIdPedido INT = SCOPE_IDENTITY();
+
+        -- 4. Insertar el detalle del pedido (tabla DetallePedidos)
+        INSERT INTO DetallePedidos (IdPedido, IdProducto, Cantidad, PrecioUnitario)
+        SELECT @NuevoIdPedido, IdProducto, Cantidad, PrecioUnitario
+        FROM #DetalleTemp;
+
+        -- 5. Descontar stock de producto terminado llamando a SP_RegistrarVenta
+        DECLARE @ProdId INT, @CantVendida INT;
+        
+        DECLARE StockCursor CURSOR LOCAL FOR
+        SELECT IdProducto, Cantidad
+        FROM #DetalleTemp;
+
+        OPEN StockCursor;
+        FETCH NEXT FROM StockCursor INTO @ProdId, @CantVendida;
+
+        WHILE @@FETCH_STATUS = 0
+        BEGIN
+            -- Llama al SP de stock
+            EXEC SP_RegistrarVenta @IdProducto = @ProdId, @CantidadVendida = @CantVendida;
+            
+            FETCH NEXT FROM StockCursor INTO @ProdId, @CantVendida;
+        END;
+        CLOSE StockCursor;
+        DEALLOCATE StockCursor;
+
+        -- Limpieza
+        DROP TABLE #DetalleTemp;
+
+        COMMIT TRANSACTION;
+        SELECT 1 AS Resultado, 'Pedido registrado y stock descontado con éxito.' AS Mensaje, @NuevoIdPedido AS IdGenerado;
+
+    END TRY
+    BEGIN CATCH
+        IF OBJECT_ID('tempdb..#DetalleTemp') IS NOT NULL DROP TABLE #DetalleTemp;
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        SELECT 0 AS Resultado, 'Fallo al procesar el pedido: ' + ERROR_MESSAGE() AS Mensaje, NULL AS IdGenerado;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_EliminarDetalleReceta]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_EliminarDetalleReceta] --Nuevo
+    @IdDetalleReceta INT
+AS
+BEGIN
+    DELETE FROM DetalleRecetas WHERE IdDetalleReceta = @IdDetalleReceta;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_EliminarIngrediente]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+-- 7.4. Eliminar ingrediente
+CREATE PROCEDURE [dbo].[SP_EliminarIngrediente]
+    @IdIngrediente INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdIngrediente IS NULL OR @IdIngrediente <= 0 RETURN;
+    IF NOT EXISTS (SELECT 1 FROM Ingredientes WHERE IdIngrediente = @IdIngrediente) RETURN;
+ 
+    IF EXISTS (SELECT 1 FROM DetalleRecetas WHERE IdIngrediente = @IdIngrediente)
+    BEGIN
+        SELECT 0 AS Resultado, 'Error: No se puede eliminar. El ingrediente está siendo usado en una o más recetas.' AS Mensaje;
+        RETURN;
+    END;
+ 
+    BEGIN TRY
+        DELETE FROM Ingredientes WHERE IdIngrediente = @IdIngrediente;
+        SELECT 1 AS Resultado, 'Ingrediente eliminado correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Error al eliminar el ingrediente: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_EliminarProducto]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- 6.4. Eliminar Producto (Eliminación Lógica)
+CREATE PROCEDURE [dbo].[SP_EliminarProducto]
+    @IdProducto INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdProducto IS NULL OR @IdProducto <= 0 OR NOT EXISTS (SELECT 1 FROM Productos WHERE IdProducto = @IdProducto) RETURN;
+    BEGIN TRY
+        UPDATE Productos SET Activo = 0 WHERE IdProducto = @IdProducto;
+        SELECT 1 AS Resultado, 'Producto deshabilitado (eliminación lógica) correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Fallo al deshabilitar el producto: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_EliminarReceta]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+-- 8.3. Eliminar receta completa
+CREATE PROCEDURE [dbo].[SP_EliminarReceta]
+    @IdProducto INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdProducto IS NULL OR @IdProducto <= 0 RETURN;
+ 
+    DECLARE @IdReceta INT;
+    SELECT @IdReceta = IdReceta FROM Recetas WHERE IdProducto = @IdProducto;
+ 
+    IF @IdReceta IS NULL RETURN;
+ 
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        DELETE FROM DetalleRecetas WHERE IdReceta = @IdReceta;
+        DELETE FROM Recetas WHERE IdReceta = @IdReceta;
+        COMMIT TRANSACTION;
+        SELECT 1 AS Resultado, 'Receta eliminada correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        SELECT 0 AS Resultado, 'Fallo al eliminar la receta: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InsertarDetalleReceta]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_InsertarDetalleReceta] --Nuevo
+    @IdReceta INT,
+    @IdIngrediente INT,
+    @CantidadRequerida DECIMAL(10,2)
+AS
+BEGIN
+    INSERT INTO DetalleRecetas (IdReceta, IdIngrediente, CantidadRequerida)
+    VALUES (@IdReceta, @IdIngrediente, @CantidadRequerida);
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InsertarIngrediente]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+-- 7.2. Insertar ingrediente
+CREATE PROCEDURE [dbo].[SP_InsertarIngrediente]
+    @Nombre NVARCHAR(50), @Cantidad DECIMAL(10,2), @UnidadMedida NVARCHAR(20), @CostoUnitario DECIMAL(10,2), @FechaVencimiento DATE = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @Nombre IS NULL OR LTRIM(RTRIM(@Nombre)) = '' RETURN;
+    IF @Cantidad IS NULL OR @Cantidad < 0 RETURN;
+    IF @CostoUnitario IS NOT NULL AND @CostoUnitario < 0 RETURN;
+    BEGIN TRY
+        INSERT INTO Ingredientes (Nombre, Cantidad, UnidadMedida, CostoUnitario, FechaVencimiento)
+        VALUES (@Nombre, @Cantidad, @UnidadMedida, @CostoUnitario, @FechaVencimiento);
+        SELECT 1 AS Resultado, 'Ingrediente insertado correctamente.' AS Mensaje, SCOPE_IDENTITY() AS IdGenerado;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Error al insertar el ingrediente: ' + ERROR_MESSAGE() AS Mensaje, NULL AS IdGenerado;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InsertarProducto]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- 6.2. Insertar Producto
+CREATE PROCEDURE [dbo].[SP_InsertarProducto]
+    @IdCategoria INT, @Nombre NVARCHAR(50), @Descripcion NVARCHAR(200) = NULL, @PrecioVenta DECIMAL(10,2), @ImagenURL VARCHAR(255) = NULL, @Stock INT = 0
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdCategoria IS NULL OR @IdCategoria <= 0 OR NOT EXISTS (SELECT 1 FROM Categorias WHERE IdCategoria = @IdCategoria AND Activo = 1) RETURN;
+    IF @Nombre IS NULL OR LTRIM(RTRIM(@Nombre)) = '' RETURN;
+    IF @PrecioVenta IS NULL OR @PrecioVenta < 0 RETURN;
+    BEGIN TRY
+        INSERT INTO Productos (IdCategoria, Nombre, Descripcion, PrecioVenta, ImagenURL, Stock, Activo)
+        VALUES (@IdCategoria, @Nombre, @Descripcion, @PrecioVenta, @ImagenURL, @Stock, 1);
+        SELECT 1 AS Resultado, 'Producto insertado correctamente.' AS Mensaje, SCOPE_IDENTITY() AS IdGenerado;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Fallo al insertar el producto: ' + ERROR_MESSAGE() AS Mensaje, NULL AS IdGenerado;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InsertarRecetaCompleta]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- 8. SPs de Gestión de Recetas
+
+
+-- 8.1. Insertar receta completa (cabecera + detalle)
+CREATE PROCEDURE [dbo].[SP_InsertarRecetaCompleta]
+    @IdProducto INT,
+    @DetalleRecetasXML XML
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF @IdProducto IS NULL OR @IdProducto <= 0 RETURN;
+    IF NOT EXISTS (SELECT 1 FROM Productos WHERE IdProducto = @IdProducto AND Activo = 1) RETURN;
+    IF EXISTS (SELECT 1 FROM Recetas WHERE IdProducto = @IdProducto) RETURN;
+    IF @DetalleRecetasXML IS NULL OR @DetalleRecetasXML.exist('/Detalles/Detalle') = 0 RETURN;
+ 
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        INSERT INTO Recetas (IdProducto, FechaCreacion)
+        VALUES (@IdProducto, GETDATE());
+ 
+        DECLARE @NuevoIdReceta INT = SCOPE_IDENTITY();
+ 
+        INSERT INTO DetalleRecetas (IdReceta, IdIngrediente, CantidadRequerida)
+        SELECT @NuevoIdReceta, Tbl.Col.value('(IdIngrediente)[1]', 'INT'), Tbl.Col.value('(CantidadRequerida)[1]','DECIMAL(10,4)')
+        FROM @DetalleRecetasXML.nodes('/Detalles/Detalle') AS Tbl(Col);
+ 
+        COMMIT TRANSACTION;
+        SELECT 1 AS Resultado, 'Receta registrada completamente con éxito.' AS Mensaje, @NuevoIdReceta AS IdReceta;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+        SELECT 0 AS Resultado, 'Fallo al guardar la receta: ' + ERROR_MESSAGE() AS Mensaje, NULL AS IdReceta;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InsertarUsuario]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- 4. SPs de Autenticación de Usuarios
+
+
+-- 4.1. Insertar Usuario (Registro)
+CREATE PROCEDURE [dbo].[SP_InsertarUsuario]
+    @NombreCompleto NVARCHAR(100),
+    @Correo NVARCHAR(100),
+    @Contrasena VARCHAR(100),
+    @Telefono NVARCHAR(20) = NULL,
+    @Rol NVARCHAR(20) = 'Cliente'
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (SELECT 1 FROM Usuarios WHERE Correo = @Correo)
+    BEGIN
+        SELECT 0 AS Resultado, 'Error: Ya existe una cuenta registrada con este correo.' AS Mensaje, NULL AS IdGenerado;
+        RETURN;
+    END
+
+    IF @Rol NOT IN ('Administrador', 'Cliente')
+    BEGIN
+        SELECT 0 AS Resultado, 'Error: Rol no válido.' AS Mensaje, NULL AS IdGenerado;
+        RETURN;
+    END
+
+    BEGIN TRY
+        INSERT INTO Usuarios (NombreCompleto, Correo, Contrasena, Telefono, Rol, Activo)
+        VALUES (@NombreCompleto, @Correo, @Contrasena, @Telefono, @Rol, 1);
+
+        SELECT 1 AS Resultado, 'Usuario registrado correctamente.' AS Mensaje, SCOPE_IDENTITY() AS IdGenerado;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Fallo al registrar el usuario: ' + ERROR_MESSAGE() AS Mensaje, NULL AS IdGenerado;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ListarCategorias]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_ListarCategorias]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT IdCategoria, Nombre
+    FROM Categorias
+    WHERE Activo = 1
+    ORDER BY Nombre;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ListarIngredientes]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- 7. SPs de Gestión de Ingredientes (Inventario)
+
+
+-- 7.1. Listar ingredientes
+CREATE PROCEDURE [dbo].[SP_ListarIngredientes]
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT IdIngrediente, Nombre, Cantidad, UnidadMedida, CostoUnitario, FechaVencimiento
+    FROM Ingredientes
+    ORDER BY Nombre;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ListarPedidos]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- 5.2. Listar Pedidos (Vista Admin y Cliente Historial)
+CREATE PROCEDURE [dbo].[SP_ListarPedidos]
+    @IdUsuario INT = NULL, -- Si es NULL, lista todos (Admin), si tiene ID, lista de un usuario (Cliente)
+    @EstadoFiltro NVARCHAR(20) = 'Todos'
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        p.IdPedido,
+        p.FechaPedido,
+        u.NombreCompleto AS NombreCliente,
+        p.Total,
+        p.DireccionEntrega,
+        p.Observaciones,
+        p.MetodoPago,
+        p.Estado
+    FROM
+        Pedidos p
+    JOIN
+        Usuarios u ON p.IdUsuario = u.IdUsuario
+    WHERE
+        (@IdUsuario IS NULL OR p.IdUsuario = @IdUsuario)
+        AND (@EstadoFiltro = 'Todos' OR p.Estado = @EstadoFiltro)
+    ORDER BY
+        p.FechaPedido DESC;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ListarProductos]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_ListarProductos]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        p.IdProducto,
+        p.IdCategoria,
+        c.Nombre AS Categoria, -- ✅ Cambiado aquí
+        p.Nombre,
+        p.Descripcion,
+        p.PrecioVenta,
+        p.ImagenURL,
+        p.Stock,
+        p.Activo
+    FROM Productos p
+    JOIN Categorias c ON p.IdCategoria = c.IdCategoria
+    ORDER BY p.Nombre;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ObtenerDatosProducto]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[SP_ObtenerDatosProducto] --Nuevo
+    @IdProducto INT
+AS
+BEGIN
+    SELECT IdProducto, Stock, PrecioVenta
+    FROM Productos
+    WHERE IdProducto = @IdProducto;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ObtenerDetallePedido]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- 5.3. Obtener Detalle de un Pedido Específico
+CREATE PROCEDURE [dbo].[SP_ObtenerDetallePedido]
+    @IdPedido INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Cabecera del Pedido
+    SELECT
+        p.IdPedido, p.FechaPedido, p.Total, p.Estado, p.MetodoPago, p.DireccionEntrega, p.Observaciones, u.NombreCompleto AS NombreCliente
+    FROM Pedidos p JOIN Usuarios u ON p.IdUsuario = u.IdUsuario
+    WHERE p.IdPedido = @IdPedido;
+
+    -- Detalle de Productos
+    SELECT
+        dp.Cantidad,
+        dp.PrecioUnitario,
+        (dp.Cantidad * dp.PrecioUnitario) AS Subtotal,
+        prod.Nombre AS NombreProducto,
+        prod.ImagenURL -- Para mostrar la imagen en el detalle
+    FROM DetallePedidos dp JOIN Productos prod ON dp.IdProducto = prod.IdProducto
+    WHERE dp.IdPedido = @IdPedido;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ObtenerDetalleRecetaPorProducto]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+-- 8.2. Obtener detalle de receta por producto
+CREATE PROCEDURE [dbo].[SP_ObtenerDetalleRecetaPorProducto]
+    @IdProducto INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+ 
+    SELECT
+        dr.IdDetalleReceta, r.IdReceta, dr.IdIngrediente, i.Nombre AS NombreIngrediente, dr.CantidadRequerida, i.UnidadMedida
+    FROM Recetas r
+    JOIN DetalleRecetas dr ON r.IdReceta = dr.IdReceta
+    JOIN Ingredientes i ON dr.IdIngrediente = i.IdIngrediente
+    WHERE r.IdProducto = @IdProducto;
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ObtenerIngredientesReceta]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_ObtenerIngredientesReceta] --Nuevo
+    @IdProducto INT
+AS
+BEGIN
+    SELECT 
+        dr.IdIngrediente,
+        i.Nombre AS NombreIngrediente,
+        dr.CantidadRequerida,
+        i.Cantidad AS CantidadActual,
+        i.UnidadMedida
+    FROM Recetas r
+    INNER JOIN DetalleRecetas dr ON r.IdReceta = dr.IdReceta
+    INNER JOIN Ingredientes i ON dr.IdIngrediente = i.IdIngrediente
+    WHERE r.IdProducto = @IdProducto;
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SP_RegistrarProduccion]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_RegistrarProduccion]
+    @IdProducto INT,
+    @CantidadProducida INT,
+    @Observaciones NVARCHAR(200) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRY
+        UPDATE Productos
+        SET Stock = Stock + @CantidadProducida
+        WHERE IdProducto = @IdProducto;
+
+        -- Registrar en log (si existe la tabla RegistroProduccion)
+        INSERT INTO RegistroProduccion (IdProducto, CantidadProducida, FechaProduccion, Observaciones)
+        VALUES (@IdProducto, @CantidadProducida, GETDATE(), @Observaciones);
+
+        SELECT 1 AS Resultado, 'Stock actualizado correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        SELECT 0 AS Resultado, 'Error: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_RegistrarVenta]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+-- 3.2. Registrar Venta (Descuento de stock del producto terminado)
+CREATE PROCEDURE [dbo].[SP_RegistrarVenta]
+    @IdProducto      INT,
+    @CantidadVendida INT
+AS
+BEGIN
+ 
+    SET NOCOUNT ON;
+ 
+    IF @IdProducto IS NULL OR @IdProducto <= 0
+        RETURN;
+    IF @CantidadVendida IS NULL OR @CantidadVendida <= 0
+        RETURN;
+    IF NOT EXISTS (SELECT 1 FROM Productos WHERE IdProducto = @IdProducto AND Activo = 1)
+        RETURN;
+ 
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        DECLARE @StockActual INT;
+ 
+        SELECT @StockActual = Stock
+        FROM Productos WITH (UPDLOCK)
+        WHERE IdProducto = @IdProducto;
+ 
+        IF @StockActual < @CantidadVendida
+        BEGIN
+            RAISERROR('Stock de producto terminado insuficiente para la venta.', 16, 1);
+            RETURN;
+        END;
+ 
+        UPDATE Productos
+        SET Stock = Stock - @CantidadVendida
+        WHERE IdProducto = @IdProducto;
+ 
+        COMMIT TRANSACTION;
+        SELECT 1 AS Resultado, 'Venta descontada de stock correctamente.' AS Mensaje;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+        SELECT 0 AS Resultado, 'Fallo al registrar la venta: ' + ERROR_MESSAGE() AS Mensaje;
+    END CATCH
+END;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ValidarLogin]    Script Date: 12/04/2025 5:02:43 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_ValidarLogin]
+ @Correo NVARCHAR(100),
+ @Contrasena VARCHAR(100)
+AS
+BEGIN
+ SET NOCOUNT ON;
+
+ IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE Correo = @Correo)
+ BEGIN
+     SELECT 0 AS Resultado, 'Correo no registrado.' AS Mensaje;
+     RETURN;
+ END
+
+ SELECT IdUsuario, NombreCompleto, Correo, Rol
+ FROM Usuarios
+ WHERE Correo = @Correo AND Contrasena = @Contrasena AND Activo = 1;
+END;
+GO
+USE [master]
+GO
+ALTER DATABASE [PanaderiaDB] SET  READ_WRITE 
+GO
