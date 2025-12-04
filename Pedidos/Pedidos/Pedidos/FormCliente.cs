@@ -39,10 +39,17 @@ namespace Pedidos
             pbCarrito.Cursor = Cursors.Hand;
         }
 
+
         private void FormCliente_Load(object sender, EventArgs e)
         {
             CargarProductos();
+
+            // Opcional: mejorar comportamiento del FLP
+            flpProductos.AutoScroll = true;
+            flpProductos.WrapContents = true;
+            flpProductos.FlowDirection = FlowDirection.LeftToRight;
         }
+
 
         private void SetPlaceholder(object sender = null, EventArgs e = null)
         {
@@ -137,19 +144,56 @@ namespace Pedidos
             }
         }
 
+
         private void MostrarProductosEnPaneles(DataTable productos)
         {
+            // Mejora visual y rendimiento al agregar muchos controles
+            flpProductos.SuspendLayout();
             flpProductos.Controls.Clear();
+
             foreach (DataRow row in productos.Rows)
             {
+                // --- Card contenedora ---
                 Panel panel = new Panel
                 {
                     Width = 200,
-                    Height = 250,
+                    Height = 260,
                     BorderStyle = BorderStyle.FixedSingle,
-                    Margin = new Padding(10)
+                    Margin = new Padding(10),
+                    BackColor = Color.White
                 };
 
+                // --- PictureBox (imagen del producto) ---
+                PictureBox pb = new PictureBox
+                {
+                    Height = 120,
+                    Dock = DockStyle.Top,
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    BackColor = Color.White,
+                    WaitOnLoad = false // evita bloqueos si se usa LoadAsync() más adelante
+                };
+
+                string imgPath = row["ImagenURL"]?.ToString();
+
+                // Clave: si tienes una RUTA/URL en string, usa ImageLocation (no Image)
+                if (!string.IsNullOrWhiteSpace(imgPath))
+                {
+                    // Acepta tanto rutas locales como URL absolutas
+                    if (File.Exists(imgPath) || Uri.IsWellFormedUriString(imgPath, UriKind.Absolute))
+                    {
+                        pb.ImageLocation = imgPath;   // <-- AQUI está la diferencia
+                    }
+                    else
+                    {
+                        pb.Image = GetPlaceholderImage(); // ruta inválida: placeholder
+                    }
+                }
+                else
+                {
+                    pb.Image = GetPlaceholderImage();     // sin imagen: placeholder
+                }
+
+                // --- Nombre ---
                 Label lblNombre = new Label
                 {
                     Text = row["Nombre"].ToString(),
@@ -158,6 +202,7 @@ namespace Pedidos
                     Height = 30
                 };
 
+                // --- Precio ---
                 Label lblPrecio = new Label
                 {
                     Text = "$ " + Convert.ToDecimal(row["PrecioVenta"]).ToString("0.00"),
@@ -165,32 +210,49 @@ namespace Pedidos
                     Height = 25
                 };
 
-                PictureBox pb = new PictureBox
-                {
-                    Height = 120,
-                    Dock = DockStyle.Top,
-                    SizeMode = PictureBoxSizeMode.Zoom
-                };
-
-                string imgPath = row["ImagenURL"].ToString();
-                if (!string.IsNullOrWhiteSpace(imgPath) && File.Exists(imgPath))
-                    pb.Image = Image.FromFile(imgPath);
-
+                // --- Botón Agregar ---
                 Button btnAgregar = new Button
                 {
                     Text = "Agregar al carrito",
                     Dock = DockStyle.Bottom,
-                    Tag = row
+                    Tag = row // guardamos el DataRow para el handler
                 };
                 btnAgregar.Click += BtnAgregar_Click;
 
+                // Orden de agregado (primero imagen, luego textos, al final botón)
                 panel.Controls.Add(btnAgregar);
                 panel.Controls.Add(lblPrecio);
                 panel.Controls.Add(lblNombre);
                 panel.Controls.Add(pb);
+
+                // Añadir al FlowLayoutPanel
                 flpProductos.Controls.Add(panel);
             }
+
+            flpProductos.ResumeLayout();
         }
+
+
+        private Image GetPlaceholderImage()
+        {
+            // Genera un rectángulo gris con el texto "Sin imagen"
+            Bitmap bmp = new Bitmap(120, 120);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.LightGray);
+                using (var brush = new SolidBrush(Color.DimGray))
+                using (var font = new Font("Arial", 10, FontStyle.Bold))
+                {
+                    string text = "Sin imagen";
+                    var size = g.MeasureString(text, font);
+                    g.DrawString(text, font, brush,
+                        (bmp.Width - size.Width) / 2f,
+                        (bmp.Height - size.Height) / 2f);
+                }
+            }
+            return bmp;
+        }
+
 
         private void FiltrarPorCategoria(string categoria)
         {

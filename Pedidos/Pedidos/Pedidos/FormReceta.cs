@@ -406,9 +406,76 @@ namespace Pedidos
             plAnuncioIngre.Visible = (dtgInfoReceta.Rows.Count == 0);
         }
 
+
         private void btnGuardarReceta_Click(object sender, EventArgs e)
         {
-            // (idéntico al tuyo, ya correcto)
+            if (cmbSeleccionProd.SelectedIndex < 0 || cmbSeleccionProd.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione un producto para la receta.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (dtgInfoReceta.Rows.Count == 0)
+            {
+                MessageBox.Show("Agregue al menos un ingrediente a la receta.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int idProducto = Convert.ToInt32(cmbSeleccionProd.SelectedValue);
+
+            // ✅ Construir XML con los detalles
+            StringBuilder xmlBuilder = new StringBuilder();
+            xmlBuilder.Append("<Detalles>");
+            foreach (DataGridViewRow fila in dtgInfoReceta.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                int idIngrediente = Convert.ToInt32(fila.Cells["IdIngrediente"].Value);
+                decimal cantidadReq = Convert.ToDecimal(fila.Cells["Column2"].Value);
+
+                xmlBuilder.Append("<Detalle>");
+                xmlBuilder.AppendFormat("<IdIngrediente>{0}</IdIngrediente>", idIngrediente);
+                xmlBuilder.AppendFormat("<CantidadRequerida>{0}</CantidadRequerida>", cantidadReq);
+                xmlBuilder.Append("</Detalle>");
+            }
+            xmlBuilder.Append("</Detalles>");
+
+            try
+            {
+                using (SqlConnection cn = Conexion.ObtenerConexion())
+                using (SqlCommand cmd = new SqlCommand("SP_InsertarRecetaCompleta", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@DetalleRecetasXML", xmlBuilder.ToString());
+
+                    cn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int resultado = Convert.ToInt32(reader["Resultado"]);
+                            string mensaje = reader["Mensaje"].ToString();
+
+                            MessageBox.Show(mensaje,
+                                resultado == 1 ? "Éxito" : "Error",
+                                MessageBoxButtons.OK,
+                                resultado == 1 ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                // ✅ Recargar receta para mostrar datos actualizados
+                CargarRecetaDeProducto(idProducto);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la receta: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

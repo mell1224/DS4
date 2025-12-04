@@ -38,6 +38,7 @@
             this.lblTituloPanel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.plTotal = new System.Windows.Forms.Panel();
+            this.flpPC = new System.Windows.Forms.FlowLayoutPanel();
             this.plPConfir = new System.Windows.Forms.Panel();
             this.lblInfoConfir = new System.Windows.Forms.Label();
             this.lblPedidoConf = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.btnPanes = new System.Windows.Forms.Button();
             this.btnTodos = new System.Windows.Forms.Button();
             this.flpProductos = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpPC = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.plTotal.SuspendLayout();
@@ -201,6 +201,14 @@
             this.plTotal.Name = "plTotal";
             this.plTotal.Size = new System.Drawing.Size(368, 732);
             this.plTotal.TabIndex = 6;
+            // 
+            // flpPC
+            // 
+            this.flpPC.AutoScroll = true;
+            this.flpPC.Location = new System.Drawing.Point(21, 60);
+            this.flpPC.Name = "flpPC";
+            this.flpPC.Size = new System.Drawing.Size(328, 149);
+            this.flpPC.TabIndex = 10;
             // 
             // plPConfir
             // 
@@ -602,14 +610,6 @@
             this.flpProductos.Name = "flpProductos";
             this.flpProductos.Size = new System.Drawing.Size(822, 511);
             this.flpProductos.TabIndex = 7;
-            // 
-            // flpPC
-            // 
-            this.flpPC.AutoScroll = true;
-            this.flpPC.Location = new System.Drawing.Point(21, 60);
-            this.flpPC.Name = "flpPC";
-            this.flpPC.Size = new System.Drawing.Size(328, 149);
-            this.flpPC.TabIndex = 10;
             // 
             // FormCliente
             // 
