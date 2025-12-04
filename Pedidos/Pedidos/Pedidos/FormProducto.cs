@@ -293,7 +293,10 @@ namespace Pedidos
             }
         }
 
+       
+        
         // ✅ CARGAR PRODUCTOS CON SP
+
         private void CargarProductos()
         {
             try
@@ -302,7 +305,6 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ListarProductos", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -312,17 +314,58 @@ namespace Pedidos
 
                     AplicarFiltrosYMostrar();
 
-                    // En lugar de lblResumen, actualiza el título del formulario
+                    // Actualizar título del formulario
                     this.Text = $"Productos cargados: {_productos?.Rows.Count ?? 0}";
+
+                    // ✅ Actualizar labels con estadísticas generales
+                    if (_productos != null)
+                    {
+                        Font fuente = new Font("Constantia", 12, FontStyle.Bold);
+                        Color colorGeneral = Color.FromArgb(228, 125, 4);
+                        Color colorCantSinStock = Color.FromArgb(146, 24, 61);
+                        Color colorProductosSinStock = Color.FromArgb(197, 0, 7);
+
+                        // 1. Cantidad total de productos
+                        lblCantProd.Text = _productos.Rows.Count.ToString();
+                        lblCantProd.Font = fuente;
+                        lblCantProd.ForeColor = colorGeneral;
+
+                        // 2. Stock total
+                        int stockTotal = _productos.AsEnumerable().Sum(row => row.Field<int>("Stock"));
+                        lblUnidTotal.Text = $"{stockTotal} Unidades";
+                        lblUnidTotal.Font = fuente;
+                        lblUnidTotal.ForeColor = colorGeneral;
+
+                        // 3. Productos con stock bajo (<10)
+                        int stockBajo = _productos.AsEnumerable().Count(row => row.Field<int>("Stock") < UMBRAL_STOCK_BAJO);
+                        lblCantStockBajo.Text = stockBajo.ToString();
+                        lblCantStockBajo.Font = fuente;
+                        lblCantStockBajo.ForeColor = colorGeneral;
+
+                        // 4. Productos sin stock (==0) - Cantidad
+                        int sinStock = _productos.AsEnumerable().Count(row => row.Field<int>("Stock") == 0);
+                        lblCantSinStock.Text = sinStock.ToString();
+                        lblCantSinStock.Font = fuente;
+                        lblCantSinStock.ForeColor = colorCantSinStock;
+
+                        // 5. Nombres de productos sin stock
+                        var nombresSinStock = _productos.AsEnumerable()
+                            .Where(row => row.Field<int>("Stock") == 0)
+                            .Select(row => row.Field<string>("Nombre"))
+                            .ToList();
+
+                        lblProductosSinStock.Text = nombresSinStock.Count > 0 ? string.Join(", ", nombresSinStock) : "Ninguno";
+                        lblProductosSinStock.Font = fuente;
+                        lblProductosSinStock.ForeColor = colorProductosSinStock;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los productos: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void AplicarFiltrosYMostrar()
         {
@@ -336,20 +379,44 @@ namespace Pedidos
                 filtros.Add($"(Nombre LIKE '%{texto}%' OR Categoria LIKE '%{texto}%')");
             }
 
-            if (comboBox1.SelectedValue != null &&
-                comboBox1.SelectedValue != DBNull.Value)
+            if (comboBox1.SelectedValue != null && comboBox1.SelectedValue != DBNull.Value)
             {
                 int idCat = Convert.ToInt32(comboBox1.SelectedValue);
                 filtros.Add($"IdCategoria = {idCat}");
             }
 
             string filtroFinal = string.Join(" AND ", filtros);
-
             DataView dv = new DataView(_productos);
             dv.RowFilter = filtroFinal;
 
             MostrarEnGrid(dv);
+
+            // ✅ Actualizar labels con datos filtrados
+            Font fuente = new Font("Constantia", 12, FontStyle.Bold);
+            Color color = Color.FromArgb(228, 125, 4);
+
+            int cantProd = dv.Count;
+            int stockTotal = dv.Cast<DataRowView>().Sum(drv => Convert.ToInt32(drv["Stock"]));
+            int stockBajo = dv.Cast<DataRowView>().Count(drv => Convert.ToInt32(drv["Stock"]) < UMBRAL_STOCK_BAJO);
+            int sinStock = dv.Cast<DataRowView>().Count(drv => Convert.ToInt32(drv["Stock"]) == 0);
+
+            lblCantProd.Text = cantProd.ToString();
+            lblCantProd.Font = fuente;
+            lblCantProd.ForeColor = color;
+
+            lblUnidTotal.Text = $"{stockTotal} Unidades";
+            lblUnidTotal.Font = fuente;
+            lblUnidTotal.ForeColor = color;
+
+            lblCantStockBajo.Text = stockBajo.ToString();
+            lblCantStockBajo.Font = fuente;
+            lblCantStockBajo.ForeColor = color;
+
+            lblCantProdSinStock.Text = sinStock.ToString();
+            lblCantProdSinStock.Font = fuente;
+            lblCantProdSinStock.ForeColor = color;
         }
+
 
         private void MostrarEnGrid(DataView vista)
         {
@@ -426,8 +493,8 @@ namespace Pedidos
             }
         }
 
-        // ✅ EDITAR PRODUCTO CON SP
 
+        // ✅ EDITAR PRODUCTO CON SP
         private void btnGuardCamb_Click(object sender, EventArgs e)
         {
             if (!ValidarProductoEdicion()) return;
@@ -436,7 +503,7 @@ namespace Pedidos
             string nombre = txtEditProd.Text.Trim();
             string descripcion = txtDescrEdit.Text.Trim();
             decimal precio = nudPrecEdit.Value;
-            int stock = (int)nudIniEdit.Value;
+            int stock = (int)nudIniEdit.Value; // ✅ Stock leído correctamente
             int idCategoria = Convert.ToInt32(cmbCategEdit.SelectedValue);
             string imagenUrl = null;
 
@@ -446,14 +513,14 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ActualizarProducto", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@IdCategoria", idCategoria);
                     cmd.Parameters.AddWithValue("@Nombre", nombre);
                     cmd.Parameters.AddWithValue("@Descripcion", descripcion);
-                    cmd.Parameters.AddWithValue("@IdCategoria", idCategoria);
                     cmd.Parameters.AddWithValue("@PrecioVenta", precio);
+                    cmd.Parameters.AddWithValue("@Stock", stock); // ✅ Agregado
                     cmd.Parameters.AddWithValue("@ImagenURL", string.IsNullOrEmpty(imagenUrl) ? (object)DBNull.Value : imagenUrl);
-                    cmd.Parameters.AddWithValue("@Activo", 1); // ✅ Se agregó este parámetro
+                    cmd.Parameters.AddWithValue("@Activo", 1);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();
@@ -461,7 +528,6 @@ namespace Pedidos
 
                 MessageBox.Show("Producto actualizado correctamente.",
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 plEditProd.Visible = false;
                 CargarProductos();
             }
@@ -471,6 +537,7 @@ namespace Pedidos
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         // ✅ ELIMINAR PRODUCTO CON SP

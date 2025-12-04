@@ -36,11 +36,6 @@
             this.lblIntroProducto = new System.Windows.Forms.Label();
             this.lblTitProducto = new System.Windows.Forms.Label();
             this.plStockProducto = new System.Windows.Forms.Panel();
-            this.plProdConStock = new System.Windows.Forms.Panel();
-            this.lblCantProdConStock = new System.Windows.Forms.Label();
-            this.pbConStock = new System.Windows.Forms.PictureBox();
-            this.lblProductosConStock = new System.Windows.Forms.Label();
-            this.lblTitProdConStock = new System.Windows.Forms.Label();
             this.plProSinStock = new System.Windows.Forms.Panel();
             this.lblCantSinStock = new System.Windows.Forms.Label();
             this.pbSinStock = new System.Windows.Forms.PictureBox();
@@ -117,8 +112,6 @@
             this.lblTitEditProd = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.plStockProducto.SuspendLayout();
-            this.plProdConStock.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbConStock)).BeginInit();
             this.plProSinStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSinStock)).BeginInit();
             this.plVistaInfoProd.SuspendLayout();
@@ -209,65 +202,11 @@
             // 
             // plStockProducto
             // 
-            this.plStockProducto.Controls.Add(this.plProdConStock);
             this.plStockProducto.Controls.Add(this.plProSinStock);
             this.plStockProducto.Location = new System.Drawing.Point(92, 173);
             this.plStockProducto.Name = "plStockProducto";
             this.plStockProducto.Size = new System.Drawing.Size(1022, 206);
             this.plStockProducto.TabIndex = 12;
-            // 
-            // plProdConStock
-            // 
-            this.plProdConStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(252)))), ((int)(((byte)(232)))));
-            this.plProdConStock.Controls.Add(this.lblCantProdConStock);
-            this.plProdConStock.Controls.Add(this.pbConStock);
-            this.plProdConStock.Controls.Add(this.lblProductosConStock);
-            this.plProdConStock.Controls.Add(this.lblTitProdConStock);
-            this.plProdConStock.Location = new System.Drawing.Point(15, 107);
-            this.plProdConStock.Name = "plProdConStock";
-            this.plProdConStock.Size = new System.Drawing.Size(987, 83);
-            this.plProdConStock.TabIndex = 3;
-            // 
-            // lblCantProdConStock
-            // 
-            this.lblCantProdConStock.AutoSize = true;
-            this.lblCantProdConStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(62)))), ((int)(((byte)(10)))));
-            this.lblCantProdConStock.Location = new System.Drawing.Point(67, 20);
-            this.lblCantProdConStock.Name = "lblCantProdConStock";
-            this.lblCantProdConStock.Size = new System.Drawing.Size(13, 13);
-            this.lblCantProdConStock.TabIndex = 4;
-            this.lblCantProdConStock.Text = "0";
-            // 
-            // pbConStock
-            // 
-            this.pbConStock.Image = ((System.Drawing.Image)(resources.GetObject("pbConStock.Image")));
-            this.pbConStock.Location = new System.Drawing.Point(15, 20);
-            this.pbConStock.Name = "pbConStock";
-            this.pbConStock.Size = new System.Drawing.Size(43, 43);
-            this.pbConStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbConStock.TabIndex = 3;
-            this.pbConStock.TabStop = false;
-            // 
-            // lblProductosConStock
-            // 
-            this.lblProductosConStock.AutoSize = true;
-            this.lblProductosConStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(95)))), ((int)(((byte)(0)))));
-            this.lblProductosConStock.Location = new System.Drawing.Point(75, 50);
-            this.lblProductosConStock.Name = "lblProductosConStock";
-            this.lblProductosConStock.Size = new System.Drawing.Size(113, 13);
-            this.lblProductosConStock.TabIndex = 1;
-            this.lblProductosConStock.Text = "Producto (0 Unidades)";
-            // 
-            // lblTitProdConStock
-            // 
-            this.lblTitProdConStock.AutoSize = true;
-            this.lblTitProdConStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitProdConStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(62)))), ((int)(((byte)(10)))));
-            this.lblTitProdConStock.Location = new System.Drawing.Point(86, 20);
-            this.lblTitProdConStock.Name = "lblTitProdConStock";
-            this.lblTitProdConStock.Size = new System.Drawing.Size(129, 16);
-            this.lblTitProdConStock.TabIndex = 0;
-            this.lblTitProdConStock.Text = "Próximo a Vencer";
             // 
             // plProSinStock
             // 
@@ -279,13 +218,13 @@
             this.plProSinStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(24)))), ((int)(((byte)(61)))));
             this.plProSinStock.Location = new System.Drawing.Point(15, 18);
             this.plProSinStock.Name = "plProSinStock";
-            this.plProSinStock.Size = new System.Drawing.Size(987, 83);
+            this.plProSinStock.Size = new System.Drawing.Size(987, 174);
             this.plProSinStock.TabIndex = 2;
             // 
             // lblCantSinStock
             // 
             this.lblCantSinStock.AutoSize = true;
-            this.lblCantSinStock.Location = new System.Drawing.Point(67, 20);
+            this.lblCantSinStock.Location = new System.Drawing.Point(72, 61);
             this.lblCantSinStock.Name = "lblCantSinStock";
             this.lblCantSinStock.Size = new System.Drawing.Size(13, 13);
             this.lblCantSinStock.TabIndex = 3;
@@ -294,7 +233,7 @@
             // pbSinStock
             // 
             this.pbSinStock.Image = ((System.Drawing.Image)(resources.GetObject("pbSinStock.Image")));
-            this.pbSinStock.Location = new System.Drawing.Point(18, 20);
+            this.pbSinStock.Location = new System.Drawing.Point(18, 58);
             this.pbSinStock.Name = "pbSinStock";
             this.pbSinStock.Size = new System.Drawing.Size(43, 43);
             this.pbSinStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -307,7 +246,7 @@
             this.lblProductosSinStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.lblProductosSinStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductosSinStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(0)))), ((int)(((byte)(7)))));
-            this.lblProductosSinStock.Location = new System.Drawing.Point(67, 50);
+            this.lblProductosSinStock.Location = new System.Drawing.Point(67, 88);
             this.lblProductosSinStock.Name = "lblProductosSinStock";
             this.lblProductosSinStock.Size = new System.Drawing.Size(144, 15);
             this.lblProductosSinStock.TabIndex = 1;
@@ -317,7 +256,7 @@
             // 
             this.lblTitProductoStock.AutoSize = true;
             this.lblTitProductoStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitProductoStock.Location = new System.Drawing.Point(86, 20);
+            this.lblTitProductoStock.Location = new System.Drawing.Point(86, 58);
             this.lblTitProductoStock.Name = "lblTitProductoStock";
             this.lblTitProductoStock.Size = new System.Drawing.Size(142, 16);
             this.lblTitProductoStock.TabIndex = 0;
@@ -647,7 +586,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(94, 322);
+            this.label3.Location = new System.Drawing.Point(84, 322);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(11, 13);
             this.label3.TabIndex = 17;
@@ -845,7 +784,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(94, 322);
+            this.label6.Location = new System.Drawing.Point(90, 322);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(11, 13);
             this.label6.TabIndex = 17;
@@ -921,9 +860,9 @@
             this.lblStockEditP.AutoSize = true;
             this.lblStockEditP.Location = new System.Drawing.Point(22, 322);
             this.lblStockEditP.Name = "lblStockEditP";
-            this.lblStockEditP.Size = new System.Drawing.Size(68, 13);
+            this.lblStockEditP.Size = new System.Drawing.Size(70, 13);
             this.lblStockEditP.TabIndex = 9;
-            this.lblStockEditP.Text = "Stock Inicial ";
+            this.lblStockEditP.Text = "Nuevo Stock";
             // 
             // cmbCategEdit
             // 
@@ -1008,9 +947,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 749);
+            this.Controls.Add(this.plEditProd);
             this.Controls.Add(this.plNuevoProd);
             this.Controls.Add(this.btnNuevoProducto);
-            this.Controls.Add(this.plEditProd);
             this.Controls.Add(this.dtgProductos);
             this.Controls.Add(this.plVistaInfoProd);
             this.Controls.Add(this.plStockProducto);
@@ -1022,9 +961,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.plStockProducto.ResumeLayout(false);
-            this.plProdConStock.ResumeLayout(false);
-            this.plProdConStock.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbConStock)).EndInit();
             this.plProSinStock.ResumeLayout(false);
             this.plProSinStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSinStock)).EndInit();
@@ -1071,10 +1007,6 @@
         private System.Windows.Forms.PictureBox pbSinStock;
         private System.Windows.Forms.Label lblProductosSinStock;
         private System.Windows.Forms.Label lblTitProductoStock;
-        private System.Windows.Forms.Panel plProdConStock;
-        private System.Windows.Forms.PictureBox pbConStock;
-        private System.Windows.Forms.Label lblProductosConStock;
-        private System.Windows.Forms.Label lblTitProdConStock;
         private System.Windows.Forms.Panel plVistaInfoProd;
         private System.Windows.Forms.Label lblBuscarProd;
         private System.Windows.Forms.TextBox txtBuscarProd;
@@ -1096,7 +1028,6 @@
         private System.Windows.Forms.Label lblCantProd;
         private System.Windows.Forms.Label lblTotProd;
         private System.Windows.Forms.DataGridView dtgProductos;
-        private System.Windows.Forms.Label lblCantProdConStock;
         private System.Windows.Forms.Label lblCantSinStock;
         private System.Windows.Forms.Button btnNuevoProducto;
         private System.Windows.Forms.Panel plNuevoProd;
