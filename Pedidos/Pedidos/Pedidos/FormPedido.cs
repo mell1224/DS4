@@ -101,20 +101,19 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ListarPedidos", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    cmd.Parameters.AddWithValue("@IdUsuario", DBNull.Value); // Todos los usuarios
+                    cmd.Parameters.AddWithValue("@EstadoFiltro", "Todos");   // Todos los estados
 
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     tablaPedidos = new DataTable();
                     da.Fill(tablaPedidos);
-
                     dataGridView1.DataSource = tablaPedidos;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los pedidos: " + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

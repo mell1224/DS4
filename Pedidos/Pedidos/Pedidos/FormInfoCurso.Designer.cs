@@ -97,6 +97,7 @@
             this.btnVolverFInfo.TabIndex = 0;
             this.btnVolverFInfo.Text = "← Volver al Login";
             this.btnVolverFInfo.UseVisualStyleBackColor = false;
+            this.btnVolverFInfo.Click += new System.EventHandler(this.btnVolverFInfo_Click);
             // 
             // panel4
             // 

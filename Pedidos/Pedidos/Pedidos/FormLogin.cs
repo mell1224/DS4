@@ -99,6 +99,20 @@ namespace Pedidos
             f2.Show();
             this.Hide();
         }
+
+        private void btnInfoC_Click(object sender, EventArgs e)
+        {
+            FormInfoCurso fc = new FormInfoCurso();
+            this.Hide();
+            fc.Show();
+        }
+
+        private void btnInfoP_Click(object sender, EventArgs e)
+        {
+            FormInfoProy fp = new FormInfoProy();
+            this.Hide();
+            fp.Show();
+        }
     }
 
     public static class GestorDeUsuarios

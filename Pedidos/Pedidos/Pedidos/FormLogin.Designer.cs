@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.btnInfoP = new System.Windows.Forms.Button();
+            this.btnInfoC = new System.Windows.Forms.Button();
             this.lblLog = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -46,6 +48,8 @@
             // gbLogin
             // 
             this.gbLogin.BackColor = System.Drawing.Color.White;
+            this.gbLogin.Controls.Add(this.btnInfoP);
+            this.gbLogin.Controls.Add(this.btnInfoC);
             this.gbLogin.Controls.Add(this.lblLog);
             this.gbLogin.Controls.Add(this.btnLogin);
             this.gbLogin.Controls.Add(this.txtPass);
@@ -59,6 +63,28 @@
             this.gbLogin.Size = new System.Drawing.Size(420, 520);
             this.gbLogin.TabIndex = 0;
             this.gbLogin.TabStop = false;
+            // 
+            // btnInfoP
+            // 
+            this.btnInfoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfoP.Location = new System.Drawing.Point(371, 491);
+            this.btnInfoP.Name = "btnInfoP";
+            this.btnInfoP.Size = new System.Drawing.Size(43, 23);
+            this.btnInfoP.TabIndex = 9;
+            this.btnInfoP.Text = "i";
+            this.btnInfoP.UseVisualStyleBackColor = true;
+            this.btnInfoP.Click += new System.EventHandler(this.btnInfoP_Click);
+            // 
+            // btnInfoC
+            // 
+            this.btnInfoC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfoC.Location = new System.Drawing.Point(7, 491);
+            this.btnInfoC.Name = "btnInfoC";
+            this.btnInfoC.Size = new System.Drawing.Size(43, 23);
+            this.btnInfoC.TabIndex = 8;
+            this.btnInfoC.Text = "i";
+            this.btnInfoC.UseVisualStyleBackColor = true;
+            this.btnInfoC.Click += new System.EventHandler(this.btnInfoC_Click);
             // 
             // lblLog
             // 
@@ -183,6 +209,8 @@
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Label lblDummy;
+        private System.Windows.Forms.Button btnInfoP;
+        private System.Windows.Forms.Button btnInfoC;
     }
 }
 
