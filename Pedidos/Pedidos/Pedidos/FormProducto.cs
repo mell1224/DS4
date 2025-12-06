@@ -24,7 +24,11 @@ namespace Pedidos
         private DataTable _productos;
         private DataTable _categorias;
         private int? _idProductoEnEdicion;
+
         private const int UMBRAL_STOCK_BAJO = 10;
+
+        // >>> NUEVO: Filtro activado por las tarjetas/panel grande
+        private string _filtroVista = string.Empty;
 
         public FormProducto()
         {
@@ -42,7 +46,8 @@ namespace Pedidos
 
             dtgProductos.AutoGenerateColumns = false;
             dtgProductos.CellContentClick += dtgProductos_CellContentClick;
-            dtgProductos.CellClick += dtgProductos_CellClick;          // << habilita clic en celda de imagen
+            dtgProductos.CellClick += dtgProductos_CellClick; // << habilita clic en celda de imagen
+
             txtBuscarProd.TextChanged += txtBuscarProd_TextChanged;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
 
@@ -53,6 +58,22 @@ namespace Pedidos
             btnGuardCamb.Click += btnGuardCamb_Click;
 
             ConfigurarGrillaProductos(); // configura columnas, incl. imagen
+
+            // >>> NUEVO: Click en las tarjetas (plVistaInfoProd) y panel grande (plProSinStock)
+            plTotalProd.Click += (s, e) => { _filtroVista = ""; AplicarFiltrosYMostrar(); };
+            plStockTotal.Click += (s, e) => { _filtroVista = ""; AplicarFiltrosYMostrar(); }; // KPI informativo
+            plStockBajo.Click += (s, e) => { _filtroVista = $"Stock <= {UMBRAL_STOCK_BAJO}"; AplicarFiltrosYMostrar(); };
+            plSinStock.Click += (s, e) => { _filtroVista = "Stock = 0"; AplicarFiltrosYMostrar(); };
+
+            // Panel grande: también filtra por Sin Stock
+            plProSinStock.Click += (s, e) => { _filtroVista = "Stock = 0"; AplicarFiltrosYMostrar(); };
+
+            // >>> NUEVO: Hover visual para los paneles clicables
+            WireHover(plTotalProd);
+            WireHover(plStockTotal);
+            WireHover(plStockBajo);
+            WireHover(plSinStock);
+            WireHover(plProSinStock);
         }
 
         private void ConfigurarMenu()
@@ -118,7 +139,7 @@ namespace Pedidos
             if (dtgProductos.Columns["Column1"] is DataGridViewImageColumn imgCol)
             {
                 imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // imagen proporcionada
-                imgCol.Width = 120;                                     // ancho confortable
+                imgCol.Width = 120; // ancho confortable
             }
 
             // Altura de filas para visualizar bien las imágenes
@@ -132,7 +153,7 @@ namespace Pedidos
             // Comportamiento
             dtgProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgProductos.MultiSelect = false;
-            dtgProductos.ReadOnly = false;           // permite editar la celda de imagen mediante clic
+            dtgProductos.ReadOnly = false; // permite editar la celda de imagen mediante clic
             dtgProductos.AllowUserToAddRows = false;
         }
 
@@ -145,6 +166,7 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ListarCategorias", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -202,6 +224,10 @@ namespace Pedidos
                     }
 
                     AplicarFiltrosYMostrar();
+
+                    // >>> NUEVO: Actualiza paneles con KPIs y lista de sin stock
+                    ActualizarPanelesInfo();
+
                     this.Text = $"Productos cargados: {_productos?.Rows.Count ?? 0}";
                 }
             }
@@ -230,6 +256,12 @@ namespace Pedidos
                 filtros.Add($"IdCategoria = {idCat}");
             }
 
+            // >>> NUEVO: filtro activado por las tarjetas/panel grande
+            if (!string.IsNullOrWhiteSpace(_filtroVista))
+            {
+                filtros.Add(_filtroVista);
+            }
+
             string filtroFinal = string.Join(" AND ", filtros);
             DataView dv = new DataView(_productos);
             dv.RowFilter = filtroFinal;
@@ -241,7 +273,6 @@ namespace Pedidos
         private void MostrarEnGrid(DataView vista)
         {
             dtgProductos.Rows.Clear();
-
             foreach (DataRowView drv in vista)
             {
                 DataRow row = drv.Row;
@@ -269,6 +300,82 @@ namespace Pedidos
             }
         }
 
+        // >>> NUEVO: Actualiza contadores y listas en paneles KPI y panel grande
+        private void ActualizarPanelesInfo()
+        {
+            try
+            {
+                if (_productos == null || _productos.Rows.Count == 0)
+                {
+                    lblCantProd.Text = "0";
+                    lblUnidTotal.Text = "0 Unidades";
+                    lblCantStockBajo.Text = "0";
+                    lblCantProdSinStock.Text = "0";
+                    lblCantSinStock.Text = "0";
+                    lblProductosSinStock.Text = "";
+
+                    plVistaInfoProd.Visible = true;
+                    plProSinStock.Visible = true;
+                    plVistaInfoProd.BringToFront();
+                    plProSinStock.BringToFront();
+                    return;
+                }
+
+                // Total productos
+                int totalProductos = _productos.Rows.Count;
+
+                // Total unidades (suma de Stock)
+                int totalUnidades = _productos.AsEnumerable()
+                    .Sum(r => Convert.ToInt32(r["Stock"]));
+
+                // Sin stock
+                var sinStockQuery = _productos.AsEnumerable()
+                    .Where(r => Convert.ToInt32(r["Stock"]) == 0)
+                    .Select(r => r["Nombre"].ToString())
+                    .ToList();
+                int cantSinStock = sinStockQuery.Count;
+
+                // Stock bajo
+                int cantStockBajo = _productos.AsEnumerable()
+                    .Count(r => Convert.ToInt32(r["Stock"]) <= UMBRAL_STOCK_BAJO);
+
+                // Actualiza tarjetas
+                lblCantProd.Text = totalProductos.ToString();
+                lblUnidTotal.Text = $"{totalUnidades} Unidades";
+                lblCantStockBajo.Text = cantStockBajo.ToString();
+                lblCantProdSinStock.Text = cantSinStock.ToString();
+
+                // Panel grande (sin stock)
+                lblCantSinStock.Text = cantSinStock.ToString();
+                string lista = string.Join(", ", sinStockQuery.Take(10));
+                lblProductosSinStock.Text = string.IsNullOrWhiteSpace(lista) ? "—" : lista;
+
+                plVistaInfoProd.Visible = true;
+                plProSinStock.Visible = true;
+                plVistaInfoProd.BringToFront();
+                plProSinStock.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar paneles: " + ex.Message);
+            }
+        }
+
+        // >>> NUEVO: feedback visual (hover) para paneles clicables
+        private void WireHover(Panel p)
+        {
+            p.MouseEnter += (s, e) =>
+            {
+                p.BackColor = Color.FromArgb(245, 245, 245);
+                p.Cursor = Cursors.Hand;
+            };
+            p.MouseLeave += (s, e) =>
+            {
+                p.BackColor = Color.White;
+                p.Cursor = Cursors.Default;
+            };
+        }
+
         // >>> Clic en celda de imagen: elegir archivo y actualizar BD
         private void dtgProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -279,14 +386,11 @@ namespace Pedidos
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.ico";
-
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string ruta = ofd.FileName;
-
                     // Mostrar en la celda
                     dtgProductos.Rows[e.RowIndex].Cells["Column1"].Value = Image.FromFile(ruta);
-
                     // Actualizar BD
                     int id = Convert.ToInt32(dtgProductos.Rows[e.RowIndex].Cells["IdProducto"].Value);
                     GuardarImagenBD(id, ruta);
@@ -295,7 +399,6 @@ namespace Pedidos
         }
 
         // >>> Guarda la ruta de la imagen en la BD (SP_ActualizarImagenProducto)
-
         // FormProducto.cs
         private void GuardarImagenBD(int idProducto, string ruta)
         {
@@ -307,14 +410,13 @@ namespace Pedidos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdProducto", idProducto);
                     cmd.Parameters.AddWithValue("@ImagenURL", ruta);
+
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (SqlException ex)
             {
-                // Si el SP no existe, verás el mismo mensaje de "Could not find stored procedure".
-                // Con este detalle sabrás de inmediato qué revisar.
                 MessageBox.Show("Error al actualizar la imagen: " + ex.Message +
                     "\n\nVerifica:\n- Que el SP 'dbo.SP_ActualizarImagenProducto' exista en PanaderiaDB.\n" +
                     "- Que la cadena de conexión apunte a PanaderiaDB.",
@@ -327,11 +429,9 @@ namespace Pedidos
             }
         }
 
-
         private void dtgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
             // Editar
             if (dtgProductos.Columns[e.ColumnIndex].Name == "Column6")
             {
@@ -349,7 +449,6 @@ namespace Pedidos
         private void MostrarPanelEditarProducto(int rowIndex)
         {
             if (rowIndex < 0 || rowIndex >= dtgProductos.Rows.Count) return;
-
             DataGridViewRow fila = dtgProductos.Rows[rowIndex];
             if (fila.Cells["IdProducto"].Value == null) return;
 
@@ -418,14 +517,12 @@ namespace Pedidos
         private void btnCrearProd_Click(object sender, EventArgs e)
         {
             if (!ValidarNuevoProducto()) return;
-
             string nombre = txtNombProd.Text.Trim();
             string descripcion = txtDescrN.Text.Trim();
             decimal precio = nudPreNuev.Value;
             int stock = (int)nudIniNuev.Value;
             int idCategoria = Convert.ToInt32(cmbCategNuev.SelectedValue);
             string imagenUrl = null; // se puede asignar al crear si ya tienes una
-
             try
             {
                 using (SqlConnection cn = Conexion.ObtenerConexion())
@@ -439,13 +536,11 @@ namespace Pedidos
                     cmd.Parameters.AddWithValue("@Stock", stock);
                     cmd.Parameters.AddWithValue("@ImagenURL",
                         string.IsNullOrEmpty(imagenUrl) ? (object)DBNull.Value : imagenUrl);
-
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Producto creado correctamente.",
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 plNuevoProd.Visible = false;
                 CargarProductos();
             }
@@ -459,7 +554,6 @@ namespace Pedidos
         private void btnGuardCamb_Click(object sender, EventArgs e)
         {
             if (!ValidarProductoEdicion()) return;
-
             int idProducto = _idProductoEnEdicion.Value;
             string nombre = txtEditProd.Text.Trim();
             string descripcion = txtDescrEdit.Text.Trim();
@@ -467,7 +561,6 @@ namespace Pedidos
             int stock = (int)nudIniEdit.Value;
             int idCategoria = Convert.ToInt32(cmbCategEdit.SelectedValue);
             string imagenUrl = null; // mantener o actualizar si editas fuera del grid
-
             try
             {
                 using (SqlConnection cn = Conexion.ObtenerConexion())
@@ -483,13 +576,11 @@ namespace Pedidos
                     cmd.Parameters.AddWithValue("@ImagenURL",
                         string.IsNullOrEmpty(imagenUrl) ? (object)DBNull.Value : imagenUrl);
                     cmd.Parameters.AddWithValue("@Activo", 1); // si tu SP lo requiere
-
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Producto actualizado correctamente.",
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 plEditProd.Visible = false;
                 CargarProductos();
             }
@@ -503,21 +594,16 @@ namespace Pedidos
         private void EliminarProducto(int rowIndex)
         {
             if (rowIndex < 0 || rowIndex >= dtgProductos.Rows.Count) return;
-
             DataGridViewRow fila = dtgProductos.Rows[rowIndex];
             if (fila.Cells["IdProducto"].Value == null) return;
-
             int idProducto = Convert.ToInt32(fila.Cells["IdProducto"].Value);
             string nombre = fila.Cells["Column2"].Value?.ToString() ?? "";
-
             DialogResult dr = MessageBox.Show(
                 $"¿Seguro que deseas eliminar el producto \"{nombre}\"?",
                 "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-
             if (dr != DialogResult.Yes) return;
-
             try
             {
                 using (SqlConnection cn = Conexion.ObtenerConexion())
@@ -528,10 +614,8 @@ namespace Pedidos
                     cn.Open();
                     cmd.ExecuteNonQuery();
                 }
-
                 MessageBox.Show("Producto eliminado correctamente.",
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 CargarProductos();
             }
             catch (Exception ex)

@@ -242,7 +242,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(287, 36);
             this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "4 DE DICIEMBRE 2025";
+            this.textBox5.Text = "9 DE DICIEMBRE 2025";
             // 
             // label9
             // 

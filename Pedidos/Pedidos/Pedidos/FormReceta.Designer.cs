@@ -370,7 +370,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1028, 609);
+            this.ClientSize = new System.Drawing.Size(1212, 609);
             this.Controls.Add(this.btnGuardarReceta);
             this.Controls.Add(this.plIngredienteReceta);
             this.Controls.Add(this.plSeleccionProd);

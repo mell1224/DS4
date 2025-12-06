@@ -199,7 +199,7 @@
             this.plTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.plTotal.Location = new System.Drawing.Point(1203, 0);
             this.plTotal.Name = "plTotal";
-            this.plTotal.Size = new System.Drawing.Size(368, 732);
+            this.plTotal.Size = new System.Drawing.Size(492, 732);
             this.plTotal.TabIndex = 6;
             // 
             // flpPC
@@ -617,7 +617,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1200, 749);
+            this.ClientSize = new System.Drawing.Size(1204, 749);
             this.Controls.Add(this.flpProductos);
             this.Controls.Add(this.plTotal);
             this.Controls.Add(this.plCategoria);

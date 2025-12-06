@@ -17,6 +17,9 @@ namespace Pedidos
         private DataTable _productos;
         private int idUsuarioActual;
 
+        // Bandera opcional para no disparar TextChanged cuando ponemos/quitemos el placeholder
+        private bool _settingPlaceholder = false;
+
         public FormCliente(int idUsuario)
         {
             InitializeComponent();
@@ -25,6 +28,9 @@ namespace Pedidos
             SetPlaceholder();
             txtBuscar.Enter += RemovePlaceholder;
             txtBuscar.Leave += SetPlaceholder;
+
+            // 👉 Conectar evento de búsqueda
+            txtBuscar.TextChanged += TxtBuscar_TextChanged;
 
             plTotal.Visible = false;
             pbCarrito.Visible = false;
@@ -46,20 +52,21 @@ namespace Pedidos
         private void FormCliente_Load(object sender, EventArgs e)
         {
             CargarProductos();
-
             // FLP: comportamiento agradable
             flpProductos.AutoScroll = true;
             flpProductos.WrapContents = true;
             flpProductos.FlowDirection = FlowDirection.LeftToRight;
         }
 
-        // Placeholder del buscador
+        // ====== Buscador: Placeholder ======
         private void SetPlaceholder(object sender = null, EventArgs e = null)
         {
             if (string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
+                _settingPlaceholder = true;
                 txtBuscar.Text = "Buscar productos...";
                 txtBuscar.ForeColor = Color.Gray;
+                _settingPlaceholder = false;
             }
         }
 
@@ -67,25 +74,24 @@ namespace Pedidos
         {
             if (txtBuscar.Text == "Buscar productos...")
             {
+                _settingPlaceholder = true;
                 txtBuscar.Text = "";
                 txtBuscar.ForeColor = Color.Black;
+                _settingPlaceholder = false;
             }
         }
 
+        // ====== Botones de categorías ======
         private void ResetButtonStyles()
         {
             btnPostres.BackColor = Color.White;
             btnPostres.ForeColor = SystemColors.ControlText;
-
             btnSalados.BackColor = Color.White;
             btnSalados.ForeColor = SystemColors.ControlText;
-
             btnBebidas.BackColor = Color.White;
             btnBebidas.ForeColor = SystemColors.ControlText;
-
             btnPanes.BackColor = Color.White;
             btnPanes.ForeColor = SystemColors.ControlText;
-
             btnTodos.BackColor = Color.White;
             btnTodos.ForeColor = SystemColors.ControlText;
         }
@@ -130,7 +136,7 @@ namespace Pedidos
             MostrarProductosEnPaneles(_productos);
         }
 
-        // Cargar productos desde SP
+        // ====== Cargar productos desde SP ======
         private void CargarProductos()
         {
             try
@@ -139,12 +145,10 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ListarProductos", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     _productos = new DataTable();
                     da.Fill(_productos);
                 }
-
                 MostrarProductosEnPaneles(_productos);
             }
             catch (Exception ex)
@@ -243,7 +247,7 @@ namespace Pedidos
                 };
                 btnAgregar.Click += BtnAgregar_Click;
 
-                // Orden de agregado (primero imagen, luego textos, al final botón)
+                // Orden de agregado
                 panel.Controls.Add(btnAgregar);
                 panel.Controls.Add(lblPrecio);
                 panel.Controls.Add(lblNombre);
@@ -283,21 +287,18 @@ namespace Pedidos
         private void FiltrarPorCategoria(string categoria)
         {
             if (_productos == null) return;
-
             DataView dv = new DataView(_productos);
             dv.RowFilter = $"Categoria LIKE '%{categoria}%' AND Stock > 0";
-
             if (dv.Count == 0)
             {
                 flpProductos.Visible = false;
                 flpProductos.Controls.Clear();
                 return;
             }
-
             MostrarProductosEnPaneles(dv.ToTable());
         }
 
-        // Handler para Agregar al Carrito
+        // ====== Handler para Agregar al Carrito ======
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -348,9 +349,9 @@ namespace Pedidos
                 Text = "$ " + precioBase.ToString("0.00", CultureInfo.InvariantCulture),
                 Location = new Point(100, 40),
                 Width = 80,
-                ForeColor = ColorTranslator.FromHtml("#fef9c2"),
+                ForeColor = ColorTranslator.FromHtml("#dd5807"), // Naranja fuerte y visible
                 BackColor = Color.Transparent,
-                Font = new Font("Constantia", 12)
+                Font = new Font("Constantia", 14, FontStyle.Bold) // Más grande y negrita para destacar
             };
 
             // NumericUpDown seguro con límite de stock
@@ -359,13 +360,11 @@ namespace Pedidos
                 Location = new Point(200, 35),
                 Width = 50
             };
-
             // Con stock: rango 1..stockDisponible y valor inicial 1
             nudCantidad.Minimum = 1;
             nudCantidad.Maximum = stockDisponible;
             nudCantidad.Value = 1;
             nudCantidad.Enabled = true;
-
             nudCantidad.ValueChanged += (s, ev) =>
             {
                 // Asegurar que Value esté dentro del rango luego de cambios de stock
@@ -416,16 +415,14 @@ namespace Pedidos
             ActualizarTotales();
         }
 
-        // Totales del carrito
+        // ====== Totales del carrito ======
         private void ActualizarTotales()
         {
             decimal subtotal = 0;
-
             foreach (Panel panel in flpPC.Controls)
             {
                 var lblAcumulado = panel.Controls.OfType<Label>()
                     .FirstOrDefault(l => l.Name == "lblAcumulado");
-
                 if (lblAcumulado != null)
                 {
                     string texto = lblAcumulado.Text.Replace("$", "").Trim();
@@ -460,7 +457,7 @@ namespace Pedidos
             f1.Show();
         }
 
-        // Confirmar pedido: construcción robusta del XML y ejecución del SP
+        // ====== Confirmar pedido ======
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             // Ocultar vista para confirmación
@@ -479,7 +476,6 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_CrearPedido", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     cmd.Parameters.AddWithValue("@IdUsuario", idUsuarioActual);
                     cmd.Parameters.AddWithValue("@DireccionEntrega", txtDir.Text.Trim());
                     cmd.Parameters.AddWithValue("@Observaciones", txtObservaciones.Text.Trim());
@@ -507,7 +503,6 @@ namespace Pedidos
                     // Construir XML de detalle de forma segura
                     var sb = new StringBuilder();
                     sb.Append("<Productos>");
-
                     foreach (Control ctrl in flpPC.Controls)
                     {
                         if (ctrl is Panel panel)
@@ -549,7 +544,6 @@ namespace Pedidos
                             sb.Append($"<Producto><IdProducto>{idProducto}</IdProducto><Cantidad>{cantidad}</Cantidad><PrecioUnitario>{precioUnitario.ToString(CultureInfo.InvariantCulture)}</PrecioUnitario></Producto>");
                         }
                     }
-
                     sb.Append("</Productos>");
                     string detalleXML = sb.ToString();
 
@@ -574,6 +568,40 @@ namespace Pedidos
             FormCliHistorial f4 = new FormCliHistorial(idUsuarioActual); // Pasamos el ID
             f4.Show();
             this.Hide();
+        }
+
+        // ====== 🔎 Buscador por Nombre (Stock > 0) ======
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (_settingPlaceholder) return;  // evita filtrar cuando solo cambiamos placeholder
+            if (_productos == null) return;
+
+            string texto = txtBuscar.Text?.Trim() ?? string.Empty;
+
+            // Si es placeholder o está vacío, mostramos todos con stock
+            if (string.IsNullOrEmpty(texto) || texto.Equals("Buscar productos...", StringComparison.OrdinalIgnoreCase))
+            {
+                MostrarProductosEnPaneles(_productos);
+                return;
+            }
+
+            // Escapar comillas simples para evitar errores en RowFilter
+            string safe = texto.Replace("'", "''");
+
+            // Filtrar por Nombre y Stock > 0
+            DataView dv = new DataView(_productos)
+            {
+                RowFilter = $"Nombre LIKE '%{safe}%' AND Stock > 0"
+            };
+
+            if (dv.Count == 0)
+            {
+                flpProductos.Visible = false;
+                flpProductos.Controls.Clear();
+                return;
+            }
+
+            MostrarProductosEnPaneles(dv.ToTable());
         }
     }
 }

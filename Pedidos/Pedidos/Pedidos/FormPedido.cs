@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,15 +20,18 @@ namespace Pedidos
         ToolStripButton btnRecetas;
         ToolStripButton btnProduccion;
         ToolStripButton btnProductos;
+
         private DataTable tablaPedidos;
+
+        // FlowLayoutPanel para listar los productos del pedido (debajo del label "Productos")
+        private FlowLayoutPanel flpDetalle;
 
         public FormPedido()
         {
             InitializeComponent();
-
             plVerPedido.Visible = false;
 
-            // Configurar menú superior
+            // ==== Menú superior ====
             btnPedidos = new ToolStripButton("Pedidos");
             btnInventario = new ToolStripButton("Inventario");
             btnRecetas = new ToolStripButton("Recetas");
@@ -46,6 +50,46 @@ namespace Pedidos
             });
 
             MarcarBotonActivo(btnPedidos);
+
+            // ==== Crear y ubicar el FlowLayoutPanel debajo del label "Productos" en plVerPedido ====
+            CrearFlowLayoutDetalleDebajoDelLabelProductos();
+        }
+
+        // Crea el FlowLayoutPanel y lo ubica debajo del label "Productos" dentro de plVerPedido
+        private void CrearFlowLayoutDetalleDebajoDelLabelProductos()
+        {
+            if (flpDetalle != null) return;
+
+            // Buscar el label por Name o por texto "Productos"
+            Label lblProductos = plVerPedido.Controls
+                .OfType<Label>()
+                .FirstOrDefault(l =>
+                    l.Name == "lblProductos" ||
+                    (l.Text != null && l.Text.Trim().Equals("Productos", StringComparison.OrdinalIgnoreCase)));
+
+            int topBase = (lblProductos != null) ? lblProductos.Bottom + 8 : 150;
+
+            flpDetalle = new FlowLayoutPanel
+            {
+                Name = "flpDetalle",
+                AutoScroll = true,
+                WrapContents = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                BackColor = Color.White,
+                Padding = new Padding(8),
+                Margin = new Padding(0),
+
+                Dock = DockStyle.None,
+                Location = new Point(16, topBase),
+                Size = new Size(plVerPedido.Width - 32, plVerPedido.Height - topBase - 16),
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom
+            };
+
+            plVerPedido.Controls.Add(flpDetalle);
+
+            // Asegurar que quede por encima de otros controles
+            flpDetalle.BringToFront();
+            plVerPedido.Controls.SetChildIndex(flpDetalle, 0);
         }
 
         private void AbrirFormulario(Form destino, ToolStripButton botonActivo)
@@ -65,13 +109,13 @@ namespace Pedidos
                     btn.ForeColor = SystemColors.ControlText;
                 }
             }
-
             botonActivo.BackColor = ColorTranslator.FromHtml("#d96704");
             botonActivo.ForeColor = Color.White;
         }
 
         private void FormPedido_Load(object sender, EventArgs e)
         {
+            dataGridView1.AllowUserToAddRows = false;
             ConfigurarColumnas();
             CargarPedidos();
         }
@@ -80,9 +124,13 @@ namespace Pedidos
         {
             dataGridView1.AutoGenerateColumns = false;
 
+            // Mapea tus columnas del DataGridView a las del DataTable
             idPedido.DataPropertyName = "IdPedido";
             fecha.DataPropertyName = "FechaPedido";
+
+            // IMPORTANTE: la grilla espera 'NombreCompleto'
             nomCli.DataPropertyName = "NombreCompleto";
+
             total.DataPropertyName = "Total";
             dirEntrega.DataPropertyName = "DireccionEntrega";
             obser.DataPropertyName = "Observaciones";
@@ -90,9 +138,7 @@ namespace Pedidos
             estado.DataPropertyName = "Estado";
         }
 
-        // ======================================================
-        //  CARGAR LISTA DE PEDIDOS (SP_ListarPedidos)
-        // ======================================================
+        // =========== CARGAR LISTA DE PEDIDOS (SP_ListarPedidos) ===========
         private void CargarPedidos()
         {
             try
@@ -101,12 +147,13 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ListarPedidos", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdUsuario", DBNull.Value); // Todos los usuarios
-                    cmd.Parameters.AddWithValue("@EstadoFiltro", "Todos");   // Todos los estados
+                    cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = DBNull.Value; // Todos
+                    cmd.Parameters.Add("@EstadoFiltro", SqlDbType.NVarChar, 50).Value = "Todos";
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     tablaPedidos = new DataTable();
                     da.Fill(tablaPedidos);
+
                     dataGridView1.DataSource = tablaPedidos;
                 }
             }
@@ -117,24 +164,20 @@ namespace Pedidos
             }
         }
 
-        // ======================================================
-        //  APLICAR FILTRO LOCAL DE ESTADO
-        // ======================================================
+        // =========== FILTRO LOCAL POR ESTADO ===========
         private void AplicarFiltroEstado(string estado)
         {
             if (tablaPedidos == null) return;
-
             DataView vista = tablaPedidos.DefaultView;
+
             vista.RowFilter = string.IsNullOrEmpty(estado)
                 ? string.Empty
-                : $"Estado = '{estado.Replace("'", "''")}'";
+                : $"ISNULL(Estado,'') = '{estado.Replace("'", "''")}'";
 
             dataGridView1.DataSource = vista;
         }
 
-        // ======================================================
-        //  ACTUALIZAR ESTADO DEL PEDIDO (SP_ActualizarEstadoPedido)
-        // ======================================================
+        // =========== ACTUALIZAR ESTADO EN BD (SP_ActualizarEstadoPedido) ===========
         private bool ActualizarEstadoPedidoEnBD(int idPedido, string nuevoEstado)
         {
             try
@@ -143,8 +186,8 @@ namespace Pedidos
                 using (SqlCommand cmd = new SqlCommand("SP_ActualizarEstadoPedido", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdPedido", idPedido);
-                    cmd.Parameters.AddWithValue("@Estado", nuevoEstado);
+                    cmd.Parameters.Add("@IdPedido", SqlDbType.Int).Value = idPedido;
+                    cmd.Parameters.Add("@NuevoEstado", SqlDbType.NVarChar, 20).Value = nuevoEstado ?? string.Empty;
 
                     cn.Open();
                     int filas = cmd.ExecuteNonQuery();
@@ -154,129 +197,254 @@ namespace Pedidos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar el estado del pedido: " + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        // ======================================================
-        //  CARGAR DETALLE DEL PEDIDO (SP_ObtenerDetallePedido)
-        // ======================================================
+        // =========== CARGAR DETALLE (SP_ObtenerDetallePedido) ===========
+        // Llena el FlowLayoutPanel con tarjetas de productos
         private void CargarDetallePedido(int idPedido)
         {
             try
             {
+                if (flpDetalle == null) return;
+
+                flpDetalle.SuspendLayout();
+                flpDetalle.Controls.Clear();
+
                 using (SqlConnection cn = Conexion.ObtenerConexion())
                 using (SqlCommand cmd = new SqlCommand("SP_ObtenerDetallePedido", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@IdPedido", idPedido);
+                    cmd.Parameters.Add("@IdPedido", SqlDbType.Int).Value = idPedido;
 
                     cn.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        if (dr.Read())
+                        bool hayFilas = false;
+
+                        while (dr.Read())
                         {
-                            lblNProduct.Text = dr["Nombre"].ToString();
+                            hayFilas = true;
 
-                            int cantidad = Convert.ToInt32(dr["Cantidad"]);
-                            lblCantidadProd.Text = "Cantidad: " + cantidad;
+                            // Coinciden con tu BD (Productos y DetallePedidos)
+                            string nombreProd = SafeToString(dr["Nombre"], "Producto");
+                            int cantidad = SafeToInt(dr["Cantidad"], 0);
+                            decimal precioUnit = SafeToDecimal(dr["PrecioUnitario"], 0m);
+                            decimal totalLinea = cantidad * precioUnit;
+                            string rutaImagen = SafeToString(dr["ImagenURL"], "");
 
-                            decimal precioUnitario = Convert.ToDecimal(dr["PrecioUnitario"]);
-                            lblPrecioProd.Text = "$ " + precioUnitario.ToString("0.00");
+                            // Tarjeta del producto
+                            var card = new Panel
+                            {
+                                Width = 420,
+                                Height = 120,
+                                BorderStyle = BorderStyle.FixedSingle,
+                                BackColor = Color.White,
+                                Margin = new Padding(6)
+                            };
 
-                            decimal totalLinea = cantidad * precioUnitario;
-                            lblPrecioTot.Text = "$ " + totalLinea.ToString("0.00");
-
-                            string rutaImagen = dr["ImagenURL"] as string;
+                            // Imagen (izquierda)
+                            var pb = new PictureBox
+                            {
+                                Width = 110,
+                                Dock = DockStyle.Left,
+                                SizeMode = PictureBoxSizeMode.Zoom,
+                                BackColor = Color.White
+                            };
 
                             if (!string.IsNullOrWhiteSpace(rutaImagen) && File.Exists(rutaImagen))
                             {
-                                if (pbProducto.Image != null)
+                                if (pb.Image != null)
                                 {
-                                    pbProducto.Image.Dispose();
-                                    pbProducto.Image = null;
+                                    pb.Image.Dispose();
+                                    pb.Image = null;
                                 }
-
-                                pbProducto.Image = Image.FromFile(rutaImagen);
-                                pbProducto.SizeMode = PictureBoxSizeMode.Zoom;
+                                pb.Image = Image.FromFile(rutaImagen);
                             }
                             else
                             {
-                                pbProducto.Image = null;
+                                pb.Image = GetPlaceholderImage(); // placeholder si no existe
                             }
+
+                            // Textos (derecha)
+                            var panelTextos = new Panel
+                            {
+                                Dock = DockStyle.Fill,
+                                BackColor = Color.White,
+                                Padding = new Padding(8)
+                            };
+
+                            var lblNombre = new Label
+                            {
+                                Text = nombreProd,
+                                Font = new Font("Arial", 11, FontStyle.Bold),
+                                AutoSize = false,
+                                Height = 24,
+                                Dock = DockStyle.Top
+                            };
+
+                            var lblCantidad = new Label
+                            {
+                                Text = $"Cantidad: {cantidad}",
+                                AutoSize = false,
+                                Height = 20,
+                                Dock = DockStyle.Top
+                            };
+
+                            var lblPrecioU = new Label
+                            {
+                                Text = $"Precio: $ {precioUnit.ToString("0.00")}",
+                                AutoSize = false,
+                                Height = 20,
+                                Dock = DockStyle.Top
+                            };
+
+                            var lblTotalLinea = new Label
+                            {
+                                Text = $"Total línea: $ {totalLinea.ToString("0.00")}",
+                                AutoSize = false,
+                                Height = 24,
+                                Dock = DockStyle.Top,
+                                ForeColor = ColorTranslator.FromHtml("#dd5807"),
+                                Font = new Font("Constantia", 11, FontStyle.Bold)
+                            };
+
+                            panelTextos.Controls.Add(lblTotalLinea);
+                            panelTextos.Controls.Add(lblPrecioU);
+                            panelTextos.Controls.Add(lblCantidad);
+                            panelTextos.Controls.Add(lblNombre);
+
+                            card.Controls.Add(panelTextos);
+                            card.Controls.Add(pb);
+
+                            flpDetalle.Controls.Add(card);
                         }
-                        else
+
+                        if (!hayFilas)
                         {
-                            lblNProduct.Text = "Nombre Producto";
-                            lblCantidadProd.Text = "Cantidad: 0";
-                            lblPrecioProd.Text = "$ 0.00";
-                            pbProducto.Image = null;
+                            flpDetalle.Controls.Add(new Label
+                            {
+                                Text = "Este pedido no tiene productos.",
+                                AutoSize = true,
+                                ForeColor = Color.Gray,
+                                Padding = new Padding(4),
+                                Margin = new Padding(8)
+                            });
                         }
                     }
                 }
+
+                flpDetalle.ResumeLayout();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los productos del pedido: " + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // ==== Helpers seguros ====
+        private static string SafeToString(object value, string defaultValue = "")
+        {
+            return (value == null || value == DBNull.Value) ? defaultValue : value.ToString();
+        }
+
+        private static int SafeToInt(object value, int defaultValue = 0)
+        {
+            if (value == null || value == DBNull.Value) return defaultValue;
+            try { return Convert.ToInt32(value); } catch { return defaultValue; }
+        }
+
+        private static decimal SafeToDecimal(object value, decimal defaultValue = 0m)
+        {
+            if (value == null || value == DBNull.Value) return defaultValue;
+            try { return Convert.ToDecimal(value); } catch { return defaultValue; }
         }
 
         private string ObtenerSiguienteEstado(string estadoActual)
         {
             estadoActual = (estadoActual ?? "").Trim();
-
             if (estadoActual.Equals("Pendiente", StringComparison.OrdinalIgnoreCase))
                 return "En Preparacion";
             if (estadoActual.Equals("En Preparacion", StringComparison.OrdinalIgnoreCase))
                 return "Completado";
-
             return estadoActual;
         }
 
+        // =========== Click en celdas del grid ===========
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-            DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-            if (fila.Cells["idPedido"].Value == null) return;
+            var fila = dataGridView1.Rows[e.RowIndex];
+            var colClic = dataGridView1.Columns[e.ColumnIndex];
 
-            int idPedido = Convert.ToInt32(fila.Cells["idPedido"].Value);
-            string columna = dataGridView1.Columns[e.ColumnIndex].Name;
+            var drv = fila.DataBoundItem as DataRowView;
+            if (drv == null) return;
 
-            if (columna == "accion")
+            bool esColVerDetalle = string.Equals(colClic.Name, "detalle", StringComparison.OrdinalIgnoreCase);
+            bool esColAccionEstado = string.Equals(colClic.Name, "accion", StringComparison.OrdinalIgnoreCase);
+
+            if (!esColVerDetalle && !esColAccionEstado)
+                return;
+
+            int idPedido = 0;
+            if (drv.Row.Table.Columns.Contains("IdPedido") && drv["IdPedido"] != DBNull.Value)
+                idPedido = SafeToInt(drv["IdPedido"], 0);
+            if (idPedido <= 0) return;
+
+            // Cambiar estado
+            if (esColAccionEstado)
             {
-                string estadoActual = (fila.Cells["estado"].Value ?? "").ToString().Trim();
-                string nuevoEstado = ObtenerSiguienteEstado(estadoActual);
+                string estadoActual = drv.Row.Table.Columns.Contains("Estado") && drv["Estado"] != DBNull.Value
+                    ? drv["Estado"].ToString().Trim()
+                    : "";
 
+                string nuevoEstado = ObtenerSiguienteEstado(estadoActual);
                 if (nuevoEstado != estadoActual && ActualizarEstadoPedidoEnBD(idPedido, nuevoEstado))
                 {
-                    fila.Cells["estado"].Value = nuevoEstado;
+                    drv["Estado"] = nuevoEstado;
+
                     if (plVerPedido.Visible && lblNumeP.Text == $"#{idPedido}")
                         lblResulEstado.Text = nuevoEstado;
                 }
-
                 return;
             }
 
-            lblNumeP.Text = $"#{idPedido}";
-            lblNameClient.Text = (fila.Cells["nomCli"].Value ?? "-----").ToString();
+            // Ver detalle
+            if (esColVerDetalle)
+            {
+                lblNumeP.Text = $"#{idPedido}";
 
-            decimal totalPedido = 0m;
-            if (fila.Cells["total"].Value != null && fila.Cells["total"].Value != DBNull.Value)
-                totalPedido = Convert.ToDecimal(fila.Cells["total"].Value);
+                string nombreCli = "-----";
+                if (drv.Row.Table.Columns.Contains("NombreCompleto") && drv["NombreCompleto"] != DBNull.Value)
+                    nombreCli = drv["NombreCompleto"].ToString().Trim();
+                lblNameClient.Text = string.IsNullOrWhiteSpace(nombreCli) ? "-----" : nombreCli;
 
-            lblTotal.Text = "$ " + totalPedido.ToString("0.00");
-            lblPago.Text = (fila.Cells["metodoPago"].Value ?? "-----").ToString();
-            lblResulEstado.Text = (fila.Cells["estado"].Value ?? "-----").ToString();
+                decimal totalPedido = 0m;
+                if (drv.Row.Table.Columns.Contains("Total") && drv["Total"] != DBNull.Value)
+                    totalPedido = SafeToDecimal(drv["Total"], 0m);
+                lblTotal.Text = "$ " + totalPedido.ToString("0.00");
 
-            CargarDetallePedido(idPedido);
-            plVerPedido.Visible = true;
+                string metodo = drv.Row.Table.Columns.Contains("MetodoPago") && drv["MetodoPago"] != DBNull.Value
+                    ? drv["MetodoPago"].ToString()
+                    : "-----";
+                lblPago.Text = metodo;
+
+                string estadoTxt = drv.Row.Table.Columns.Contains("Estado") && drv["Estado"] != DBNull.Value
+                    ? drv["Estado"].ToString()
+                    : "-----";
+                lblResulEstado.Text = estadoTxt;
+
+                // Llenar tarjetas en el FlowLayoutPanel
+                CargarDetallePedido(idPedido);
+
+                // Mostrar panel
+                plVerPedido.Visible = true;
+                plVerPedido.BringToFront();
+            }
         }
 
         private void btnCerrarDetalle_Click(object sender, EventArgs e)
@@ -297,7 +465,6 @@ namespace Pedidos
                 FormLogin frmLogin = Application.OpenForms
                     .OfType<FormLogin>()
                     .FirstOrDefault() ?? new FormLogin();
-
                 frmLogin.Show();
                 this.Close();
             }
@@ -307,5 +474,25 @@ namespace Pedidos
         private void btnPendiente_Click(object sender, EventArgs e) => AplicarFiltroEstado("Pendiente");
         private void btnPreparado_Click(object sender, EventArgs e) => AplicarFiltroEstado("En Preparacion");
         private void btnCompletado_Click(object sender, EventArgs e) => AplicarFiltroEstado("Completado");
+
+        // Placeholder de imagen si no existe ruta
+        private Image GetPlaceholderImage()
+        {
+            Bitmap bmp = new Bitmap(110, 110);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.LightGray);
+                using (var brush = new SolidBrush(Color.DimGray))
+                using (var font = new Font("Arial", 9, FontStyle.Bold))
+                {
+                    string text = "Sin imagen";
+                    var size = g.MeasureString(text, font);
+                    g.DrawString(text, font, brush,
+                        (bmp.Width - size.Width) / 2f,
+                        (bmp.Height - size.Height) / 2f);
+                }
+            }
+            return bmp;
+        }
     }
 }
